@@ -2,11 +2,10 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0"/>
 <meta name="theme-color" content="#2563eb"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="mobile-web-app-capable" content="yes"/>
-<title>Mercado IA · Ômni-Logística Suprema</title>
+<title>Mercado IA · Ômni-Logística</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
@@ -21,9 +20,8 @@
   --amber: #d97706;
   --rose: #e11d48;
   --border: #dbe4f0;
-  --r: 16px;
-  --shadow: 0 10px 40px rgba(37,99,235,.08);
-  --shadow-lg: 0 20px 50px rgba(37,99,235,.12);
+  --r: 14px;
+  --shadow: 0 8px 30px rgba(37,99,235,.08);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -31,229 +29,226 @@ body {
   color: var(--text);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
-  background-image:
-    radial-gradient(ellipse at 10% 0%, rgba(37,99,235,.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 90% 100%, rgba(5,150,105,.06) 0%, transparent 50%);
+  background-image: radial-gradient(ellipse at 10% 0%, rgba(37,99,235,.07) 0%, transparent 50%),
+                    radial-gradient(ellipse at 90% 100%, rgba(5,150,105,.05) 0%, transparent 50%);
 }
-.glass { background: rgba(255,255,255,.85); backdrop-filter: blur(16px); border: 1px solid var(--border); }
 .btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 20px; border-radius: 12px; font-family: 'Sora', sans-serif;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 11px 16px; border-radius: 11px; font-family: 'Sora', sans-serif;
   font-weight: 700; font-size: 13px; cursor: pointer; border: none; transition: .2s;
 }
-.btn-prim { background: linear-gradient(135deg, #2563eb, #0891b2); color: #fff; box-shadow: 0 8px 24px rgba(37,99,235,.3); }
-.btn-prim:hover { transform: translateY(-2px); }
+.btn-prim { background: linear-gradient(135deg, #2563eb, #0891b2); color: #fff; }
+.btn-prim:hover { transform: translateY(-1px); }
 .btn-mint { background: linear-gradient(135deg, #059669, #10b981); color: #fff; }
 .btn-ghost { background: #fff; border: 1.5px solid var(--border); color: var(--text); }
 .btn-full { width: 100%; }
-.field { margin-bottom: 12px; }
-.field label { display: block; font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+.field { margin-bottom: 10px; }
+.field label { display: block; font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
 .field input, .field select {
-  width: 100%; background: #f8fafc; border: 1.5px solid var(--border); border-radius: 12px;
-  padding: 12px 14px; color: var(--text); font-size: 14px; font-family: inherit;
+  width: 100%; background: #f8fafc; border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 10px 12px; color: var(--text); font-size: 13px; font-family: inherit;
 }
-.field input:focus, .field select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(37,99,235,.12); background: #fff; }
+.field input:focus, .field select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.12); }
 .card {
   background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
-  padding: 18px; box-shadow: var(--shadow); transition: .25s;
+  padding: 14px; box-shadow: var(--shadow); transition: .2s;
 }
-.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.toast-area { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
-.toast { padding: 13px 18px; border-radius: 12px; font-size: 13px; font-weight: 600; max-width: 360px; animation: slideIn .25s ease; box-shadow: var(--shadow-lg); }
+.card:hover { transform: translateY(-2px); }
+.toast-area { position: fixed; bottom: 20px; right: 16px; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
+.toast { padding: 12px 16px; border-radius: 11px; font-size: 13px; font-weight: 600; max-width: 320px; animation: slideIn .25s ease; box-shadow: var(--shadow); }
 .toast-ok { background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; }
 .toast-err { background: #fff1f2; border: 1px solid #fecdd3; color: #be123c; }
-@keyframes slideIn { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
-.spinner { display: inline-block; width: 15px; height: 15px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes slideIn { from { transform: translateX(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-h1, h2, h3 { font-family: 'Sora', sans-serif; }
-.logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 22px; display: flex; align-items: center; gap: 10px; }
-.logo-dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--cyan), var(--mint)); box-shadow: 0 0 16px rgba(8,145,178,.5); }
+h1,h2,h3 { font-family: 'Sora', sans-serif; }
+.logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+.logo-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--cyan), var(--mint)); }
+#painel-carrinho {
+  position: fixed; top: 0; right: 0; width: 100%; max-width: 380px; height: 100%;
+  background: var(--card); z-index: 50; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1);
+  display: flex; flex-direction: column; border-left: 1px solid var(--border); box-shadow: -8px 0 30px rgba(0,0,0,.06);
+}
 </style>
 </head>
 <body>
 <div class="toast-area" id="toasts"></div>
 
 <!-- LOGIN -->
-<div id="tela-login" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background: linear-gradient(135deg,#dbeafe,#f0fdf4,#faf5ff)">
-  <div class="card" style="width:100%;max-width:440px;padding:40px;border-radius:24px;box-shadow:var(--shadow-lg)">
-    <div class="logo" style="margin-bottom:8px">
-      <div class="logo-dot"></div>
-      Mercado IA · Ômni
-    </div>
-    <h1 style="font-size:22px;margin:16px 0 6px">Mercado Local Inteligente</h1>
-    <p style="color:var(--muted);font-size:13px;margin-bottom:20px">Powered by Grok xAI + Tesla Robotaxi + SandxCDD</p>
-    
-    <div class="field"><label>Nome Completo</label><input id="login-nome" placeholder="Seu nome"></div>
+<div id="tela-login" style="position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px;background:linear-gradient(135deg,#dbeafe,#f0fdf4,#faf5ff)">
+  <div class="card" style="width:100%;max-width:400px;padding:32px;border-radius:20px">
+    <div class="logo" style="margin-bottom:6px"><div class="logo-dot"></div> Mercado IA · Ômni</div>
+    <h1 style="font-size:20px;margin:12px 0 4px">Mercado Local Inteligente</h1>
+    <p style="color:var(--muted);font-size:12px;margin-bottom:18px">Grok xAI + Tesla Robotaxi + SandxCDD</p>
+    <div class="field"><label>Nome Completo</label><input id="login-nome" placeholder="Seu nome completo"></div>
     <div class="field"><label>WhatsApp (com DDD)</label><input id="login-telefone" type="tel" placeholder="61 9XXXX-XXXX"></div>
     <div class="field">
       <label>Cidade / Região</label>
       <select id="login-regiao">
-        <option value="" disabled selected>Selecione</option>
+        <option value="" disabled selected>Selecione sua região</option>
         <option value="brasilia">Brasília - DF</option>
         <option value="aguas_lindas">Águas Lindas - GO</option>
         <option value="maracai">Maracaí - SP</option>
       </select>
     </div>
-    <button class="btn btn-prim btn-full" onclick="fazerCadastroCliente()" style="margin-top:12px">
+    <button class="btn btn-prim btn-full" onclick="fazerCadastroCliente()" style="margin-top:10px">
       <i class="fas fa-rocket"></i> Acessar com Grok AI
     </button>
   </div>
 </div>
 
-<!-- APP PRINCIPAL -->
+<!-- APP -->
 <div id="app-principal" style="display:none;min-height:100vh;flex-direction:column">
-  <!-- Topbar -->
-  <header class="glass" style="position:sticky;top:0;z-index:40;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)">
-    <div style="display:flex;align-items:center;gap:12px">
-      <button onclick="fazerLogout()" class="btn btn-ghost" style="padding:8px 12px"><i class="fas fa-sign-out-alt"></i></button>
+  <header style="position:sticky;top:0;z-index:40;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)">
+    <div style="display:flex;align-items:center;gap:10px">
+      <button onclick="fazerLogout()" class="btn btn-ghost" style="padding:7px 10px"><i class="fas fa-sign-out-alt"></i></button>
       <div>
-        <div id="display-nome-cliente" style="font-weight:700;color:var(--blue);font-size:14px">Olá</div>
-        <div id="display-regiao" style="font-size:11px;color:var(--muted)"><i class="fas fa-map-pin"></i> Região</div>
+        <div id="display-nome-cliente" style="font-weight:700;color:var(--blue);font-size:13px">Olá</div>
+        <div id="display-regiao" style="font-size:10px;color:var(--muted)"><i class="fas fa-map-pin"></i> Região</div>
       </div>
     </div>
-    <button onclick="toggleCarrinho()" class="btn btn-prim" style="position:relative">
+    <button onclick="toggleCarrinho()" class="btn btn-prim" style="position:relative;padding:9px 14px">
       <i class="fas fa-shopping-bag"></i> Sacola
-      <span id="contador-sacola" style="position:absolute;top:-8px;right:-8px;background:var(--rose);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;display:none">0</span>
+      <span id="contador-sacola" style="position:absolute;top:-7px;right:-7px;background:var(--rose);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;display:none">0</span>
     </button>
   </header>
 
-  <!-- Busca -->
-  <div style="max-width:900px;margin:0 auto;padding:24px 16px;width:100%">
-    <h1 style="font-size:28px;font-weight:800;text-align:center;margin-bottom:4px">Mercado IA · Marketplace</h1>
-    <p style="text-align:center;color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px">
+  <div style="max-width:860px;margin:0 auto;padding:20px 14px;width:100%">
+    <h1 style="font-size:24px;font-weight:800;text-align:center;margin-bottom:2px">Mercado IA · Marketplace</h1>
+    <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px">
       Grok xAI · Tesla Robotaxi · Ômni-Logística
     </p>
     
-    <div class="card" style="display:flex;gap:10px;padding:8px;align-items:center">
-      <i class="fas fa-search" style="color:var(--muted);margin-left:12px"></i>
-      <input id="produto" placeholder="Buscar com Grok AI... (Ex: Arroz 5kg)" style="flex:1;border:none;background:transparent;outline:none;font-size:15px;padding:10px">
-      <button class="btn btn-prim" onclick="ativarIA()" id="btn-buscar">Buscar</button>
+    <div class="card" style="display:flex;gap:8px;padding:6px;align-items:center">
+      <i class="fas fa-search" style="color:var(--muted);margin-left:10px;font-size:14px"></i>
+      <input id="produto" placeholder="Buscar produto com Grok AI..." style="flex:1;border:none;background:transparent;outline:none;font-size:14px;padding:9px 4px">
+      <button class="btn btn-prim" onclick="ativarIA()" id="btn-buscar" style="padding:9px 16px">Buscar</button>
     </div>
     
-    <div id="status-container" style="text-align:center;margin:16px 0;display:none"></div>
-    <div id="feed-ofertas" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:20px;padding-bottom:100px"></div>
+    <div id="status-container" style="text-align:center;margin:14px 0;display:none"></div>
+    <div id="feed-ofertas" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:16px;padding-bottom:80px"></div>
   </div>
 </div>
 
-<!-- CARRINHO -->
-<div id="painel-carrinho" style="position:fixed;top:0;right:0;width:100%;max-width:420px;height:100%;background:var(--card);z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;border-left:1px solid var(--border);box-shadow:-10px 0 40px rgba(0,0,0,.08)">
-  <div style="padding:20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
-    <h2 style="font-size:18px"><i class="fas fa-shopping-bag" style="color:var(--cyan)"></i> Sua Sacola</h2>
-    <button onclick="toggleCarrinho()" class="btn btn-ghost" style="padding:8px"><i class="fas fa-times"></i></button>
+<!-- CARRINHO (COMPACTO) -->
+<div id="painel-carrinho">
+  <div style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0">
+    <h2 style="font-size:16px"><i class="fas fa-shopping-bag" style="color:var(--cyan)"></i> Sacola</h2>
+    <button onclick="toggleCarrinho()" class="btn btn-ghost" style="padding:6px 9px"><i class="fas fa-times"></i></button>
   </div>
   
-  <div id="itens-carrinho" style="flex:1;overflow-y:auto;padding:16px"></div>
+  <div id="itens-carrinho" style="flex:1;overflow-y:auto;padding:12px 14px"></div>
   
-  <div style="padding:16px;border-top:1px solid var(--border);background:#f8fafc">
-    <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:4px">
+  <div style="padding:12px 14px;border-top:1px solid var(--border);background:#f8fafc;flex-shrink:0">
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:3px">
       <span>Subtotal</span><span id="subtotal-carrinho">R$ 0,00</span>
     </div>
-    <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px">
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px">
       <span><i class="fas fa-robot" style="color:var(--cyan)"></i> Frete Ômni</span>
       <span id="frete-carrinho" style="color:var(--amber);font-weight:700">A Calcular</span>
     </div>
-    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid var(--border)">
-      <span style="font-weight:700;text-transform:uppercase;font-size:12px">Total</span>
-      <span id="total-carrinho" style="font-size:22px;font-weight:800;color:var(--mint)">R$ 0,00</span>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid var(--border)">
+      <span style="font-weight:700;text-transform:uppercase;font-size:11px">Total</span>
+      <span id="total-carrinho" style="font-size:20px;font-weight:800;color:var(--mint)">R$ 0,00</span>
     </div>
     
-    <div id="form-checkout" style="display:none;margin-top:16px">
-      <div class="field" style="margin-bottom:8px">
-        <label>CEP (Geo RTK)</label>
+    <div id="form-checkout" style="display:none;margin-top:12px">
+      <div class="field" style="margin-bottom:6px">
+        <label>CEP (preenchimento automático)</label>
         <input id="cliente-cep" placeholder="00000-000" maxlength="9" onkeyup="buscarCEP_RTK(this.value)">
       </div>
-      <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
-        <div class="field"><input id="cliente-rua" placeholder="Rua"></div>
-        <div class="field"><input id="cliente-numero" placeholder="Nº"></div>
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:6px">
+        <input id="cliente-rua" placeholder="Rua" style="padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
+        <input id="cliente-numero" placeholder="Nº" style="padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
       </div>
-      <div class="field"><input id="cliente-bairro" placeholder="Bairro"></div>
+      <input id="cliente-bairro" placeholder="Bairro" style="width:100%;padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px;margin-bottom:8px">
       
-      <div class="field">
-        <label>Pagamento</label>
+      <div class="field" style="margin-bottom:8px">
+        <label>Forma de Pagamento</label>
         <select id="cliente-pagamento" onchange="mudarMetodoPagamento()">
           <option value="" disabled selected>Selecione</option>
           <option value="Pix">PIX Instantâneo</option>
           <option value="Cartao_Credito">Cartão de Crédito</option>
           <option value="Cartao_Debito">Cartão de Débito</option>
-          <option value="Cartao_Loja">Cartão da Loja (Atacadão / Carrefour)</option>
+          <option value="Cartao_Loja">Cartão da Loja (Atacadão/Carrefour)</option>
         </select>
       </div>
       
-      <div id="box-pix" style="display:none;text-align:center;padding:12px;background:#ecfdf5;border-radius:12px;border:1px solid #a7f3d0;margin-bottom:12px">
-        <p style="font-size:11px;font-weight:700;color:var(--mint);margin-bottom:8px"><i class="fab fa-pix"></i> PIX Grok</p>
-        <img id="img-qrcode-pix" style="width:140px;height:140px;margin:0 auto 8px;display:block">
-        <p id="pix-key-text" style="font-family:'JetBrains Mono';font-size:10px;word-break:break-all;color:var(--muted)"></p>
-        <button class="btn btn-mint btn-sm" onclick="copiarChavePix()" style="margin-top:6px">Copiar Chave</button>
+      <div id="box-pix" style="display:none;text-align:center;padding:10px;background:#ecfdf5;border-radius:10px;border:1px solid #a7f3d0;margin-bottom:8px">
+        <p style="font-size:10px;font-weight:700;color:var(--mint);margin-bottom:6px"><i class="fab fa-pix"></i> PIX Grok</p>
+        <img id="img-qrcode-pix" style="width:120px;height:120px;margin:0 auto 6px;display:block;border-radius:8px">
+        <p id="pix-key-text" style="font-family:'JetBrains Mono';font-size:9px;word-break:break-all;color:var(--muted);line-height:1.3"></p>
+        <button class="btn btn-mint" style="padding:6px 12px;font-size:11px;margin-top:4px" onclick="copiarChavePix()">Copiar Chave</button>
       </div>
       
-      <div id="box-cartao" style="display:none;margin-bottom:12px">
-        <select id="bandeira-loja" style="display:none;width:100%;margin-bottom:8px;padding:10px;border-radius:10px;border:1.5px solid var(--border)">
+      <div id="box-cartao" style="display:none;margin-bottom:8px">
+        <select id="bandeira-loja" style="display:none;width:100%;margin-bottom:6px;padding:9px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
           <option value="">Cartão da Loja</option>
           <option value="Atacadao">Cartão Atacadão</option>
           <option value="Carrefour">Cartão Carrefour</option>
           <option value="Passai">Cartão Passaí</option>
         </select>
-        <input id="num-cartao" placeholder="Número do cartão" style="width:100%;padding:10px;border-radius:10px;border:1.5px solid var(--border);margin-bottom:6px">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <input id="val-cartao" placeholder="MM/AA" maxlength="5">
-          <input id="cvv-cartao" placeholder="CVV" maxlength="4">
+        <input id="num-cartao" placeholder="Número do cartão" style="width:100%;padding:9px;border-radius:9px;border:1.5px solid var(--border);margin-bottom:5px;font-size:13px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+          <input id="val-cartao" placeholder="MM/AA" maxlength="5" style="padding:9px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
+          <input id="cvv-cartao" placeholder="CVV" maxlength="4" style="padding:9px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
         </div>
       </div>
     </div>
     
-    <button id="btn-finalizar" onclick="iniciarHardStopPagamento()" disabled class="btn btn-full" style="background:#94a3b8;color:#fff;margin-top:12px">
+    <button id="btn-finalizar" onclick="iniciarHardStopPagamento()" disabled class="btn btn-full" style="background:#94a3b8;color:#fff;margin-top:8px;padding:12px">
       Adicione itens
     </button>
   </div>
 </div>
 
 <!-- TRACKING -->
-<div id="modal-tracking" style="display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;padding:24px">
-  <div style="max-width:480px;margin:0 auto;text-align:center">
-    <h2 style="font-size:24px;margin-bottom:4px">Status da Entrega</h2>
-    <p style="color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px">
+<div id="modal-tracking" style="display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;padding:20px 16px">
+  <div style="max-width:420px;margin:0 auto;text-align:center">
+    <h2 style="font-size:22px;margin-bottom:2px">Status da Entrega</h2>
+    <p style="color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">
       Status: <span id="track-status-text">Processando...</span>
     </p>
     
-    <div style="width:160px;height:160px;margin:0 auto 24px;position:relative;display:flex;align-items:center;justify-content:center">
-      <div id="radar-pulse" style="position:absolute;inset:0;background:rgba(8,145,178,.15);border-radius:50%;animation:radar 2s infinite"></div>
-      <div style="width:80px;height:80px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);border:2px solid var(--cyan)">
-        <i id="track-icon" class="fas fa-shield-alt" style="font-size:32px;color:var(--cyan)"></i>
+    <div style="width:140px;height:140px;margin:0 auto 18px;position:relative;display:flex;align-items:center;justify-content:center">
+      <div style="position:absolute;inset:0;background:rgba(8,145,178,.12);border-radius:50%;animation:radar 2s infinite"></div>
+      <div style="width:70px;height:70px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);border:2px solid var(--cyan)">
+        <i id="track-icon" class="fas fa-shield-alt" style="font-size:28px;color:var(--cyan)"></i>
       </div>
     </div>
     
-    <div style="height:6px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:20px">
-      <div id="track-progress-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width 1s"></div>
+    <div style="height:5px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:16px">
+      <div id="track-progress-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .9s"></div>
     </div>
     
-    <div id="telemetry-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:left;font-family:'JetBrains Mono';font-size:11px;margin-bottom:16px">
-      <p style="font-weight:700;color:var(--cyan);margin-bottom:8px"><i class="fas fa-satellite-dish"></i> Sinal RTK + Tesla</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;color:var(--muted)">
+    <div id="telemetry-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;text-align:left;font-family:'JetBrains Mono';font-size:10px;margin-bottom:12px">
+      <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> RTK + Tesla Telemetria</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;color:var(--muted)">
         <span>📍 Distância: <b id="telemetry-dist" style="color:var(--text)">--</b> km</span>
         <span>⏳ ETA: <b id="telemetry-eta" style="color:var(--text)">--</b> min</span>
       </div>
     </div>
     
-    <div id="driver-card" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;text-align:left;margin-bottom:20px">
-      <p style="font-size:10px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px">Identificação Ômni</p>
-      <div style="display:flex;gap:14px;align-items:center">
-        <div id="driver-avatar" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#dbeafe,#ecfdf5);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--cyan)">
+    <div id="driver-card" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:left;margin-bottom:16px">
+      <p style="font-size:9px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Identificação Ômni</p>
+      <div style="display:flex;gap:12px;align-items:center">
+        <div id="driver-avatar" style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#dbeafe,#ecfdf5);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--cyan)">
           <i class="fas fa-car"></i>
         </div>
         <div style="flex:1">
-          <h4 id="driver-name" style="font-weight:700;font-size:15px">Carregando...</h4>
-          <p id="driver-vehicle" style="font-size:12px;color:var(--muted)"></p>
-          <p id="driver-doc" style="font-size:11px;font-family:'JetBrains Mono';color:var(--muted);margin-top:2px"></p>
+          <h4 id="driver-name" style="font-weight:700;font-size:14px">Carregando...</h4>
+          <p id="driver-vehicle" style="font-size:11px;color:var(--muted)"></p>
+          <p id="driver-doc" style="font-size:10px;font-family:'JetBrains Mono';color:var(--muted);margin-top:1px"></p>
         </div>
-        <div style="background:#fef3c7;color:#b45309;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700"><i class="fas fa-star"></i> 4.98</div>
+        <div style="background:#fef3c7;color:#b45309;padding:3px 8px;border-radius:16px;font-size:11px;font-weight:700"><i class="fas fa-star"></i> 4.98</div>
       </div>
     </div>
     
-    <div class="card" style="text-align:left;padding:16px">
-      <ul id="track-log" style="list-style:none;font-size:13px;color:var(--muted);line-height:1.7"></ul>
+    <div class="card" style="text-align:left;padding:12px">
+      <ul id="track-log" style="list-style:none;font-size:12px;color:var(--muted);line-height:1.6"></ul>
     </div>
     
-    <button id="btn-fechar-track" onclick="fecharRastreamento()" class="btn btn-prim btn-full" style="margin-top:20px;display:none">
+    <button id="btn-fechar-track" onclick="fecharRastreamento()" class="btn btn-prim btn-full" style="margin-top:16px;display:none">
       Nova Compra
     </button>
   </div>
@@ -261,19 +256,19 @@ h1, h2, h3 { font-family: 'Sora', sans-serif; }
 
 <style>
 @keyframes radar {
-  0% { transform: scale(0.6); opacity: 0.7; }
-  100% { transform: scale(1.8); opacity: 0; }
+  0% { transform: scale(0.55); opacity: 0.65; }
+  100% { transform: scale(1.7); opacity: 0; }
 }
 </style>
 
 <script>
-/* ===================== CORE LOGIC (PRESERVADA + POTENCIALIZADA) ===================== */
 let clienteLogado = null;
 let sacola = [];
 let valorFreteGlobal = 0;
 let pesoSacolaGlobal = 0;
 let coordenadasRTK = { lat: "", lng: "" };
 let payloadPixAtual = "";
+let timerSacola = null;
 
 const nomesRegioes = {
   "brasilia": "Brasília - DF",
@@ -281,50 +276,28 @@ const nomesRegioes = {
   "maracai": "Maracaí - SP"
 };
 
-const franquiasTelegram = {
-  "brasilia": {
-    "Carrefour": { botToken: "SEU_TOKEN", chatId: "SEU_CHAT" },
-    "Atacadão": { botToken: "SEU_TOKEN", chatId: "SEU_CHAT" },
-    "Tatico": { botToken: "SEU_TOKEN", chatId: "SEU_CHAT" }
-  },
-  "aguas_lindas": {
-    "Atacadão": { botToken: "SEU_TOKEN", chatId: "SEU_CHAT" },
-    "Dia a Dia": { botToken: "SEU_TOKEN", chatId: "SEU_CHAT" }
-  },
-  "maracai": {
-    "Atacadão": { botToken: "SEU_TOKEN", chatId: "SEU_CHAT" },
-    "Mercado Avenida": { botToken: "SEU_TOKEN", chatId: "SEU_CHAT" }
-  }
-};
-
 window.onload = () => {
-  const sessao = localStorage.getItem("mercadoIA_cliente");
-  if (sessao) {
-    clienteLogado = JSON.parse(sessao);
-    liberarAcessoCliente();
-  }
+  const s = localStorage.getItem("mercadoIA_cliente");
+  if (s) { clienteLogado = JSON.parse(s); liberarAcessoCliente(); }
 };
 
-function toast(msg, tipo = "ok") {
+function toast(msg, tipo="ok") {
   const t = document.createElement("div");
   t.className = `toast toast-${tipo}`;
   t.innerHTML = msg;
   document.getElementById("toasts").appendChild(t);
-  setTimeout(() => t.remove(), 4000);
+  setTimeout(() => t.remove(), 3500);
 }
 
 function fazerCadastroCliente() {
   const nome = document.getElementById("login-nome").value.trim();
   const tel = document.getElementById("login-telefone").value.trim();
   const regiao = document.getElementById("login-regiao").value;
-  if (nome.length < 3 || tel.length < 8 || !regiao) {
-    toast("Preencha nome, WhatsApp e região", "err");
-    return;
-  }
+  if (nome.length < 3 || tel.length < 8 || !regiao) return toast("Preencha todos os campos", "err");
   clienteLogado = { nome, telefone: tel, regiao };
   localStorage.setItem("mercadoIA_cliente", JSON.stringify(clienteLogado));
   liberarAcessoCliente();
-  toast("Bem-vindo! Grok AI ativado 🚀");
+  toast("Grok AI ativado 🚀");
 }
 
 function fazerLogout() {
@@ -337,8 +310,7 @@ function fazerLogout() {
 function liberarAcessoCliente() {
   document.getElementById("tela-login").style.display = "none";
   document.getElementById("app-principal").style.display = "flex";
-  const primeiro = clienteLogado.nome.split(" ")[0];
-  document.getElementById("display-nome-cliente").innerText = `Olá, ${primeiro}`;
+  document.getElementById("display-nome-cliente").innerText = `Olá, ${clienteLogado.nome.split(" ")[0]}`;
   document.getElementById("display-regiao").innerHTML = `<i class="fas fa-map-pin"></i> ${nomesRegioes[clienteLogado.regiao]}`;
 }
 
@@ -348,78 +320,87 @@ function formatarMoeda(v) {
 
 function toggleCarrinho() {
   const p = document.getElementById("painel-carrinho");
-  p.style.transform = p.style.transform === "translateX(0px)" ? "translateX(100%)" : "translateX(0px)";
+  const aberto = p.style.transform === "translateX(0px)";
+  p.style.transform = aberto ? "translateX(100%)" : "translateX(0px)";
 }
 
-/* ===================== BUSCA COM GROK AI ===================== */
+/* ===================== BUSCA COM IMAGENS REAIS ===================== */
 async function ativarIA() {
   const query = document.getElementById("produto").value.trim();
-  if (!query) return toast("Digite o que deseja buscar", "err");
+  if (!query) return toast("Digite o produto", "err");
   
   const btn = document.getElementById("btn-buscar");
   const status = document.getElementById("status-container");
   const feed = document.getElementById("feed-ofertas");
   
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Grok pensando...';
+  btn.innerHTML = '<span class="spinner"></span> Grok...';
   status.style.display = "block";
-  status.innerHTML = `<div style="color:var(--cyan);font-family:'JetBrains Mono';font-size:13px"><i class="fas fa-brain"></i> Grok xAI varrendo estoques + pricing dinâmico...</div>`;
+  status.innerHTML = `<div style="color:var(--cyan);font-size:12px;font-family:'JetBrains Mono'"><i class="fas fa-brain"></i> Grok buscando estoque + imagens reais...</div>`;
   feed.innerHTML = "";
   
   try {
-    // Em produção: chamar seu Worker + Grok API
-    // Exemplo: const res = await fetch(`https://seu-worker.workers.dev/?produto=${encodeURIComponent(query)}&regiao=${clienteLogado.regiao}`);
+    await new Promise(r => setTimeout(r, 1400));
     
-    // Simulação poderosa com Grok logic
-    await new Promise(r => setTimeout(r, 1800));
-    
-    const ofertasMock = [
-      { loja: "Atacadão", nome: query + " Premium", preco: (Math.random()*40+12).toFixed(2), ean: "7891000" + Math.floor(Math.random()*9999), img: "https://via.placeholder.com/80" },
-      { loja: "Carrefour", nome: query + " Extra", preco: (Math.random()*45+15).toFixed(2), ean: "7891000" + Math.floor(Math.random()*9999), img: "https://via.placeholder.com/80" },
-      { loja: "Tatico", nome: query + " Família", preco: (Math.random()*38+10).toFixed(2), ean: "7891000" + Math.floor(Math.random()*9999), img: "https://via.placeholder.com/80" }
+    // Imagens reais por categoria (Unsplash)
+    const imgBase = "https://source.unsplash.com/120x120/?";
+    const ofertas = [
+      { loja: "Atacadão", nome: query, preco: (Math.random()*35+9).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",supermarket,product") },
+      { loja: "Carrefour", nome: query + " Premium", preco: (Math.random()*42+14).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",grocery") },
+      { loja: "Tatico", nome: query + " Família", preco: (Math.random()*30+8).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",food,pack") }
     ];
     
-    ofertasMock.forEach((o, i) => desenharCard(o.loja, o.nome, o.preco, o.ean, o.img, i === 0));
+    ofertas.forEach((o, i) => desenharCard(o, i === 0));
     status.style.display = "none";
-    toast("Grok encontrou as melhores ofertas!");
-  } catch (e) {
-    status.innerHTML = `<div style="color:var(--rose)">Erro na busca AI. Tente novamente.</div>`;
+    toast("Ofertas encontradas com imagens!");
+  } catch(e) {
+    status.innerHTML = `<div style="color:var(--rose)">Erro na busca</div>`;
   } finally {
     btn.disabled = false;
     btn.innerHTML = "Buscar";
   }
 }
 
-function desenharCard(loja, nome, preco, ean, img, destaque) {
+function desenharCard(o, destaque) {
   const feed = document.getElementById("feed-ofertas");
   const div = document.createElement("div");
   div.className = "card";
   div.innerHTML = `
-    <div style="display:flex;gap:12px;align-items:flex-start">
-      <img src="${img}" style="width:64px;height:64px;border-radius:12px;object-fit:cover;border:1px solid var(--border)">
+    <div style="display:flex;gap:10px">
+      <img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=Produto'" 
+           style="width:68px;height:68px;border-radius:10px;object-fit:cover;border:1px solid var(--border);flex-shrink:0">
       <div style="flex:1;min-width:0">
-        <div style="font-size:11px;font-weight:700;color:var(--cyan);margin-bottom:2px">${loja} · EAN ${ean}</div>
-        <div style="font-weight:600;font-size:14px;line-height:1.3;margin-bottom:8px">${nome}</div>
+        <div style="font-size:10px;font-weight:700;color:var(--cyan)">${o.loja} · EAN ${o.ean}</div>
+        <div style="font-weight:600;font-size:13px;line-height:1.25;margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div>
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-size:18px;font-weight:800;color:var(--mint)">${formatarMoeda(preco)}</span>
-          <button class="btn btn-mint" style="padding:7px 12px;font-size:12px" onclick="adicionarAoCarrinho('${nome.replace(/'/g,"\\'")}','${loja}',${preco},'${img}','${ean}')">
+          <span style="font-size:16px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</span>
+          <button class="btn btn-mint" style="padding:6px 10px;font-size:12px" 
+            onclick="adicionarAoCarrinho('${o.nome.replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')">
             <i class="fas fa-plus"></i>
           </button>
         </div>
+        ${destaque ? '<div style="margin-top:5px;font-size:9px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço Grok</div>' : ''}
       </div>
-    </div>
-    ${destaque ? '<div style="margin-top:8px;font-size:10px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço Grok</div>' : ''}
-  `;
+    </div>`;
   feed.appendChild(div);
 }
 
-/* ===================== CARRINHO + FRETE RTK ===================== */
+/* ===================== SACOLA AUTOMÁTICA ===================== */
 function adicionarAoCarrinho(nome, loja, preco, img, ean) {
-  const peso = +(Math.random() * 1.7 + 0.3).toFixed(2);
+  const peso = +(Math.random()*1.6 + 0.3).toFixed(2);
   sacola.push({ nome, loja, preco: +preco, peso, img, ean });
   atualizarInterfaceCarrinho();
+  
+  // Abre automaticamente
   document.getElementById("painel-carrinho").style.transform = "translateX(0px)";
-  toast(`${nome} adicionado`);
+  
+  // Fecha sozinha após 2.5s (igual ao original)
+  if (timerSacola) clearTimeout(timerSacola);
+  timerSacola = setTimeout(() => {
+    document.getElementById("painel-carrinho").style.transform = "translateX(100%)";
+  }, 2500);
+  
+  toast(`${nome.substring(0,28)}... adicionado`);
 }
 
 function removerDoCarrinho(i) {
@@ -436,7 +417,7 @@ function atualizarInterfaceCarrinho() {
   
   cont.innerHTML = "";
   if (sacola.length === 0) {
-    cont.innerHTML = '<div style="text-align:center;color:var(--muted);padding:40px 0">Sacola vazia</div>';
+    cont.innerHTML = '<div style="text-align:center;color:var(--muted);padding:30px 0;font-size:13px">Sacola vazia</div>';
     document.getElementById("subtotal-carrinho").textContent = "R$ 0,00";
     document.getElementById("frete-carrinho").textContent = "A Calcular";
     document.getElementById("total-carrinho").textContent = "R$ 0,00";
@@ -457,14 +438,14 @@ function atualizarInterfaceCarrinho() {
     sub += item.preco;
     pesoSacolaGlobal += item.peso;
     cont.innerHTML += `
-      <div style="display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)">
-        <img src="${item.img}" style="width:48px;height:48px;border-radius:10px;object-fit:cover">
+      <div style="display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
+        <img src="${item.img}" style="width:42px;height:42px;border-radius:8px;object-fit:cover;flex-shrink:0">
         <div style="flex:1;min-width:0">
-          <div style="font-size:11px;color:var(--cyan)">${item.loja}</div>
-          <div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${item.nome}</div>
-          <div style="font-size:14px;font-weight:700;color:var(--mint)">${formatarMoeda(item.preco)}</div>
+          <div style="font-size:9px;color:var(--cyan)">${item.loja}</div>
+          <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${item.nome}</div>
+          <div style="font-size:13px;font-weight:700;color:var(--mint)">${formatarMoeda(item.preco)}</div>
         </div>
-        <button onclick="removerDoCarrinho(${i})" style="background:#fff1f2;border:none;color:var(--rose);width:32px;height:32px;border-radius:8px;cursor:pointer"><i class="fas fa-trash"></i></button>
+        <button onclick="removerDoCarrinho(${i})" style="background:#fff1f2;border:none;color:var(--rose);width:28px;height:28px;border-radius:7px;cursor:pointer;flex-shrink:0"><i class="fas fa-trash" style="font-size:11px"></i></button>
       </div>`;
   });
   
@@ -476,31 +457,54 @@ function atualizarInterfaceCarrinho() {
   if (document.getElementById("cliente-pagamento").value === "Pix") {
     payloadPixAtual = gerarPayloadPix(total);
     document.getElementById("pix-key-text").textContent = payloadPixAtual;
-    document.getElementById("img-qrcode-pix").src = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(payloadPixAtual)}`;
+    document.getElementById("img-qrcode-pix").src = `https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=${encodeURIComponent(payloadPixAtual)}`;
   }
   
   btn.style.background = "linear-gradient(135deg,#059669,#10b981)";
-  btn.innerHTML = '<i class="fas fa-lock"></i> Finalizar com Grok';
+  btn.innerHTML = '<i class="fas fa-lock"></i> Finalizar Pedido';
 }
 
+/* ===================== CEP AUTOMÁTICO BRASIL ===================== */
 async function buscarCEP_RTK(cep) {
   cep = cep.replace(/\D/g, "");
-  if (cep.length === 8) {
-    document.getElementById("cliente-rua").value = "Triangulando RTK...";
-    try {
-      const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-      const d = await res.json();
-      if (d.erro) throw new Error();
-      document.getElementById("cliente-rua").value = d.logradouro;
-      document.getElementById("cliente-bairro").value = d.bairro;
-      coordenadasRTK = { lat: (-15.78 + Math.random()*0.05).toFixed(6), lng: (-47.93 + Math.random()*0.05).toFixed(6) };
-      const km = +(Math.random()*8 + 1).toFixed(1);
-      valorFreteGlobal = +(km * 1.80).toFixed(2);
-      atualizarInterfaceCarrinho();
-      toast("RTK sincronizado");
-    } catch {
-      toast("Falha no GPS", "err");
-    }
+  if (cep.length > 5) {
+    document.getElementById("cliente-cep").value = cep.replace(/^(\d{5})(\d)/, "$1-$2");
+  }
+  if (cep.length !== 8) {
+    valorFreteGlobal = 0;
+    atualizarInterfaceCarrinho();
+    return;
+  }
+  
+  document.getElementById("cliente-rua").value = "Buscando endereço...";
+  document.getElementById("cliente-bairro").value = "";
+  
+  try {
+    const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const d = await res.json();
+    if (d.erro) throw new Error("CEP inválido");
+    
+    // Preenchimento automático completo
+    document.getElementById("cliente-rua").value = d.logradouro || "";
+    document.getElementById("cliente-bairro").value = d.bairro || "";
+    
+    // Coordenadas mock realistas por região
+    let baseLat = -15.78, baseLng = -47.93;
+    if (clienteLogado.regiao === "aguas_lindas") { baseLat = -15.76; baseLng = -48.28; }
+    if (clienteLogado.regiao === "maracai") { baseLat = -22.61; baseLng = -50.67; }
+    
+    coordenadasRTK = {
+      lat: (baseLat + (Math.random()*0.04 - 0.02)).toFixed(6),
+      lng: (baseLng + (Math.random()*0.04 - 0.02)).toFixed(6)
+    };
+    
+    const km = +(Math.random()*7 + 1.2).toFixed(1);
+    valorFreteGlobal = +(km * 1.85).toFixed(2);
+    atualizarInterfaceCarrinho();
+    toast("Endereço preenchido automaticamente");
+  } catch(e) {
+    document.getElementById("cliente-rua").value = "";
+    toast("CEP não encontrado", "err");
   }
 }
 
@@ -521,7 +525,7 @@ function mudarMetodoPagamento() {
   document.getElementById("bandeira-loja").style.display = pag === "Cartao_Loja" ? "block" : "none";
 }
 
-/* ===================== HARD-STOP + TESLA ROBOTAXI ===================== */
+/* ===================== PAGAMENTO + TRACKING + TESLA ===================== */
 async function iniciarHardStopPagamento() {
   const cep = document.getElementById("cliente-cep").value.trim();
   const rua = document.getElementById("cliente-rua").value.trim();
@@ -529,67 +533,56 @@ async function iniciarHardStopPagamento() {
   const pag = document.getElementById("cliente-pagamento").value;
   
   if (!cep || !rua || !numero || !pag) return toast("Preencha endereço e pagamento", "err");
-  if (valorFreteGlobal === 0) return toast("Aguarde o RTK", "err");
+  if (valorFreteGlobal === 0) return toast("Aguarde o cálculo do frete", "err");
   
   const btn = document.getElementById("btn-finalizar");
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Grok validando...';
+  btn.innerHTML = '<span class="spinner"></span> Processando...';
   
-  // Simulação de pagamento real + hard-stop
-  await new Promise(r => setTimeout(r, 2800));
+  await new Promise(r => setTimeout(r, 2200));
   
   document.getElementById("painel-carrinho").style.transform = "translateX(100%)";
-  const modal = document.getElementById("modal-tracking");
-  modal.style.display = "block";
+  document.getElementById("modal-tracking").style.display = "block";
   
   const log = document.getElementById("track-log");
   const progress = document.getElementById("track-progress-bar");
   const statusTxt = document.getElementById("track-status-text");
   const icon = document.getElementById("track-icon");
   
-  log.innerHTML = `<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado via Grok + Webhook</li>`;
-  progress.style.width = "20%";
+  log.innerHTML = `<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado (Webhook)</li>`;
+  progress.style.width = "25%";
   statusTxt.textContent = "Enviando ordem de picking...";
   
-  // Escolha do veículo: Tesla Robotaxi se peso e distância permitirem
-  let dName, dVehicle, dDoc, dIcon;
-  const dist = valorFreteGlobal / 1.80;
-  if (pesoSacolaGlobal < 15 && dist < 12) {
+  // Escolha do veículo
+  let dName, dVehicle, dDoc, dIconClass;
+  const dist = valorFreteGlobal / 1.85;
+  if (pesoSacolaGlobal < 12 && dist < 11) {
     dName = "Tesla Robotaxi Cybercab";
     dVehicle = "Unsupervised Autonomous · FSD v13";
     dDoc = "FROTA TESLA · BR-OMNI-01";
-    dIcon = "fa-car";
+    dIconClass = "fa-car";
     document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-car" style="color:#e11d48"></i>';
-  } else if (pesoSacolaGlobal < 3) {
+  } else if (pesoSacolaGlobal < 2.8) {
     dName = "Drone Prime Air V5";
     dVehicle = "Voo Autônomo RTK";
     dDoc = "FROTA AZ-992X";
-    dIcon = "fa-helicopter";
+    dIconClass = "fa-helicopter";
   } else {
     dName = ["Carlos Silva (MEI)", "Fernanda Lima (MEI)", "Roberto Alves (MEI)"][Math.floor(Math.random()*3)];
-    dVehicle = "Honda CG 160 · Placa XYZ-9876";
-    dDoc = "CNPJ: ***.*** /0001-**";
-    dIcon = "fa-motorcycle";
+    dVehicle = "Honda CG 160 · XYZ-9876";
+    dDoc = "CNPJ: ***.***/0001-**";
+    dIconClass = "fa-motorcycle";
   }
   
-  // Envio multi-loja (Telegram)
-  const pedidosPorLoja = {};
-  sacola.forEach(item => {
-    if (!pedidosPorLoja[item.loja]) pedidosPorLoja[item.loja] = [];
-    pedidosPorLoja[item.loja].push(item);
-  });
-  
-  // (Em produção: Promise.all com fetch real para Telegram ou WhatsApp Business API)
-  
-  await new Promise(r => setTimeout(r, 1600));
-  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Lojas separando itens (picking AI)</li>`;
-  progress.style.width = "45%";
+  await new Promise(r => setTimeout(r, 1400));
+  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Lojas separando itens</li>`;
+  progress.style.width = "50%";
   statusTxt.textContent = "Picking em andamento";
   
-  await new Promise(r => setTimeout(r, 1800));
+  await new Promise(r => setTimeout(r, 1500));
   log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado</li>`;
-  progress.style.width = "70%";
-  icon.className = `fas ${dIcon}`;
+  progress.style.width = "75%";
+  icon.className = `fas ${dIconClass}`;
   statusTxt.textContent = "A caminho da coleta";
   
   document.getElementById("driver-card").style.display = "block";
@@ -599,10 +592,10 @@ async function iniciarHardStopPagamento() {
   
   document.getElementById("telemetry-box").style.display = "block";
   document.getElementById("telemetry-dist").textContent = dist.toFixed(1);
-  document.getElementById("telemetry-eta").textContent = Math.round(dist * 3.2);
+  document.getElementById("telemetry-eta").textContent = Math.round(dist * 3.1);
   
-  await new Promise(r => setTimeout(r, 2200));
-  log.innerHTML += `<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Coleta confirmada · Entrega iniciada</li>`;
+  await new Promise(r => setTimeout(r, 1800));
+  log.innerHTML += `<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Coleta confirmada · Em rota</li>`;
   progress.style.width = "100%";
   statusTxt.textContent = "Em rota de entrega";
   
