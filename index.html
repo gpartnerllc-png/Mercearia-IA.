@@ -10,40 +10,66 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-:root{--bg:#f0f5ff;--card:#fff;--text:#0f172a;--muted:#64748b;--blue:#2563eb;--cyan:#0891b2;--mint:#059669;--amber:#d97706;--rose:#e11d48;--border:#e2e8f0;--r:14px;--shadow:0 8px 30px rgba(37,99,235,.08)}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;background-image:radial-gradient(ellipse at 10% 0%,rgba(37,99,235,.07) 0%,transparent 50%),radial-gradient(ellipse at 90% 100%,rgba(5,150,105,.05) 0%,transparent 50%)}
+:root{
+  --bg:#f0f5ff;--card:#fff;--text:#0f172a;--muted:#64748b;
+  --blue:#2563eb;--cyan:#0891b2;--mint:#059669;--amber:#d97706;--rose:#e11d48;
+  --border:#e2e8f0;--r:14px;--shadow:0 8px 30px rgba(37,99,235,.08)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;min-height:100vh;
+background-image:radial-gradient(ellipse at 10% 0%,rgba(37,99,235,.07) 0%,transparent 50%),
+radial-gradient(ellipse at 90% 100%,rgba(5,150,105,.05) 0%,transparent 50%)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 16px;border-radius:11px;font-family:'Sora',sans-serif;font-weight:700;font-size:13px;cursor:pointer;border:none;transition:.2s}
-.btn-prim{background:linear-gradient(135deg,#2563eb,#0891b2);color:#fff}.btn-prim:hover{transform:translateY(-1px)}
-.btn-mint{background:linear-gradient(135deg,#059669,#10b981);color:#fff}.btn-ghost{background:#fff;border:1.5px solid var(--border);color:var(--text)}.btn-full{width:100%}.btn-amber{background:linear-gradient(135deg,#d97706,#f59e0b);color:#fff}
-.field{margin-bottom:10px}.field label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.btn-prim{background:linear-gradient(135deg,#2563eb,#0891b2);color:#fff}
+.btn-prim:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,99,235,.25)}
+.btn-mint{background:linear-gradient(135deg,#059669,#10b981);color:#fff}
+.btn-ghost{background:#fff;border:1.5px solid var(--border);color:var(--text)}
+.btn-full{width:100%}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
 .field input,.field select,textarea{width:100%;background:#f8fafc;border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:13px;font-family:inherit}
 .field input:focus,.field select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--shadow)}
 .toast-area{position:fixed;bottom:20px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:8px}
 .toast{padding:12px 16px;border-radius:11px;font-size:13px;font-weight:600;max-width:320px;animation:slideIn .25s ease;box-shadow:var(--shadow)}
-.toast-ok{background:#ecfdf5;border:1px solid #a7f3d0;color:#047857}.toast-err{background:#fff1f2;border:1px solid #fecdd3;color:#be123c}
+.toast-ok{background:#ecfdf5;border:1px solid #a7f3d0;color:#047857}
+.toast-err{background:#fff1f2;border:1px solid #fecdd3;color:#be123c}
 @keyframes slideIn{from{transform:translateX(30px);opacity:0}to{transform:none;opacity:1}}
-.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;gap:8px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1,h2,h3{font-family:'Sora',sans-serif}
+.logo{font-family:'Sora',sans-serif;font-weight:800;font-size:20px;display:flex;align-items:center;gap:8px}
 .logo-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--mint))}
-.cart-overlay{position:fixed;inset:0;background:rgba(15,23,42,.4);backdrop-filter:blur(3px);z-index:55;opacity:0;visibility:hidden;transition:all .3s}.cart-overlay.ativo{opacity:1;visibility:visible}
+.cart-overlay{position:fixed;inset:0;background:rgba(15,23,42,.4);backdrop-filter:blur(3px);z-index:55;opacity:0;visibility:hidden;transition:all .3s}
+.cart-overlay.ativo{opacity:1;visibility:visible}
 #painel-carrinho{position:fixed;top:0;right:0;width:100%;max-width:400px;height:100%;background:#fff;z-index:60;transform:translateX(100%);transition:transform .32s cubic-bezier(.22,.61,.36,1);display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.12)}
-#painel-carrinho.aberto{transform:translateX(0)}.cart-header{padding:14px 16px;border-bottom:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
-.cart-body{flex:1;overflow-y:auto;padding:12px 14px}.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}
+#painel-carrinho.aberto{transform:translateX(0)}
+.cart-header{padding:14px 16px;border-bottom:1px solid #e5e7eb;display:flex;justify-content:space-between;align-items:center;flex-shrink:0}
+.cart-body{flex:1;overflow-y:auto;padding:12px 14px}
+.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f1f5f9}
 .cart-item img{width:60px;height:60px;border-radius:10px;object-fit:cover;border:1px solid #e5e7eb;flex-shrink:0}
-.cart-item-info{flex:1;min-width:0}.cart-item-title{font-size:13px;font-weight:600;line-height:1.3;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cart-item-meta{font-size:11px;color:#64748b;margin-bottom:4px}.cart-item-price{font-size:14px;font-weight:800;color:#059669}
-.qty-control{display:flex;align-items:center;gap:8px;margin-top:6px}.qty-btn{width:28px;height:28px;border-radius:8px;border:1.5px solid #e2e8f0;background:#fff;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-title{font-size:13px;font-weight:600;line-height:1.3;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cart-item-meta{font-size:11px;color:#64748b;margin-bottom:4px}
+.cart-item-price{font-size:14px;font-weight:800;color:#059669}
+.qty-control{display:flex;align-items:center;gap:8px;margin-top:6px}
+.qty-btn{width:28px;height:28px;border-radius:8px;border:1.5px solid #e2e8f0;background:#fff;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .qty-value{font-size:13px;font-weight:700;min-width:20px;text-align:center}
 .cart-footer{flex-shrink:0;padding:12px 14px 16px;border-top:1px solid #e5e7eb;background:#f8fafc;max-height:55vh;overflow-y:auto}
 .cart-row{display:flex;justify-content:space-between;font-size:13px;color:#64748b;margin-bottom:3px}
-.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:6px;border-top:1px solid #e2e8f0}.cart-total-value{font-size:19px;font-weight:800;color:#059669}
-.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(4px);z-index:100;align-items:center;justify-content:center;padding:16px}.modal-bg.ativo{display:flex}
+.cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:6px;border-top:1px solid #e2e8f0}
+.cart-total-value{font-size:19px;font-weight:800;color:#059669}
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(4px);z-index:100;align-items:center;justify-content:center;padding:16px}
+.modal-bg.ativo{display:flex}
 .modal{background:var(--card);border-radius:18px;padding:24px;width:100%;max-width:480px;box-shadow:var(--shadow);max-height:90vh;overflow-y:auto}
 #mapa-entrega{height:220px;border-radius:14px;margin:12px 0;border:1px solid var(--border);z-index:1}
-.parceiros-scroll{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 16px;scrollbar-width:none}.parceiros-scroll::-webkit-scrollbar{display:none}
-.parceiro-card{flex:0 0 100px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:12px 8px;text-align:center;box-shadow:var(--shadow);cursor:pointer}
-.parceiro-card .logo-p{width:44px;height:44px;margin:0 auto 6px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px}
+.parceiros-scroll{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 16px;scrollbar-width:none}
+.parceiros-scroll::-webkit-scrollbar{display:none}
+.parceiro-card{flex:0 0 100px;background:#fff;border:2px solid transparent;border-radius:16px;padding:12px 8px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);cursor:pointer;transition:all .25s ease}
+.parceiro-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(37,99,235,.12)}
+.parceiro-card.ativo{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.parceiro-card .logo-p{width:48px;height:48px;margin:0 auto 7px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px}
+.parceiro-card span{font-size:11px;font-weight:600;color:#334155}
 .codigo-pedido{background:linear-gradient(135deg,#dbeafe,#ecfdf5);border:2px solid var(--cyan);border-radius:14px;padding:14px;text-align:center;margin:12px 0}
 .codigo-pedido .num{font-size:26px;font-weight:800;letter-spacing:2px;color:var(--blue);font-family:'JetBrains Mono'}
 .nf-box{background:#fff;border:1px dashed #94a3b8;border-radius:12px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.45;margin:12px 0}
@@ -56,7 +82,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 <div class="toast-area" id="toasts"></div>
 <div class="cart-overlay" id="cart-overlay" onclick="fecharCarrinho()"></div>
 
-<!-- LOGIN CLIENTE -->
+<!-- LOGIN -->
 <div id="tela-login" style="position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px;background:linear-gradient(135deg,#dbeafe,#f0fdf4)">
   <div class="card" style="width:100%;max-width:400px;padding:28px;border-radius:20px">
     <div class="logo" style="margin-bottom:6px"><div class="logo-dot"></div> Mercado IA · Ômni</div>
@@ -143,14 +169,33 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <h1 style="font-size:22px;font-weight:800;text-align:center;margin-bottom:2px">Mercado IA</h1>
     <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px">Grok · Drones · Tesla · NF-e</p>
 
-    <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px">Parceiros Ômni</div>
-    <div class="parceiros-scroll">
-      <div class="parceiro-card" onclick="filtrarLoja('Atacadão')"><div class="logo-p" style="background:linear-gradient(135deg,#2563eb,#0891b2)">AT</div><span style="font-size:11px;font-weight:600">Atacadão</span></div>
-      <div class="parceiro-card" onclick="filtrarLoja('Carrefour')"><div class="logo-p" style="background:linear-gradient(135deg,#059669,#10b981)">CF</div><span style="font-size:11px;font-weight:600">Carrefour</span></div>
-      <div class="parceiro-card" onclick="filtrarLoja('Tatico')"><div class="logo-p" style="background:linear-gradient(135deg,#d97706,#f59e0b)">TK</div><span style="font-size:11px;font-weight:600">Tatico</span></div>
-      <div class="parceiro-card" onclick="filtrarLoja('Passaí')"><div class="logo-p" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">PS</div><span style="font-size:11px;font-weight:600">Passaí</span></div>
-      <div class="parceiro-card" onclick="filtrarLoja('Assaí')"><div class="logo-p" style="background:linear-gradient(135deg,#e11d48,#f43f5e)">AS</div><span style="font-size:11px;font-weight:600">Assaí</span></div>
-      <div class="parceiro-card" onclick="filtrarLoja('')"><div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155)">OM</div><span style="font-size:11px;font-weight:600">Todos</span></div>
+    <!-- PARCEIROS PODEROSOS -->
+    <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Parceiros Ômni</div>
+    <div class="parceiros-scroll" id="carrossel-parceiros">
+      <div class="parceiro-card" data-loja="Atacadão" onclick="filtrarLoja('Atacadão', this)">
+        <div class="logo-p" style="background:linear-gradient(135deg,#1e3a8a,#2563eb)">AT</div>
+        <span>Atacadão</span>
+      </div>
+      <div class="parceiro-card" data-loja="Carrefour" onclick="filtrarLoja('Carrefour', this)">
+        <div class="logo-p" style="background:linear-gradient(135deg,#003087,#00a0e3)">CF</div>
+        <span>Carrefour</span>
+      </div>
+      <div class="parceiro-card" data-loja="Tatico" onclick="filtrarLoja('Tatico', this)">
+        <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c)">TK</div>
+        <span>Tatico</span>
+      </div>
+      <div class="parceiro-card" data-loja="Passaí" onclick="filtrarLoja('Passaí', this)">
+        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed)">PS</div>
+        <span>Passaí</span>
+      </div>
+      <div class="parceiro-card" data-loja="Assaí" onclick="filtrarLoja('Assaí', this)">
+        <div class="logo-p" style="background:linear-gradient(135deg,#E8592A,#FBDE4A);color:#1e293b;font-size:18px">☀</div>
+        <span>Assaí</span>
+      </div>
+      <div class="parceiro-card ativo" data-loja="" onclick="filtrarLoja('', this)">
+        <div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155)">OM</div>
+        <span>Todos</span>
+      </div>
     </div>
 
     <div class="card" style="display:flex;gap:8px;padding:6px;align-items:center;margin-bottom:12px">
@@ -352,7 +397,13 @@ function aprovarEnt(id){const e=entregadores.find(x=>x.id==id);if(e){e.status="a
 function abrirCarrinho(){document.getElementById("painel-carrinho").classList.add("aberto");document.getElementById("cart-overlay").classList.add("ativo")}
 function fecharCarrinho(){document.getElementById("painel-carrinho").classList.remove("aberto");document.getElementById("cart-overlay").classList.remove("ativo")}
 function toggleCarrinho(){document.getElementById("painel-carrinho").classList.contains("aberto")?fecharCarrinho():abrirCarrinho()}
-function filtrarLoja(l){lojaFiltro=l;toast(l?`Filtro: ${l}`:"Todos os parceiros")}
+
+function filtrarLoja(loja, el) {
+  lojaFiltro = loja;
+  document.querySelectorAll('.parceiro-card').forEach(c => c.classList.remove('ativo'));
+  if (el) el.classList.add('ativo');
+  toast(loja ? `Filtrado: ${loja}` : 'Todos os parceiros');
+}
 
 async function ativarIA(){
   const q=document.getElementById("produto").value.trim();if(!q)return toast("Digite o produto","err");
@@ -365,7 +416,8 @@ async function ativarIA(){
     if(!lista.length||q){
       lista=[{loja:"Atacadão",nome:q,preco:+(Math.random()*35+9).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",supermarket")},
              {loja:"Carrefour",nome:q+" Premium",preco:+(Math.random()*42+14).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",grocery")},
-             {loja:"Tatico",nome:q+" Família",preco:+(Math.random()*30+8).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",food")}];
+             {loja:"Tatico",nome:q+" Família",preco:+(Math.random()*30+8).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",food")},
+             {loja:"Assaí",nome:q+" Atacado",preco:+(Math.random()*28+7).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",market")}];
       if(lojaFiltro)lista=lista.filter(p=>p.loja===lojaFiltro);
     }
     lista.forEach((o,i)=>desenharCard(o,i===0));
@@ -456,7 +508,6 @@ async function iniciarHardStopPagamento(){
   await new Promise(r=>setTimeout(r,1000));
   log.innerHTML+=`<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado</li>`;
   document.getElementById("track-progress-bar").style.width="70%";
-  document.getElementById("track-icon")&&(document.getElementById("track-icon").className=`fas ${dIcon}`);
   document.getElementById("driver-card").style.display="block";
   document.getElementById("driver-name").textContent=dName;
   document.getElementById("driver-vehicle").textContent=dVehicle;
@@ -487,7 +538,7 @@ async function iniciarHardStopPagamento(){
   toast("Pedido "+codigo+" confirmado!");
 }
 
-function imprimirTermica(){const c=document.getElementById("nota-fiscal-box").innerHTML;const w=window.open("","_blank","width=320,height:600");w.document.write(`<html><head><title>NF-e</title><style>body{font-family:monospace;font-size:12px;padding:10px;width:280px}button{display:none}</style></head><body>${c}<script>setTimeout(()=>window.print(),400)<\/script></body></html>`);w.document.close()}
+function imprimirTermica(){const c=document.getElementById("nota-fiscal-box").innerHTML;const w=window.open("","_blank","width=320,height=600");w.document.write(`<html><head><title>NF-e</title><style>body{font-family:monospace;font-size:12px;padding:10px;width:280px}button{display:none}</style></head><body>${c}<script>setTimeout(()=>window.print(),400)<\/script></body></html>`);w.document.close()}
 
 function abrirMeusPedidos(){
   const lista=document.getElementById("lista-pedidos");
@@ -505,7 +556,6 @@ function abrirMeusPedidos(){
   document.getElementById("modal-pedidos").classList.add("ativo");
 }
 
-/* Avaliação por estrelas */
 document.getElementById("stars-avaliacao")?.addEventListener("click",e=>{
   const v=e.target.dataset?.v;if(!v)return;
   document.querySelectorAll("#stars-avaliacao i").forEach((s,i)=>{s.className=i<v?"fas fa-star":"far fa-star"});
