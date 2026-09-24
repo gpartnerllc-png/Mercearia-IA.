@@ -4,14 +4,15 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0"/>
 <meta name="theme-color" content="#2563eb"/>
-<title>Mercado IA · Ômni-Logística</title>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title>Mercado IA · Ômni-Logística Suprema</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 :root {
   --bg: #f0f5ff; --card: #ffffff; --text: #0f172a; --muted: #64748b;
   --blue: #2563eb; --cyan: #0891b2; --mint: #059669; --amber: #d97706; --rose: #e11d48;
-  --border: #dbe4f0; --r: 14px; --shadow: 0 8px 30px rgba(37,99,235,.08);
+  --border: #e2e8f0; --r: 14px; --shadow: 0 8px 30px rgba(37,99,235,.08);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -41,7 +42,29 @@ body {
 h1,h2,h3 { font-family: 'Sora', sans-serif; }
 .logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 20px; display: flex; align-items: center; gap: 8px; }
 .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--cyan), var(--mint)); }
-#painel-carrinho { position: fixed; top: 0; right: 0; width: 100%; max-width: 380px; height: 100%; background: var(--card); z-index: 50; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; border-left: 1px solid var(--border); box-shadow: -8px 0 30px rgba(0,0,0,.06); }
+
+/* ===== SACOLA MODERNA ===== */
+.cart-overlay { position: fixed; inset: 0; background: rgba(15,23,42,.45); backdrop-filter: blur(3px); z-index: 55; opacity: 0; visibility: hidden; transition: all .3s ease; }
+.cart-overlay.ativo { opacity: 1; visibility: visible; }
+#painel-carrinho { position: fixed; top: 0; right: 0; width: 100%; max-width: 400px; height: 100%; background: #fff; z-index: 60; transform: translateX(100%); transition: transform .32s cubic-bezier(.22,.61,.36,1); display: flex; flex-direction: column; box-shadow: -12px 0 40px rgba(0,0,0,.12); }
+#painel-carrinho.aberto { transform: translateX(0); }
+.cart-header { padding: 16px 18px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+.cart-body { flex: 1; overflow-y: auto; padding: 12px 16px; }
+.cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f5f9; align-items: flex-start; }
+.cart-item img { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; border: 1px solid #e5e7eb; flex-shrink: 0; }
+.cart-item-info { flex: 1; min-width: 0; }
+.cart-item-title { font-size: 13px; font-weight: 600; line-height: 1.3; margin-bottom: 4px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cart-item-meta { font-size: 11px; color: #64748b; margin-bottom: 6px; }
+.cart-item-price { font-size: 15px; font-weight: 800; color: #059669; }
+.qty-control { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.qty-btn { width: 28px; height: 28px; border-radius: 8px; border: 1.5px solid #e2e8f0; background: #fff; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #334155; }
+.qty-btn:hover { background: #f1f5f9; }
+.qty-value { font-size: 13px; font-weight: 700; min-width: 20px; text-align: center; }
+.cart-footer { padding: 14px 16px 18px; border-top: 1px solid #e5e7eb; background: #f8fafc; flex-shrink: 0; }
+.cart-row { display: flex; justify-content: space-between; font-size: 13px; color: #64748b; margin-bottom: 4px; }
+.cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e2e8f0; }
+.cart-total-value { font-size: 20px; font-weight: 800; color: #059669; }
+
 .modal-bg { display: none; position: fixed; inset: 0; background: rgba(15,23,42,.45); backdrop-filter: blur(4px); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
 .modal-bg.ativo { display: flex; }
 .modal { background: var(--card); border-radius: 18px; padding: 24px; width: 100%; max-width: 460px; box-shadow: var(--shadow); max-height: 90vh; overflow-y: auto; }
@@ -49,14 +72,14 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
 </head>
 <body>
 <div class="toast-area" id="toasts"></div>
+<div class="cart-overlay" id="cart-overlay" onclick="fecharCarrinho()"></div>
 
-<!-- LOGIN CLIENTE -->
+<!-- LOGIN -->
 <div id="tela-login" style="position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px;background:linear-gradient(135deg,#dbeafe,#f0fdf4,#faf5ff)">
   <div class="card" style="width:100%;max-width:400px;padding:32px;border-radius:20px">
     <div class="logo" style="margin-bottom:6px"><div class="logo-dot"></div> Mercado IA · Ômni</div>
     <h1 style="font-size:20px;margin:12px 0 4px">Mercado Local Inteligente</h1>
-    <p style="color:var(--muted);font-size:12px;margin-bottom:18px">Grok xAI + Drones + Tesla Robotaxi + Robôs</p>
-    
+    <p style="color:var(--muted);font-size:12px;margin-bottom:18px">Grok xAI · Drones · Tesla Robotaxi · Robôs</p>
     <div class="field"><label>Nome Completo</label><input id="login-nome" placeholder="Seu nome completo"></div>
     <div class="field"><label>WhatsApp (com DDD)</label><input id="login-telefone" type="tel" placeholder="61 9XXXX-XXXX"></div>
     <div class="field">
@@ -69,24 +92,18 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
         <option value="outra">Outra cidade do Brasil</option>
       </select>
     </div>
-    <button class="btn btn-prim btn-full" onclick="fazerCadastroCliente()" style="margin-top:10px">
-      <i class="fas fa-rocket"></i> Acessar com Grok AI
-    </button>
-    
+    <button class="btn btn-prim btn-full" onclick="fazerCadastroCliente()" style="margin-top:10px"><i class="fas fa-rocket"></i> Acessar com Grok AI</button>
     <div style="margin-top:18px;text-align:center">
-      <button class="btn btn-ghost" onclick="abrirCadastroEntregador()" style="font-size:12px;width:100%">
-        <i class="fas fa-motorcycle"></i> Quero ser Entregador / Drone / Robô
-      </button>
+      <button class="btn btn-ghost" onclick="abrirCadastroEntregador()" style="font-size:12px;width:100%"><i class="fas fa-motorcycle"></i> Quero ser Entregador / Drone / Robô</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL CADASTRO ENTREGADOR -->
+<!-- MODAL ENTREGADOR -->
 <div class="modal-bg" id="modal-entregador">
   <div class="modal">
     <h2 style="font-size:18px;margin-bottom:4px">Cadastro de Parceiro Ômni</h2>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:16px">CPF, CNPJ ou Certificado Digital • Drones • Tesla Robotaxi • Robôs</p>
-    
+    <p style="font-size:12px;color:var(--muted);margin-bottom:16px">CPF · CNPJ · Certificado Digital · Drones · Tesla · Robôs</p>
     <div class="field">
       <label>Tipo de Parceiro</label>
       <select id="ent-tipo">
@@ -96,23 +113,13 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
         <option value="empresa">Empresa de Logística (CNPJ)</option>
       </select>
     </div>
-    
-    <div class="field">
-      <label>Nome Completo / Razão Social</label>
-      <input id="ent-nome" placeholder="Nome ou Razão Social">
-    </div>
-    
+    <div class="field"><label>Nome Completo / Razão Social</label><input id="ent-nome" placeholder="Nome ou Razão Social"></div>
     <div class="field">
       <label>CPF ou CNPJ</label>
       <input id="ent-doc" placeholder="000.000.000-00 ou 00.000.000/0001-00" onblur="validarDocumento()">
       <div id="doc-status" style="font-size:11px;margin-top:4px"></div>
     </div>
-    
-    <div class="field">
-      <label>WhatsApp / Telefone</label>
-      <input id="ent-tel" type="tel" placeholder="61 9XXXX-XXXX">
-    </div>
-    
+    <div class="field"><label>WhatsApp / Telefone</label><input id="ent-tel" type="tel" placeholder="61 9XXXX-XXXX"></div>
     <div class="field">
       <label>Certificado Digital (opcional)</label>
       <select id="ent-cert">
@@ -121,13 +128,8 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
         <option value="A3">Certificado A3</option>
       </select>
     </div>
-    
-    <div class="field">
-      <label>Cidade de atuação (CEP base)</label>
-      <input id="ent-cep" placeholder="Digite o CEP" maxlength="9" onkeyup="buscarCEPEntregador(this.value)">
-    </div>
+    <div class="field"><label>CEP de atuação</label><input id="ent-cep" placeholder="Digite o CEP" maxlength="9" onkeyup="buscarCEPEntregador(this.value)"></div>
     <div id="ent-endereco" style="font-size:12px;color:var(--muted);margin-bottom:12px;min-height:18px"></div>
-    
     <div style="display:flex;gap:8px;margin-top:8px">
       <button class="btn btn-prim" onclick="salvarEntregador()" style="flex:1">Cadastrar Parceiro</button>
       <button class="btn btn-ghost" onclick="fecharCadastroEntregador()">Cancelar</button>
@@ -147,43 +149,41 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
     </div>
     <button onclick="toggleCarrinho()" class="btn btn-prim" style="position:relative;padding:9px 14px">
       <i class="fas fa-shopping-bag"></i> Sacola
-      <span id="contador-sacola" style="position:absolute;top:-7px;right:-7px;background:var(--rose);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;display:none">0</span>
+      <span id="contador-header" style="position:absolute;top:-7px;right:-7px;background:var(--rose);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:20px;display:none">0</span>
     </button>
   </header>
 
   <div style="max-width:860px;margin:0 auto;padding:20px 14px;width:100%">
     <h1 style="font-size:24px;font-weight:800;text-align:center;margin-bottom:2px">Mercado IA · Marketplace</h1>
-    <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px">
-      Grok xAI · Drones · Tesla Robotaxi · Robôs Autônomos
-    </p>
-    
+    <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px">Grok xAI · Drones · Tesla Robotaxi · Robôs Autônomos</p>
     <div class="card" style="display:flex;gap:8px;padding:6px;align-items:center">
       <i class="fas fa-search" style="color:var(--muted);margin-left:10px;font-size:14px"></i>
       <input id="produto" placeholder="Buscar produto com Grok AI..." style="flex:1;border:none;background:transparent;outline:none;font-size:14px;padding:9px 4px">
       <button class="btn btn-prim" onclick="ativarIA()" id="btn-buscar" style="padding:9px 16px">Buscar</button>
     </div>
-    
     <div id="status-container" style="text-align:center;margin:14px 0;display:none"></div>
     <div id="feed-ofertas" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:16px;padding-bottom:80px"></div>
   </div>
 </div>
 
-<!-- CARRINHO -->
+<!-- SACOLA -->
 <div id="painel-carrinho">
-  <div style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0">
-    <h2 style="font-size:16px"><i class="fas fa-shopping-bag" style="color:var(--cyan)"></i> Sacola</h2>
-    <button onclick="toggleCarrinho()" class="btn btn-ghost" style="padding:6px 9px"><i class="fas fa-times"></i></button>
+  <div class="cart-header">
+    <h2 style="font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px">
+      <i class="fas fa-shopping-bag" style="color:#0891b2"></i> Sacola
+      <span id="contador-sacola" style="background:#e11d48;color:#fff;font-size:11px;padding:2px 7px;border-radius:20px;display:none">0</span>
+    </h2>
+    <button onclick="fecharCarrinho()" class="btn btn-ghost" style="padding:6px 10px"><i class="fas fa-times"></i></button>
   </div>
-  <div id="itens-carrinho" style="flex:1;overflow-y:auto;padding:12px 14px"></div>
-  <div style="padding:12px 14px;border-top:1px solid var(--border);background:#f8fafc;flex-shrink:0">
-    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:3px"><span>Subtotal</span><span id="subtotal-carrinho">R$ 0,00</span></div>
-    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px"><span><i class="fas fa-robot" style="color:var(--cyan)"></i> Frete Ômni</span><span id="frete-carrinho" style="color:var(--amber);font-weight:700">A Calcular</span></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid var(--border)">
-      <span style="font-weight:700;text-transform:uppercase;font-size:11px">Total</span>
-      <span id="total-carrinho" style="font-size:20px;font-weight:800;color:var(--mint)">R$ 0,00</span>
+  <div class="cart-body" id="itens-carrinho"></div>
+  <div class="cart-footer">
+    <div class="cart-row"><span>Subtotal</span><span id="subtotal-carrinho">R$ 0,00</span></div>
+    <div class="cart-row"><span><i class="fas fa-robot" style="color:#0891b2"></i> Frete Ômni</span><span id="frete-carrinho" style="color:#d97706;font-weight:700">A Calcular</span></div>
+    <div class="cart-total-row">
+      <span style="font-weight:700;text-transform:uppercase;font-size:12px">Total</span>
+      <span class="cart-total-value" id="total-carrinho">R$ 0,00</span>
     </div>
-    
-    <div id="form-checkout" style="display:none;margin-top:12px">
+    <div id="form-checkout" style="display:none;margin-top:14px">
       <div class="field" style="margin-bottom:6px">
         <label>CEP (todas as cidades do Brasil)</label>
         <input id="cliente-cep" placeholder="00000-000" maxlength="9" onkeyup="buscarCEP_RTK(this.value)">
@@ -194,7 +194,6 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
       </div>
       <input id="cliente-bairro" placeholder="Bairro" style="width:100%;padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px;margin-bottom:4px">
       <div id="cliente-cidade-uf" style="font-size:11px;color:var(--muted);margin-bottom:8px;min-height:16px"></div>
-      
       <div class="field" style="margin-bottom:8px">
         <label>Forma de Pagamento</label>
         <select id="cliente-pagamento" onchange="mudarMetodoPagamento()">
@@ -205,14 +204,12 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
           <option value="Cartao_Loja">Cartão da Loja (Atacadão/Carrefour)</option>
         </select>
       </div>
-      
       <div id="box-pix" style="display:none;text-align:center;padding:10px;background:#ecfdf5;border-radius:10px;border:1px solid #a7f3d0;margin-bottom:8px">
         <p style="font-size:10px;font-weight:700;color:var(--mint);margin-bottom:6px"><i class="fab fa-pix"></i> PIX Grok</p>
         <img id="img-qrcode-pix" style="width:120px;height:120px;margin:0 auto 6px;display:block;border-radius:8px">
         <p id="pix-key-text" style="font-family:'JetBrains Mono';font-size:9px;word-break:break-all;color:var(--muted);line-height:1.3"></p>
         <button class="btn btn-mint" style="padding:6px 12px;font-size:11px;margin-top:4px" onclick="copiarChavePix()">Copiar Chave</button>
       </div>
-      
       <div id="box-cartao" style="display:none;margin-bottom:8px">
         <select id="bandeira-loja" style="display:none;width:100%;margin-bottom:6px;padding:9px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
           <option value="">Cartão da Loja</option>
@@ -227,10 +224,7 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
         </div>
       </div>
     </div>
-    
-    <button id="btn-finalizar" onclick="iniciarHardStopPagamento()" disabled class="btn btn-full" style="background:#94a3b8;color:#fff;margin-top:8px;padding:12px">
-      Adicione itens
-    </button>
+    <button id="btn-finalizar" onclick="iniciarHardStopPagamento()" disabled class="btn btn-full" style="background:#94a3b8;color:#fff;margin-top:12px;padding:13px;font-size:14px">Adicione itens</button>
   </div>
 </div>
 
@@ -238,21 +232,16 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
 <div id="modal-tracking" style="display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;padding:20px 16px">
   <div style="max-width:420px;margin:0 auto;text-align:center">
     <h2 style="font-size:22px;margin-bottom:2px">Status da Entrega</h2>
-    <p style="color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">
-      Status: <span id="track-status-text">Processando...</span>
-    </p>
-    
+    <p style="color:var(--cyan);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px">Status: <span id="track-status-text">Processando...</span></p>
     <div style="width:140px;height:140px;margin:0 auto 18px;position:relative;display:flex;align-items:center;justify-content:center">
       <div style="position:absolute;inset:0;background:rgba(8,145,178,.12);border-radius:50%;animation:radar 2s infinite"></div>
       <div style="width:70px;height:70px;background:var(--card);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);border:2px solid var(--cyan)">
         <i id="track-icon" class="fas fa-shield-alt" style="font-size:28px;color:var(--cyan)"></i>
       </div>
     </div>
-    
     <div style="height:5px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:16px">
       <div id="track-progress-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .9s"></div>
     </div>
-    
     <div id="telemetry-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;text-align:left;font-family:'JetBrains Mono';font-size:10px;margin-bottom:12px">
       <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> RTK + Telemetria Autônoma</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;color:var(--muted)">
@@ -260,13 +249,10 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
         <span>⏳ ETA: <b id="telemetry-eta" style="color:var(--text)">--</b> min</span>
       </div>
     </div>
-    
     <div id="driver-card" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;text-align:left;margin-bottom:16px">
       <p style="font-size:9px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Identificação Ômni</p>
       <div style="display:flex;gap:12px;align-items:center">
-        <div id="driver-avatar" style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#dbeafe,#ecfdf5);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--cyan)">
-          <i class="fas fa-car"></i>
-        </div>
+        <div id="driver-avatar" style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#dbeafe,#ecfdf5);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--cyan)"><i class="fas fa-car"></i></div>
         <div style="flex:1">
           <h4 id="driver-name" style="font-weight:700;font-size:14px">Carregando...</h4>
           <p id="driver-vehicle" style="font-size:11px;color:var(--muted)"></p>
@@ -275,511 +261,57 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
         <div style="background:#fef3c7;color:#b45309;padding:3px 8px;border-radius:16px;font-size:11px;font-weight:700"><i class="fas fa-star"></i> 4.98</div>
       </div>
     </div>
-    
     <div class="card" style="text-align:left;padding:12px">
       <ul id="track-log" style="list-style:none;font-size:12px;color:var(--muted);line-height:1.6"></ul>
     </div>
-    
-    <button id="btn-fechar-track" onclick="fecharRastreamento()" class="btn btn-prim btn-full" style="margin-top:16px;display:none">
-      Nova Compra
-    </button>
+    <button id="btn-fechar-track" onclick="fecharRastreamento()" class="btn btn-prim btn-full" style="margin-top:16px;display:none">Nova Compra</button>
   </div>
 </div>
 
-<style>
-@keyframes radar { 0% { transform: scale(0.55); opacity: 0.65; } 100% { transform: scale(1.7); opacity: 0; } }
-</style>
+<style>@keyframes radar{0%{transform:scale(.55);opacity:.65}100%{transform:scale(1.7);opacity:0}}</style>
 
 <script>
-/* ===================== ESTADO ===================== */
-let clienteLogado = null;
-let sacola = [];
-let valorFreteGlobal = 0;
-let pesoSacolaGlobal = 0;
-let coordenadasRTK = { lat: "", lng: "" };
-let payloadPixAtual = "";
-let timerSacola = null;
-let entregadores = JSON.parse(localStorage.getItem("mercadoIA_entregadores") || "[]");
+let clienteLogado=null,sacola=[],valorFreteGlobal=0,pesoSacolaGlobal=0,coordenadasRTK={lat:"",lng:""},payloadPixAtual="",timerSacola=null;
+let entregadores=JSON.parse(localStorage.getItem("mercadoIA_entregadores")||"[]");
+const nomesRegioes={"brasilia":"Brasília - DF","aguas_lindas":"Águas Lindas - GO","maracai":"Maracaí - SP","outra":"Brasil"};
 
-const nomesRegioes = {
-  "brasilia": "Brasília - DF",
-  "aguas_lindas": "Águas Lindas - GO",
-  "maracai": "Maracaí - SP",
-  "outra": "Brasil"
-};
+function toast(msg,tipo="ok"){const t=document.createElement("div");t.className=`toast toast-${tipo}`;t.innerHTML=msg;document.getElementById("toasts").appendChild(t);setTimeout(()=>t.remove(),3500)}
+function formatarMoeda(v){return Number(v).toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
 
-/* ===================== UTILITÁRIOS ===================== */
-function toast(msg, tipo="ok") {
-  const t = document.createElement("div");
-  t.className = `toast toast-${tipo}`;
-  t.innerHTML = msg;
-  document.getElementById("toasts").appendChild(t);
-  setTimeout(() => t.remove(), 3500);
-}
+function validarCPF(cpf){cpf=cpf.replace(/\D/g,"");if(cpf.length!==11||/^(\d)\1+$/.test(cpf))return false;let s=0;for(let i=0;i<9;i++)s+=parseInt(cpf.charAt(i))*(10-i);let r=(s*10)%11;if(r===10||r===11)r=0;if(r!==parseInt(cpf.charAt(9)))return false;s=0;for(let i=0;i<10;i++)s+=parseInt(cpf.charAt(i))*(11-i);r=(s*10)%11;if(r===10||r===11)r=0;return r===parseInt(cpf.charAt(10))}
+function validarCNPJ(cnpj){cnpj=cnpj.replace(/\D/g,"");if(cnpj.length!==14||/^(\d)\1+$/.test(cnpj))return false;let t=cnpj.length-2,n=cnpj.substring(0,t),d=cnpj.substring(t),s=0,p=t-7;for(let i=t;i>=1;i--){s+=n.charAt(t-i)*p--;if(p<2)p=9}let r=s%11<2?0:11-s%11;if(r!=d.charAt(0))return false;t++;n=cnpj.substring(0,t);s=0;p=t-7;for(let i=t;i>=1;i--){s+=n.charAt(t-i)*p--;if(p<2)p=9}r=s%11<2?0:11-s%11;return r==d.charAt(1)}
+function validarDocumento(){const doc=document.getElementById("ent-doc").value.replace(/\D/g,"");const st=document.getElementById("doc-status");if(doc.length===11){if(validarCPF(doc)){st.innerHTML='<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> CPF válido</span>';return true}else{st.innerHTML='<span style="color:var(--rose)"><i class="fas fa-times-circle"></i> CPF inválido</span>';return false}}else if(doc.length===14){if(validarCNPJ(doc)){st.innerHTML='<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> CNPJ válido</span>';return true}else{st.innerHTML='<span style="color:var(--rose)"><i class="fas fa-times-circle"></i> CNPJ inválido</span>';return false}}else{st.innerHTML='<span style="color:var(--muted)">Digite CPF (11) ou CNPJ (14 dígitos)</span>';return false}}
 
-function formatarMoeda(v) {
-  return Number(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-}
+function abrirCadastroEntregador(){document.getElementById("modal-entregador").classList.add("ativo")}
+function fecharCadastroEntregador(){document.getElementById("modal-entregador").classList.remove("ativo")}
+async function buscarCEPEntregador(cep){cep=cep.replace(/\D/g,"");if(cep.length>5)document.getElementById("ent-cep").value=cep.replace(/^(\d{5})(\d)/,"$1-$2");if(cep.length!==8){document.getElementById("ent-endereco").textContent="";return}document.getElementById("ent-endereco").textContent="Buscando...";try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const d=await r.json();if(d.erro)throw 0;document.getElementById("ent-endereco").innerHTML=`<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${d.logradouro||""} - ${d.bairro||""} - ${d.localidade}/${d.uf}`}catch{document.getElementById("ent-endereco").innerHTML='<span style="color:var(--rose)">CEP não encontrado</span>'}}
+function salvarEntregador(){const tipo=document.getElementById("ent-tipo").value,nome=document.getElementById("ent-nome").value.trim(),doc=document.getElementById("ent-doc").value.replace(/\D/g,""),tel=document.getElementById("ent-tel").value.trim(),cert=document.getElementById("ent-cert").value,cep=document.getElementById("ent-cep").value.trim();if(!nome||!tel||!cep)return toast("Preencha todos os campos","err");if(!validarDocumento())return toast("CPF ou CNPJ inválido","err");entregadores.push({id:Date.now(),tipo,nome,doc,tel,certificado:cert||null,cep,status:"pendente",criadoEm:new Date().toISOString()});localStorage.setItem("mercadoIA_entregadores",JSON.stringify(entregadores));toast("Cadastro enviado! Aguarde aprovação Grok AI");fecharCadastroEntregador();document.getElementById("ent-nome").value="";document.getElementById("ent-doc").value="";document.getElementById("ent-tel").value="";document.getElementById("ent-cep").value="";document.getElementById("ent-endereco").textContent="";document.getElementById("doc-status").textContent=""}
 
-/* ===================== VALIDAÇÃO CPF / CNPJ ===================== */
-function validarCPF(cpf) {
-  cpf = cpf.replace(/\D/g, "");
-  if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
-  let soma = 0;
-  for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
-  let resto = (soma * 10) % 11;
-  if (resto === 10 || resto === 11) resto = 0;
-  if (resto !== parseInt(cpf.charAt(9))) return false;
-  soma = 0;
-  for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
-  resto = (soma * 10) % 11;
-  if (resto === 10 || resto === 11) resto = 0;
-  return resto === parseInt(cpf.charAt(10));
-}
+window.onload=()=>{const s=localStorage.getItem("mercadoIA_cliente");if(s){clienteLogado=JSON.parse(s);liberarAcessoCliente()}};
+function fazerCadastroCliente(){const nome=document.getElementById("login-nome").value.trim(),tel=document.getElementById("login-telefone").value.trim(),regiao=document.getElementById("login-regiao").value;if(nome.length<3||tel.length<8||!regiao)return toast("Preencha todos os campos","err");clienteLogado={nome,telefone:tel,regiao};localStorage.setItem("mercadoIA_cliente",JSON.stringify(clienteLogado));liberarAcessoCliente();toast("Grok AI ativado 🚀")}
+function fazerLogout(){localStorage.removeItem("mercadoIA_cliente");clienteLogado=null;document.getElementById("app-principal").style.display="none";document.getElementById("tela-login").style.display="flex"}
+function liberarAcessoCliente(){document.getElementById("tela-login").style.display="none";document.getElementById("app-principal").style.display="flex";document.getElementById("display-nome-cliente").innerText=`Olá, ${clienteLogado.nome.split(" ")[0]}`;document.getElementById("display-regiao").innerHTML=`<i class="fas fa-map-pin"></i> ${nomesRegioes[clienteLogado.regiao]||"Brasil"}`}
 
-function validarCNPJ(cnpj) {
-  cnpj = cnpj.replace(/\D/g, "");
-  if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) return false;
-  let tamanho = cnpj.length - 2;
-  let numeros = cnpj.substring(0, tamanho);
-  let digitos = cnpj.substring(tamanho);
-  let soma = 0, pos = tamanho - 7;
-  for (let i = tamanho; i >= 1; i--) {
-    soma += numeros.charAt(tamanho - i) * pos--;
-    if (pos < 2) pos = 9;
-  }
-  let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-  if (resultado != digitos.charAt(0)) return false;
-  tamanho = tamanho + 1;
-  numeros = cnpj.substring(0, tamanho);
-  soma = 0; pos = tamanho - 7;
-  for (let i = tamanho; i >= 1; i--) {
-    soma += numeros.charAt(tamanho - i) * pos--;
-    if (pos < 2) pos = 9;
-  }
-  resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-  return resultado == digitos.charAt(1);
-}
+function abrirCarrinho(){document.getElementById("painel-carrinho").classList.add("aberto");document.getElementById("cart-overlay").classList.add("ativo")}
+function fecharCarrinho(){document.getElementById("painel-carrinho").classList.remove("aberto");document.getElementById("cart-overlay").classList.remove("ativo")}
+function toggleCarrinho(){document.getElementById("painel-carrinho").classList.contains("aberto")?fecharCarrinho():abrirCarrinho()}
 
-function validarDocumento() {
-  const doc = document.getElementById("ent-doc").value.replace(/\D/g, "");
-  const status = document.getElementById("doc-status");
-  if (doc.length === 11) {
-    if (validarCPF(doc)) {
-      status.innerHTML = '<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> CPF válido</span>';
-      return true;
-    } else {
-      status.innerHTML = '<span style="color:var(--rose)"><i class="fas fa-times-circle"></i> CPF inválido</span>';
-      return false;
-    }
-  } else if (doc.length === 14) {
-    if (validarCNPJ(doc)) {
-      status.innerHTML = '<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> CNPJ válido</span>';
-      return true;
-    } else {
-      status.innerHTML = '<span style="color:var(--rose)"><i class="fas fa-times-circle"></i> CNPJ inválido</span>';
-      return false;
-    }
-  } else {
-    status.innerHTML = '<span style="color:var(--muted)">Digite CPF (11) ou CNPJ (14 dígitos)</span>';
-    return false;
-  }
-}
+async function ativarIA(){const q=document.getElementById("produto").value.trim();if(!q)return toast("Digite o produto","err");const btn=document.getElementById("btn-buscar"),st=document.getElementById("status-container"),feed=document.getElementById("feed-ofertas");btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Grok...';st.style.display="block";st.innerHTML=`<div style="color:var(--cyan);font-size:12px;font-family:'JetBrains Mono'"><i class="fas fa-brain"></i> Grok xAI analisando estoque + imagens...</div>`;feed.innerHTML="";try{await new Promise(r=>setTimeout(r,1300));const img="https://source.unsplash.com/120x120/?";[{loja:"Atacadão",nome:q,preco:(Math.random()*35+9).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",supermarket")},{loja:"Carrefour",nome:q+" Premium",preco:(Math.random()*42+14).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",grocery")},{loja:"Tatico",nome:q+" Família",preco:(Math.random()*30+8).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",food")}].forEach((o,i)=>desenharCard(o,i===0));st.style.display="none";toast("Grok encontrou as melhores ofertas!")}catch{st.innerHTML=`<div style="color:var(--rose)">Erro na busca</div>`}finally{btn.disabled=false;btn.innerHTML="Buscar"}}
+function desenharCard(o,destaque){const feed=document.getElementById("feed-ofertas"),div=document.createElement("div");div.className="card";div.innerHTML=`<div style="display:flex;gap:10px"><img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=Produto'" style="width:68px;height:68px;border-radius:10px;object-fit:cover;border:1px solid var(--border);flex-shrink:0"><div style="flex:1;min-width:0"><div style="font-size:10px;font-weight:700;color:var(--cyan)">${o.loja} · EAN ${o.ean}</div><div style="font-weight:600;font-size:13px;line-height:1.25;margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:16px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</span><button class="btn btn-mint" style="padding:6px 10px;font-size:12px" onclick="adicionarAoCarrinho('${o.nome.replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')"><i class="fas fa-plus"></i></button></div>${destaque?'<div style="margin-top:5px;font-size:9px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço Grok</div>':''}</div></div>`;feed.appendChild(div)}
 
-/* ===================== CADASTRO ENTREGADOR ===================== */
-function abrirCadastroEntregador() {
-  document.getElementById("modal-entregador").classList.add("ativo");
-}
-function fecharCadastroEntregador() {
-  document.getElementById("modal-entregador").classList.remove("ativo");
-}
+function adicionarAoCarrinho(nome,loja,preco,img,ean){const ex=sacola.find(i=>i.ean===ean&&i.loja===loja);if(ex)ex.qtd=(ex.qtd||1)+1;else sacola.push({nome,loja,preco:+preco,peso:+(Math.random()*1.5+.3).toFixed(2),img,ean,qtd:1});atualizarInterfaceCarrinho();abrirCarrinho();if(timerSacola)clearTimeout(timerSacola);timerSacola=setTimeout(()=>fecharCarrinho(),2800);toast(`${nome.substring(0,28)}... adicionado`)}
+function alterarQtd(i,d){sacola[i].qtd=Math.max(1,(sacola[i].qtd||1)+d);if(sacola[i].qtd<=0)sacola.splice(i,1);atualizarInterfaceCarrinho()}
+function removerDoCarrinho(i){sacola.splice(i,1);atualizarInterfaceCarrinho()}
+function atualizarInterfaceCarrinho(){const cont=document.getElementById("itens-carrinho"),btn=document.getElementById("btn-finalizar"),form=document.getElementById("form-checkout");let sub=0;pesoSacolaGlobal=0;cont.innerHTML="";if(!sacola.length){cont.innerHTML=`<div style="text-align:center;padding:40px 20px;color:#94a3b8"><i class="fas fa-shopping-bag" style="font-size:32px;margin-bottom:12px;opacity:.4"></i><p style="font-size:14px">Sua sacola está vazia</p></div>`;document.getElementById("subtotal-carrinho").textContent="R$ 0,00";document.getElementById("frete-carrinho").textContent="A Calcular";document.getElementById("total-carrinho").textContent="R$ 0,00";document.getElementById("contador-sacola").style.display="none";document.getElementById("contador-header").style.display="none";btn.disabled=true;btn.style.background="#94a3b8";btn.innerHTML="Adicione itens";form.style.display="none";return}form.style.display="block";btn.disabled=false;const totalQtd=sacola.reduce((a,i)=>a+(i.qtd||1),0);document.getElementById("contador-sacola").style.display="inline-flex";document.getElementById("contador-sacola").textContent=totalQtd;document.getElementById("contador-header").style.display="block";document.getElementById("contador-header").textContent=totalQtd;sacola.forEach((item,i)=>{const q=item.qtd||1;sub+=item.preco*q;pesoSacolaGlobal+=item.peso*q;cont.innerHTML+=`<div class="cart-item"><img src="${item.img}" onerror="this.src='https://via.placeholder.com/64?text=Produto'"><div class="cart-item-info"><div class="cart-item-title">${item.nome}</div><div class="cart-item-meta">${item.loja} · EAN ${item.ean}</div><div class="cart-item-price">${formatarMoeda(item.preco)}</div><div class="qty-control"><button class="qty-btn" onclick="alterarQtd(${i},-1)">−</button><span class="qty-value">${q}</span><button class="qty-btn" onclick="alterarQtd(${i},1)">+</button><button onclick="removerDoCarrinho(${i})" style="margin-left:auto;background:none;border:none;color:#e11d48;cursor:pointer;font-size:14px"><i class="fas fa-trash-alt"></i></button></div></div></div>`});const total=sub+valorFreteGlobal;document.getElementById("subtotal-carrinho").textContent=formatarMoeda(sub);document.getElementById("frete-carrinho").textContent=valorFreteGlobal>0?formatarMoeda(valorFreteGlobal):"A Calcular";document.getElementById("total-carrinho").textContent=formatarMoeda(total);if(document.getElementById("cliente-pagamento").value==="Pix"){payloadPixAtual=gerarPayloadPix(total);document.getElementById("pix-key-text").textContent=payloadPixAtual;document.getElementById("img-qrcode-pix").src=`https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=${encodeURIComponent(payloadPixAtual)}`}btn.style.background="linear-gradient(135deg,#059669,#10b981)";btn.innerHTML='<i class="fas fa-lock"></i> Finalizar Pedido'}
 
-async function buscarCEPEntregador(cep) {
-  cep = cep.replace(/\D/g, "");
-  if (cep.length > 5) document.getElementById("ent-cep").value = cep.replace(/^(\d{5})(\d)/, "$1-$2");
-  if (cep.length !== 8) {
-    document.getElementById("ent-endereco").textContent = "";
-    return;
-  }
-  document.getElementById("ent-endereco").textContent = "Buscando...";
-  try {
-    const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const d = await res.json();
-    if (d.erro) throw new Error();
-    document.getElementById("ent-endereco").innerHTML = `<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${d.logradouro || ""} - ${d.bairro || ""} - ${d.localidade}/${d.uf}`;
-  } catch {
-    document.getElementById("ent-endereco").innerHTML = '<span style="color:var(--rose)">CEP não encontrado</span>';
-  }
-}
+async function buscarCEP_RTK(cep){cep=cep.replace(/\D/g,"");if(cep.length>5)document.getElementById("cliente-cep").value=cep.replace(/^(\d{5})(\d)/,"$1-$2");if(cep.length!==8){valorFreteGlobal=0;document.getElementById("cliente-cidade-uf").textContent="";atualizarInterfaceCarrinho();return}document.getElementById("cliente-rua").value="Buscando endereço...";document.getElementById("cliente-bairro").value="";document.getElementById("cliente-cidade-uf").textContent="";try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const d=await r.json();if(d.erro)throw 0;document.getElementById("cliente-rua").value=d.logradouro||"";document.getElementById("cliente-bairro").value=d.bairro||"";document.getElementById("cliente-cidade-uf").innerHTML=`<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${d.localidade} - ${d.uf}`;const coords={"DF":[-15.78,-47.93],"GO":[-16.68,-49.25],"SP":[-23.55,-46.63],"RJ":[-22.91,-43.17],"MG":[-19.92,-43.94],"BA":[-12.97,-38.50],"PR":[-25.43,-49.27],"RS":[-30.03,-51.23],"SC":[-27.59,-48.55],"PE":[-8.05,-34.88],"CE":[-3.72,-38.54],"PA":[-1.45,-48.50]};const base=coords[d.uf]||[-15.78,-47.93];coordenadasRTK={lat:(base[0]+(Math.random()*.08-.04)).toFixed(6),lng:(base[1]+(Math.random()*.08-.04)).toFixed(6)};const km=+(Math.random()*8+1.1).toFixed(1);valorFreteGlobal=+(km*1.85).toFixed(2);atualizarInterfaceCarrinho();toast("Endereço preenchido automaticamente")}catch{document.getElementById("cliente-rua").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--rose)">CEP inválido</span>';toast("CEP não encontrado","err")}}
+function gerarPayloadPix(v){const f=v.toFixed(2);return`0002012636br.gov.bcb.pix0114+5561982439081520400005303986540${f.length}${f}5802BR5916SANDXCDD OMNI6008BRASILIA62070503***6304${Math.floor(1000+Math.random()*9000)}`}
+function copiarChavePix(){navigator.clipboard.writeText(payloadPixAtual);toast("Chave PIX copiada!")}
+function mudarMetodoPagamento(){const p=document.getElementById("cliente-pagamento").value;document.getElementById("box-pix").style.display=p==="Pix"?"block":"none";document.getElementById("box-cartao").style.display=p.includes("Cartao")?"block":"none";document.getElementById("bandeira-loja").style.display=p==="Cartao_Loja"?"block":"none"}
 
-function salvarEntregador() {
-  const tipo = document.getElementById("ent-tipo").value;
-  const nome = document.getElementById("ent-nome").value.trim();
-  const doc = document.getElementById("ent-doc").value.replace(/\D/g, "");
-  const tel = document.getElementById("ent-tel").value.trim();
-  const cert = document.getElementById("ent-cert").value;
-  const cep = document.getElementById("ent-cep").value.trim();
-  
-  if (!nome || !tel || !cep) return toast("Preencha todos os campos obrigatórios", "err");
-  if (!validarDocumento()) return toast("CPF ou CNPJ inválido", "err");
-  
-  const novo = {
-    id: Date.now(),
-    tipo,
-    nome,
-    doc,
-    tel,
-    certificado: cert || null,
-    cep,
-    status: "pendente",
-    criadoEm: new Date().toISOString()
-  };
-  
-  entregadores.push(novo);
-  localStorage.setItem("mercadoIA_entregadores", JSON.stringify(entregadores));
-  
-  toast("Cadastro enviado! Aguarde aprovação Grok AI");
-  fecharCadastroEntregador();
-  
-  // Limpa formulário
-  document.getElementById("ent-nome").value = "";
-  document.getElementById("ent-doc").value = "";
-  document.getElementById("ent-tel").value = "";
-  document.getElementById("ent-cep").value = "";
-  document.getElementById("ent-endereco").textContent = "";
-  document.getElementById("doc-status").textContent = "";
-}
-
-/* ===================== LOGIN CLIENTE ===================== */
-window.onload = () => {
-  const s = localStorage.getItem("mercadoIA_cliente");
-  if (s) { clienteLogado = JSON.parse(s); liberarAcessoCliente(); }
-};
-
-function fazerCadastroCliente() {
-  const nome = document.getElementById("login-nome").value.trim();
-  const tel = document.getElementById("login-telefone").value.trim();
-  const regiao = document.getElementById("login-regiao").value;
-  if (nome.length < 3 || tel.length < 8 || !regiao) return toast("Preencha todos os campos", "err");
-  clienteLogado = { nome, telefone: tel, regiao };
-  localStorage.setItem("mercadoIA_cliente", JSON.stringify(clienteLogado));
-  liberarAcessoCliente();
-  toast("Grok AI ativado 🚀");
-}
-
-function fazerLogout() {
-  localStorage.removeItem("mercadoIA_cliente");
-  clienteLogado = null;
-  document.getElementById("app-principal").style.display = "none";
-  document.getElementById("tela-login").style.display = "flex";
-}
-
-function liberarAcessoCliente() {
-  document.getElementById("tela-login").style.display = "none";
-  document.getElementById("app-principal").style.display = "flex";
-  document.getElementById("display-nome-cliente").innerText = `Olá, ${clienteLogado.nome.split(" ")[0]}`;
-  document.getElementById("display-regiao").innerHTML = `<i class="fas fa-map-pin"></i> ${nomesRegioes[clienteLogado.regiao] || "Brasil"}`;
-}
-
-function toggleCarrinho() {
-  const p = document.getElementById("painel-carrinho");
-  p.style.transform = p.style.transform === "translateX(0px)" ? "translateX(100%)" : "translateX(0px)";
-}
-
-/* ===================== BUSCA GROK + IMAGENS ===================== */
-async function ativarIA() {
-  const query = document.getElementById("produto").value.trim();
-  if (!query) return toast("Digite o produto", "err");
-  
-  const btn = document.getElementById("btn-buscar");
-  const status = document.getElementById("status-container");
-  const feed = document.getElementById("feed-ofertas");
-  
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Grok...';
-  status.style.display = "block";
-  status.innerHTML = `<div style="color:var(--cyan);font-size:12px;font-family:'JetBrains Mono'"><i class="fas fa-brain"></i> Grok xAI analisando estoque + imagens reais...</div>`;
-  feed.innerHTML = "";
-  
-  try {
-    await new Promise(r => setTimeout(r, 1300));
-    const imgBase = "https://source.unsplash.com/120x120/?";
-    const ofertas = [
-      { loja: "Atacadão", nome: query, preco: (Math.random()*35+9).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",supermarket,product") },
-      { loja: "Carrefour", nome: query + " Premium", preco: (Math.random()*42+14).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",grocery") },
-      { loja: "Tatico", nome: query + " Família", preco: (Math.random()*30+8).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",food,pack") }
-    ];
-    ofertas.forEach((o, i) => desenharCard(o, i === 0));
-    status.style.display = "none";
-    toast("Grok encontrou as melhores ofertas!");
-  } catch(e) {
-    status.innerHTML = `<div style="color:var(--rose)">Erro na busca Grok</div>`;
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = "Buscar";
-  }
-}
-
-function desenharCard(o, destaque) {
-  const feed = document.getElementById("feed-ofertas");
-  const div = document.createElement("div");
-  div.className = "card";
-  div.innerHTML = `
-    <div style="display:flex;gap:10px">
-      <img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=Produto'" style="width:68px;height:68px;border-radius:10px;object-fit:cover;border:1px solid var(--border);flex-shrink:0">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:10px;font-weight:700;color:var(--cyan)">${o.loja} · EAN ${o.ean}</div>
-        <div style="font-weight:600;font-size:13px;line-height:1.25;margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div>
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-size:16px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</span>
-          <button class="btn btn-mint" style="padding:6px 10px;font-size:12px" onclick="adicionarAoCarrinho('${o.nome.replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')"><i class="fas fa-plus"></i></button>
-        </div>
-        ${destaque ? '<div style="margin-top:5px;font-size:9px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço Grok</div>' : ''}
-      </div>
-    </div>`;
-  feed.appendChild(div);
-}
-
-/* ===================== SACOLA ===================== */
-function adicionarAoCarrinho(nome, loja, preco, img, ean) {
-  const peso = +(Math.random()*1.6 + 0.3).toFixed(2);
-  sacola.push({ nome, loja, preco: +preco, peso, img, ean });
-  atualizarInterfaceCarrinho();
-  document.getElementById("painel-carrinho").style.transform = "translateX(0px)";
-  if (timerSacola) clearTimeout(timerSacola);
-  timerSacola = setTimeout(() => {
-    document.getElementById("painel-carrinho").style.transform = "translateX(100%)";
-  }, 2500);
-  toast(`${nome.substring(0,26)}... adicionado`);
-}
-
-function removerDoCarrinho(i) {
-  sacola.splice(i, 1);
-  atualizarInterfaceCarrinho();
-}
-
-function atualizarInterfaceCarrinho() {
-  const cont = document.getElementById("itens-carrinho");
-  const btn = document.getElementById("btn-finalizar");
-  const form = document.getElementById("form-checkout");
-  let sub = 0;
-  pesoSacolaGlobal = 0;
-  
-  cont.innerHTML = "";
-  if (sacola.length === 0) {
-    cont.innerHTML = '<div style="text-align:center;color:var(--muted);padding:30px 0;font-size:13px">Sacola vazia</div>';
-    document.getElementById("subtotal-carrinho").textContent = "R$ 0,00";
-    document.getElementById("frete-carrinho").textContent = "A Calcular";
-    document.getElementById("total-carrinho").textContent = "R$ 0,00";
-    document.getElementById("contador-sacola").style.display = "none";
-    btn.disabled = true;
-    btn.style.background = "#94a3b8";
-    btn.innerHTML = "Adicione itens";
-    form.style.display = "none";
-    return;
-  }
-  
-  form.style.display = "block";
-  btn.disabled = false;
-  document.getElementById("contador-sacola").style.display = "block";
-  document.getElementById("contador-sacola").textContent = sacola.length;
-  
-  sacola.forEach((item, i) => {
-    sub += item.preco;
-    pesoSacolaGlobal += item.peso;
-    cont.innerHTML += `
-      <div style="display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)">
-        <img src="${item.img}" style="width:42px;height:42px;border-radius:8px;object-fit:cover;flex-shrink:0">
-        <div style="flex:1;min-width:0">
-          <div style="font-size:9px;color:var(--cyan)">${item.loja}</div>
-          <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${item.nome}</div>
-          <div style="font-size:13px;font-weight:700;color:var(--mint)">${formatarMoeda(item.preco)}</div>
-        </div>
-        <button onclick="removerDoCarrinho(${i})" style="background:#fff1f2;border:none;color:var(--rose);width:28px;height:28px;border-radius:7px;cursor:pointer;flex-shrink:0"><i class="fas fa-trash" style="font-size:11px"></i></button>
-      </div>`;
-  });
-  
-  const total = sub + valorFreteGlobal;
-  document.getElementById("subtotal-carrinho").textContent = formatarMoeda(sub);
-  document.getElementById("frete-carrinho").textContent = valorFreteGlobal > 0 ? formatarMoeda(valorFreteGlobal) : "A Calcular";
-  document.getElementById("total-carrinho").textContent = formatarMoeda(total);
-  
-  if (document.getElementById("cliente-pagamento").value === "Pix") {
-    payloadPixAtual = gerarPayloadPix(total);
-    document.getElementById("pix-key-text").textContent = payloadPixAtual;
-    document.getElementById("img-qrcode-pix").src = `https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=${encodeURIComponent(payloadPixAtual)}`;
-  }
-  
-  btn.style.background = "linear-gradient(135deg,#059669,#10b981)";
-  btn.innerHTML = '<i class="fas fa-lock"></i> Finalizar Pedido';
-}
-
-/* ===================== CEP COMPLETO BRASIL ===================== */
-async function buscarCEP_RTK(cep) {
-  cep = cep.replace(/\D/g, "");
-  if (cep.length > 5) {
-    document.getElementById("cliente-cep").value = cep.replace(/^(\d{5})(\d)/, "$1-$2");
-  }
-  if (cep.length !== 8) {
-    valorFreteGlobal = 0;
-    document.getElementById("cliente-cidade-uf").textContent = "";
-    atualizarInterfaceCarrinho();
-    return;
-  }
-  
-  document.getElementById("cliente-rua").value = "Buscando endereço...";
-  document.getElementById("cliente-bairro").value = "";
-  document.getElementById("cliente-cidade-uf").textContent = "";
-  
-  try {
-    const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const d = await res.json();
-    if (d.erro) throw new Error("CEP não encontrado");
-    
-    document.getElementById("cliente-rua").value = d.logradouro || "";
-    document.getElementById("cliente-bairro").value = d.bairro || "";
-    document.getElementById("cliente-cidade-uf").innerHTML = `<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${d.localidade} - ${d.uf}`;
-    
-    // Coordenadas aproximadas por UF (melhor que aleatório puro)
-    const coordsUF = {
-      "DF": [-15.78, -47.93], "GO": [-16.68, -49.25], "SP": [-23.55, -46.63],
-      "RJ": [-22.91, -43.17], "MG": [-19.92, -43.94], "BA": [-12.97, -38.50],
-      "PR": [-25.43, -49.27], "RS": [-30.03, -51.23], "SC": [-27.59, -48.55],
-      "PE": [-8.05, -34.88], "CE": [-3.72, -38.54], "PA": [-1.45, -48.50]
-    };
-    const base = coordsUF[d.uf] || [-15.78, -47.93];
-    coordenadasRTK = {
-      lat: (base[0] + (Math.random()*0.08 - 0.04)).toFixed(6),
-      lng: (base[1] + (Math.random()*0.08 - 0.04)).toFixed(6)
-    };
-    
-    const km = +(Math.random()*8 + 1.1).toFixed(1);
-    valorFreteGlobal = +(km * 1.85).toFixed(2);
-    atualizarInterfaceCarrinho();
-    toast("Endereço preenchido automaticamente");
-  } catch(e) {
-    document.getElementById("cliente-rua").value = "";
-    document.getElementById("cliente-cidade-uf").innerHTML = '<span style="color:var(--rose)">CEP inválido ou não encontrado</span>';
-    toast("CEP não encontrado", "err");
-  }
-}
-
-function gerarPayloadPix(valor) {
-  const v = valor.toFixed(2);
-  return `0002012636br.gov.bcb.pix0114+5561982439081520400005303986540${v.length}${v}5802BR5916SANDXCDD OMNI6008BRASILIA62070503***6304${Math.floor(1000+Math.random()*9000)}`;
-}
-
-function copiarChavePix() {
-  navigator.clipboard.writeText(payloadPixAtual);
-  toast("Chave PIX copiada!");
-}
-
-function mudarMetodoPagamento() {
-  const pag = document.getElementById("cliente-pagamento").value;
-  document.getElementById("box-pix").style.display = pag === "Pix" ? "block" : "none";
-  document.getElementById("box-cartao").style.display = pag.includes("Cartao") ? "block" : "none";
-  document.getElementById("bandeira-loja").style.display = pag === "Cartao_Loja" ? "block" : "none";
-}
-
-/* ===================== PAGAMENTO + ENTREGA (DRONE / TESLA / ROBÔ) ===================== */
-async function iniciarHardStopPagamento() {
-  const cep = document.getElementById("cliente-cep").value.trim();
-  const rua = document.getElementById("cliente-rua").value.trim();
-  const numero = document.getElementById("cliente-numero").value.trim();
-  const pag = document.getElementById("cliente-pagamento").value;
-  
-  if (!cep || !rua || !numero || !pag) return toast("Preencha endereço e pagamento", "err");
-  if (valorFreteGlobal === 0) return toast("Aguarde o cálculo do frete", "err");
-  
-  const btn = document.getElementById("btn-finalizar");
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Processando...';
-  
-  await new Promise(r => setTimeout(r, 2000));
-  
-  document.getElementById("painel-carrinho").style.transform = "translateX(100%)";
-  document.getElementById("modal-tracking").style.display = "block";
-  
-  const log = document.getElementById("track-log");
-  const progress = document.getElementById("track-progress-bar");
-  const statusTxt = document.getElementById("track-status-text");
-  const icon = document.getElementById("track-icon");
-  
-  log.innerHTML = `<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado (Grok + Webhook)</li>`;
-  progress.style.width = "20%";
-  statusTxt.textContent = "Grok alocando parceiro autônomo...";
-  
-  // Escolha inteligente: Drone / Tesla Robotaxi / Robô / Moto
-  let dName, dVehicle, dDoc, dIconClass;
-  const dist = valorFreteGlobal / 1.85;
-  
-  if (pesoSacolaGlobal < 3.5 && dist < 8) {
-    dName = "Drone Ômni Air V5";
-    dVehicle = "Voo Autônomo RTK · Estilo Amazon";
-    dDoc = "FROTA DRONE · AZ-992X";
-    dIconClass = "fa-helicopter";
-    document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-helicopter" style="color:var(--cyan)"></i>';
-  } else if (pesoSacolaGlobal < 18 && dist < 15) {
-    dName = "Tesla Robotaxi Cybercab";
-    dVehicle = "Unsupervised Autonomous · FSD v13";
-    dDoc = "FROTA TESLA · BR-OMNI-01";
-    dIconClass = "fa-car";
-    document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-car" style="color:#e11d48"></i>';
-  } else if (pesoSacolaGlobal < 8) {
-    dName = "Robô de Entrega Ômni";
-    dVehicle = "Ground Robot · Navegação Autônoma";
-    dDoc = "FROTA ROBÔ · RB-441";
-    dIconClass = "fa-robot";
-    document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-robot" style="color:var(--mint)"></i>';
-  } else {
-    dName = ["Carlos Silva (MEI)", "Fernanda Lima (MEI)", "Roberto Alves (MEI)"][Math.floor(Math.random()*3)];
-    dVehicle = "Honda CG 160 · XYZ-9876";
-    dDoc = "CNPJ/CPF validado";
-    dIconClass = "fa-motorcycle";
-    document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-motorcycle" style="color:var(--blue)"></i>';
-  }
-  
-  await new Promise(r => setTimeout(r, 1300));
-  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Lojas separando itens (picking AI)</li>`;
-  progress.style.width = "45%";
-  statusTxt.textContent = "Picking em andamento";
-  
-  await new Promise(r => setTimeout(r, 1400));
-  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado por Grok</li>`;
-  progress.style.width = "70%";
-  icon.className = `fas ${dIconClass}`;
-  statusTxt.textContent = "A caminho da coleta";
-  
-  document.getElementById("driver-card").style.display = "block";
-  document.getElementById("driver-name").textContent = dName;
-  document.getElementById("driver-vehicle").textContent = dVehicle;
-  document.getElementById("driver-doc").textContent = dDoc;
-  
-  document.getElementById("telemetry-box").style.display = "block";
-  document.getElementById("telemetry-dist").textContent = dist.toFixed(1);
-  document.getElementById("telemetry-eta").textContent = Math.round(dist * 2.8);
-  
-  await new Promise(r => setTimeout(r, 1600));
-  log.innerHTML += `<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Coleta confirmada · Em rota autônoma</li>`;
-  progress.style.width = "100%";
-  statusTxt.textContent = "Em rota de entrega";
-  
-  document.getElementById("btn-fechar-track").style.display = "block";
-  toast("Pedido despachado com sucesso!");
-}
-
-function fecharRastreamento() {
-  document.getElementById("modal-tracking").style.display = "none";
-  sacola = [];
-  valorFreteGlobal = 0;
-  atualizarInterfaceCarrinho();
-  document.getElementById("feed-ofertas").innerHTML = "";
-  document.getElementById("produto").value = "";
-}
-
-document.getElementById("produto").addEventListener("keypress", e => {
-  if (e.key === "Enter") ativarIA();
-});
+async function iniciarHardStopPagamento(){const cep=document.getElementById("cliente-cep").value.trim(),rua=document.getElementById("cliente-rua").value.trim(),num=document.getElementById("cliente-numero").value.trim(),pag=document.getElementById("cliente-pagamento").value;if(!cep||!rua||!num||!pag)return toast("Preencha endereço e pagamento","err");if(!valorFreteGlobal)return toast("Aguarde o frete","err");const btn=document.getElementById("btn-finalizar");btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Processando...';await new Promise(r=>setTimeout(r,2000));fecharCarrinho();document.getElementById("modal-tracking").style.display="block";const log=document.getElementById("track-log"),prog=document.getElementById("track-progress-bar"),st=document.getElementById("track-status-text"),icon=document.getElementById("track-icon");log.innerHTML=`<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado (Grok + Webhook)</li>`;prog.style.width="20%";st.textContent="Grok alocando parceiro autônomo...";const dist=valorFreteGlobal/1.85;let dName,dVehicle,dDoc,dIcon;if(pesoSacolaGlobal<3.5&&dist<8){dName="Drone Ômni Air V5";dVehicle="Voo Autônomo RTK · Estilo Amazon";dDoc="FROTA DRONE · AZ-992X";dIcon="fa-helicopter";document.getElementById("driver-avatar").innerHTML='<i class="fas fa-helicopter" style="color:var(--cyan)"></i>'}else if(pesoSacolaGlobal<18&&dist<15){dName="Tesla Robotaxi Cybercab";dVehicle="Unsupervised Autonomous · FSD v13";dDoc="FROTA TESLA · BR-OMNI-01";dIcon="fa-car";document.getElementById("driver-avatar").innerHTML='<i class="fas fa-car" style="color:#e11d48"></i>'}else if(pesoSacolaGlobal<8){dName="Robô de Entrega Ômni";dVehicle="Ground Robot · Navegação Autônoma";dDoc="FROTA ROBÔ · RB-441";dIcon="fa-robot";document.getElementById("driver-avatar").innerHTML='<i class="fas fa-robot" style="color:var(--mint)"></i>'}else{dName=["Carlos Silva (MEI)","Fernanda Lima (MEI)","Roberto Alves (MEI)"][Math.floor(Math.random()*3)];dVehicle="Honda CG 160 · XYZ-9876";dDoc="CPF/CNPJ validado";dIcon="fa-motorcycle";document.getElementById("driver-avatar").innerHTML='<i class="fas fa-motorcycle" style="color:var(--blue)"></i>'}await new Promise(r=>setTimeout(r,1300));log.innerHTML+=`<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Lojas separando itens (picking AI)</li>`;prog.style.width="45%";st.textContent="Picking em andamento";await new Promise(r=>setTimeout(r,1400));log.innerHTML+=`<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado por Grok</li>`;prog.style.width="70%";icon.className=`fas ${dIcon}`;st.textContent="A caminho da coleta";document.getElementById("driver-card").style.display="block";document.getElementById("driver-name").textContent=dName;document.getElementById("driver-vehicle").textContent=dVehicle;document.getElementById("driver-doc").textContent=dDoc;document.getElementById("telemetry-box").style.display="block";document.getElementById("telemetry-dist").textContent=dist.toFixed(1);document.getElementById("telemetry-eta").textContent=Math.round(dist*2.8);await new Promise(r=>setTimeout(r,1600));log.innerHTML+=`<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Coleta confirmada · Em rota autônoma</li>`;prog.style.width="100%";st.textContent="Em rota de entrega";document.getElementById("btn-fechar-track").style.display="block";toast("Pedido despachado com sucesso!")}
+function fecharRastreamento(){document.getElementById("modal-tracking").style.display="none";sacola=[];valorFreteGlobal=0;atualizarInterfaceCarrinho();document.getElementById("feed-ofertas").innerHTML="";document.getElementById("produto").value=""}
+document.getElementById("produto").addEventListener("keypress",e=>{if(e.key==="Enter")ativarIA()});
 </script>
 </body>
 </html>
