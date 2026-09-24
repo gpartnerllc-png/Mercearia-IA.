@@ -47,8 +47,14 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 .parceiro-card{flex:0 0 100px;background:#fff;border:2px solid transparent;border-radius:16px;padding:12px 8px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);cursor:pointer;transition:all .25s ease}
 .parceiro-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(37,99,235,.12)}
 .parceiro-card.ativo{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
-.parceiro-card .logo-p{width:48px;height:48px;margin:0 auto 7px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;overflow:hidden}
+.parceiro-card .logo-p{width:52px;height:52px;margin:0 auto 8px;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.parceiro-card .logo-p img{width:100%;height:100%;object-fit:contain;padding:4px}
 .parceiro-card span{font-size:11px;font-weight:600;color:#334155}
+.brand-banner{display:none;height:90px;border-radius:16px;margin-bottom:16px;background-size:cover;background-position:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.brand-banner.ativo{display:block}
+.brand-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,transparent 70%)}
+.brand-banner img{position:absolute;right:20px;top:50%;transform:translateY(-50%);height:60px;opacity:.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+.brand-banner span{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:22px;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.4)}
 .codigo-pedido{background:linear-gradient(135deg,#dbeafe,#ecfdf5);border:2px solid var(--cyan);border-radius:14px;padding:14px;text-align:center;margin:12px 0}
 .codigo-pedido .num{font-size:26px;font-weight:800;letter-spacing:2px;color:var(--blue);font-family:'JetBrains Mono'}
 .nf-box{background:#fff;border:1px dashed #94a3b8;border-radius:12px;padding:14px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.45;margin:12px 0}
@@ -162,34 +168,47 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <h1 style="font-size:22px;font-weight:800;text-align:center;margin-bottom:2px">Mercado IA</h1>
     <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px">Grok · Drones · Tesla · NF-e</p>
 
-    <!-- PARCEIROS COM LOGOS MELHORES -->
+    <!-- PARCEIROS COM LOGOS REAIS -->
     <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Parceiros Ômni</div>
     <div class="parceiros-scroll" id="carrossel-parceiros">
       <div class="parceiro-card" data-loja="Atacadão" onclick="filtrarLoja('Atacadão', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#1e3a8a,#2563eb);font-size:18px">🛒</div>
+        <div class="logo-p">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Atacad%C3%A3o_logo.svg/200px-Atacad%C3%A3o_logo.svg.png" 
+               onerror="this.src='https://via.placeholder.com/52/F66420/ffffff?text=AT'" alt="Atacadão">
+        </div>
         <span>Atacadão</span>
       </div>
       <div class="parceiro-card" data-loja="Carrefour" onclick="filtrarLoja('Carrefour', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#003087,#00a0e3);font-size:18px">🔵</div>
+        <div class="logo-p">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Carrefour_logo.svg/200px-Carrefour_logo.svg.png" 
+               onerror="this.src='https://via.placeholder.com/52/003087/ffffff?text=CF'" alt="Carrefour">
+        </div>
         <span>Carrefour</span>
       </div>
       <div class="parceiro-card" data-loja="Tatico" onclick="filtrarLoja('Tatico', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);font-size:18px">🍊</div>
+        <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);color:#fff;font-size:16px;font-weight:800">TK</div>
         <span>Tatico</span>
       </div>
       <div class="parceiro-card" data-loja="Passaí" onclick="filtrarLoja('Passaí', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);font-size:18px">🟣</div>
+        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;font-size:16px;font-weight:800">PS</div>
         <span>Passaí</span>
       </div>
       <div class="parceiro-card" data-loja="Assaí" onclick="filtrarLoja('Assaí', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#E8592A,#FBDE4A);color:#1e293b;font-size:20px">☀</div>
+        <div class="logo-p" style="background:#E8592A">
+          <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" 
+               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Assa%C3%AD_Atacadista_logo_2010.svg/200px-Assa%C3%AD_Atacadista_logo_2010.svg.png'" 
+               alt="Assaí" style="padding:2px">
+        </div>
         <span>Assaí</span>
       </div>
       <div class="parceiro-card ativo" data-loja="" onclick="filtrarLoja('', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155);font-size:16px">OM</div>
+        <div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155);color:#fff;font-size:15px;font-weight:800">OM</div>
         <span>Todos</span>
       </div>
     </div>
+
+    <!-- Banner de marca -->
+    <div id="brand-banner" class="brand-banner"></div>
 
     <div class="card" style="display:flex;gap:8px;padding:6px;align-items:center;margin-bottom:12px">
       <i class="fas fa-search" style="color:var(--muted);margin-left:10px"></i>
@@ -389,7 +408,6 @@ function salvarEntregador(){const tipo=document.getElementById("ent-tipo").value
 window.onload=()=>{
   const s=localStorage.getItem("mia_cliente");
   if(s){clienteLogado=JSON.parse(s);liberarAcesso();
-    // Verifica se tem sacola salva
     const sacolaSalva=JSON.parse(localStorage.getItem("mia_sacola")||"[]");
     if(sacolaSalva.length>0){
       document.getElementById("texto-restaurar").textContent=`Olá ${clienteLogado.nome.split(" ")[0]}! Você tinha ${sacolaSalva.length} item(ns) na sacola. Deseja continuar?`;
@@ -427,6 +445,50 @@ function filtrarLoja(loja, el) {
   lojaFiltro = loja;
   document.querySelectorAll('.parceiro-card').forEach(c => c.classList.remove('ativo'));
   if (el) el.classList.add('ativo');
+
+  const banner = document.getElementById('brand-banner');
+  
+  const marcas = {
+    "Assaí": {
+      bg: "linear-gradient(135deg, #E8592A 0%, #FBDE4A 100%)",
+      logo: "https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png",
+      nome: "Assaí Atacadista"
+    },
+    "Atacadão": {
+      bg: "linear-gradient(135deg, #F66420 0%, #009933 100%)",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Atacad%C3%A3o_logo.svg/200px-Atacad%C3%A3o_logo.svg.png",
+      nome: "Atacadão"
+    },
+    "Carrefour": {
+      bg: "linear-gradient(135deg, #003087 0%, #00a0e3 100%)",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Carrefour_logo.svg/200px-Carrefour_logo.svg.png",
+      nome: "Carrefour"
+    },
+    "Tatico": {
+      bg: "linear-gradient(135deg, #c2410c 0%, #ea580c 100%)",
+      logo: "",
+      nome: "Tatico"
+    },
+    "Passaí": {
+      bg: "linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%)",
+      logo: "",
+      nome: "Passaí"
+    }
+  };
+
+  if (loja && marcas[loja]) {
+    const m = marcas[loja];
+    banner.style.background = m.bg;
+    banner.innerHTML = `
+      <span>${m.nome}</span>
+      ${m.logo ? `<img src="${m.logo}" onerror="this.style.display='none'">` : ''}
+    `;
+    banner.classList.add('ativo');
+  } else {
+    banner.classList.remove('ativo');
+    banner.innerHTML = '';
+  }
+
   toast(loja ? `Filtrado: ${loja}` : 'Todos os parceiros');
 }
 
@@ -519,7 +581,6 @@ async function iniciarHardStopPagamento(){
   const pedido={codigo,itens:[...sacola],total,frete:valorFreteGlobal,endereco:`${rua}, ${num}`,cep,pag,driver:dName,driverTel:dTel,data:new Date().toISOString(),status:"Em rota",avaliacao:0,clienteNome:clienteLogado.nome,clienteTel:clienteLogado.telefone};
   pedidos.unshift(pedido);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos.slice(0,30)));
 
-  // limpa sacola após pedido
   sacola=[];valorFreteGlobal=0;salvarSacola();
 
   document.getElementById("modal-tracking").style.display="block";
@@ -543,7 +604,6 @@ async function iniciarHardStopPagamento(){
   document.getElementById("btn-whatsapp-entregador").href=`https://wa.me/${dTel}?text=Olá! Pedido ${codigo} - Mercado IA`;
   document.getElementById("btn-whatsapp-loja").href=`https://wa.me/5561982439081?text=Pedido ${codigo}`;
 
-  // Contato do Cliente
   document.getElementById("cliente-contato-box").style.display="block";
   document.getElementById("cliente-nome-track").textContent=clienteLogado.nome;
   document.getElementById("cliente-tel-track").textContent=clienteLogado.telefone;
