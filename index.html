@@ -168,9 +168,10 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <h1 style="font-size:22px;font-weight:800;text-align:center;margin-bottom:2px">Mercado IA</h1>
     <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px">Grok · Drones · Tesla · NF-e</p>
 
-    <!-- PARCEIROS COM LOGOS REAIS -->
+    <!-- PARCEIROS COM LOGOS REAIS DE ALTA QUALIDADE -->
     <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Parceiros Ômni</div>
     <div class="parceiros-scroll" id="carrossel-parceiros">
+      <!-- Atacadão -->
       <div class="parceiro-card" data-loja="Atacadão" onclick="filtrarLoja('Atacadão', this)">
         <div class="logo-p">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Atacad%C3%A3o_logo.svg/200px-Atacad%C3%A3o_logo.svg.png" 
@@ -178,6 +179,8 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
         </div>
         <span>Atacadão</span>
       </div>
+
+      <!-- Carrefour -->
       <div class="parceiro-card" data-loja="Carrefour" onclick="filtrarLoja('Carrefour', this)">
         <div class="logo-p">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Carrefour_logo.svg/200px-Carrefour_logo.svg.png" 
@@ -185,14 +188,20 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
         </div>
         <span>Carrefour</span>
       </div>
+
+      <!-- Tatico -->
       <div class="parceiro-card" data-loja="Tatico" onclick="filtrarLoja('Tatico', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);color:#fff;font-size:16px;font-weight:800">TK</div>
         <span>Tatico</span>
       </div>
+
+      <!-- Passaí -->
       <div class="parceiro-card" data-loja="Passaí" onclick="filtrarLoja('Passaí', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;font-size:16px;font-weight:800">PS</div>
+        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;font-size:15px;font-weight:800">PS</div>
         <span>Passaí</span>
       </div>
+
+      <!-- Assaí -->
       <div class="parceiro-card" data-loja="Assaí" onclick="filtrarLoja('Assaí', this)">
         <div class="logo-p" style="background:#E8592A">
           <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" 
@@ -201,6 +210,8 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
         </div>
         <span>Assaí</span>
       </div>
+
+      <!-- Todos -->
       <div class="parceiro-card ativo" data-loja="" onclick="filtrarLoja('', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155);color:#fff;font-size:15px;font-weight:800">OM</div>
         <span>Todos</span>
@@ -492,26 +503,111 @@ function filtrarLoja(loja, el) {
   toast(loja ? `Filtrado: ${loja}` : 'Todos os parceiros');
 }
 
+/* ========== PRODUTOS REALISTAS ========== */
+const produtosBase = {
+  "Atacadão": [
+    {nome:"Arroz Tipo 1 5kg", preco:22.90, img:"https://source.unsplash.com/120x120/?rice,bag"},
+    {nome:"Feijão Carioca 1kg", preco:8.49, img:"https://source.unsplash.com/120x120/?beans"},
+    {nome:"Óleo de Soja 900ml", preco:6.99, img:"https://source.unsplash.com/120x120/?cooking,oil"},
+    {nome:"Açúcar Cristal 1kg", preco:4.29, img:"https://source.unsplash.com/120x120/?sugar"},
+    {nome:"Café Torrado 500g", preco:18.90, img:"https://source.unsplash.com/120x120/?coffee"}
+  ],
+  "Carrefour": [
+    {nome:"Leite Integral 1L", preco:5.49, img:"https://source.unsplash.com/120x120/?milk"},
+    {nome:"Pão de Forma Integral", preco:9.90, img:"https://source.unsplash.com/120x120/?bread"},
+    {nome:"Queijo Mussarela 400g", preco:24.90, img:"https://source.unsplash.com/120x120/?cheese"},
+    {nome:"Iogurte Natural 170g", preco:3.49, img:"https://source.unsplash.com/120x120/?yogurt"},
+    {nome:"Manteiga 200g", preco:12.90, img:"https://source.unsplash.com/120x120/?butter"}
+  ],
+  "Assaí": [
+    {nome:"Macarrão Espaguete 500g", preco:3.99, img:"https://source.unsplash.com/120x120/?pasta"},
+    {nome:"Molho de Tomate 340g", preco:2.79, img:"https://source.unsplash.com/120x120/?tomato,sauce"},
+    {nome:"Biscoito Recheado 140g", preco:2.49, img:"https://source.unsplash.com/120x120/?cookie"},
+    {nome:"Sabão em Pó 1kg", preco:14.90, img:"https://source.unsplash.com/120x120/?detergent"},
+    {nome:"Papel Higiênico 12un", preco:16.90, img:"https://source.unsplash.com/120x120/?toilet,paper"}
+  ],
+  "Tatico": [
+    {nome:"Refrigerante 2L", preco:8.99, img:"https://source.unsplash.com/120x120/?soda"},
+    {nome:"Água Mineral 1,5L", preco:2.49, img:"https://source.unsplash.com/120x120/?water,bottle"},
+    {nome:"Suco de Laranja 1L", preco:7.90, img:"https://source.unsplash.com/120x120/?orange,juice"}
+  ],
+  "Passaí": [
+    {nome:"Shampoo 350ml", preco:15.90, img:"https://source.unsplash.com/120x120/?shampoo"},
+    {nome:"Creme Dental 90g", preco:4.99, img:"https://source.unsplash.com/120x120/?toothpaste"},
+    {nome:"Desodorante 150ml", preco:12.90, img:"https://source.unsplash.com/120x120/?deodorant"}
+  ]
+};
+
 async function ativarIA(){
-  const q=document.getElementById("produto").value.trim();if(!q)return toast("Digite o produto","err");
+  const q=document.getElementById("produto").value.trim();
+  if(!q) return toast("Digite o produto","err");
+  
   const btn=document.getElementById("btn-buscar"),st=document.getElementById("status-container"),feed=document.getElementById("feed-ofertas");
   btn.disabled=true;btn.innerHTML='<span class="spinner"></span>';st.style.display="block";st.innerHTML='<div style="color:var(--cyan);font-size:12px"><i class="fas fa-brain"></i> Grok analisando...</div>';feed.innerHTML="";
+  
   try{
-    await new Promise(r=>setTimeout(r,1100));
-    const img="https://source.unsplash.com/120x120/?";
-    let lista=produtosAdmin.filter(p=>!lojaFiltro||p.loja===lojaFiltro);
-    if(!lista.length||q){
-      lista=[{loja:"Atacadão",nome:q,preco:+(Math.random()*35+9).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",supermarket")},
-             {loja:"Carrefour",nome:q+" Premium",preco:+(Math.random()*42+14).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",grocery")},
-             {loja:"Tatico",nome:q+" Família",preco:+(Math.random()*30+8).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",food")},
-             {loja:"Assaí",nome:q+" Atacado",preco:+(Math.random()*28+7).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:img+encodeURIComponent(q+",market")}];
-      if(lojaFiltro)lista=lista.filter(p=>p.loja===lojaFiltro);
+    await new Promise(r=>setTimeout(r,900));
+    
+    let lista = [];
+    
+    // Se tem filtro de loja, prioriza produtos daquela loja
+    if(lojaFiltro && produtosBase[lojaFiltro]){
+      lista = produtosBase[lojaFiltro].map(p => ({
+        loja: lojaFiltro,
+        nome: q + " - " + p.nome,
+        preco: +(p.preco * (0.9 + Math.random()*0.3)).toFixed(2),
+        ean: "789" + Math.floor(Math.random()*1e7),
+        img: p.img
+      }));
+    } else {
+      // Mistura de todas as lojas
+      Object.keys(produtosBase).forEach(loja => {
+        const p = produtosBase[loja][Math.floor(Math.random()*produtosBase[loja].length)];
+        lista.push({
+          loja,
+          nome: q + " - " + p.nome,
+          preco: +(p.preco * (0.85 + Math.random()*0.4)).toFixed(2),
+          ean: "789" + Math.floor(Math.random()*1e7),
+          img: p.img
+        });
+      });
     }
-    lista.forEach((o,i)=>desenharCard(o,i===0));
-    st.style.display="none";toast("Ofertas encontradas!");
-  }catch{st.innerHTML='<div style="color:var(--rose)">Erro</div>'}finally{btn.disabled=false;btn.innerHTML="Buscar"}
+
+    // Adiciona produtos cadastrados pelo admin se houver
+    const adminFilt = produtosAdmin.filter(p => !lojaFiltro || p.loja === lojaFiltro);
+    if(adminFilt.length) lista = [...adminFilt, ...lista];
+
+    lista.forEach((o,i) => desenharCard(o, i===0));
+    st.style.display="none";
+    toast("Ofertas encontradas!");
+  }catch(e){
+    st.innerHTML='<div style="color:var(--rose)">Erro na busca</div>';
+  }finally{
+    btn.disabled=false;btn.innerHTML="Buscar";
+  }
 }
-function desenharCard(o,destaque){const feed=document.getElementById("feed-ofertas"),div=document.createElement("div");div.className="card";div.innerHTML=`<div style="display:flex;gap:10px"><img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=P'" style="width:64px;height:64px;border-radius:10px;object-fit:cover;border:1px solid var(--border)"><div style="flex:1;min-width:0"><div style="font-size:10px;font-weight:700;color:var(--cyan)">${o.loja}</div><div style="font-weight:600;font-size:13px;margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:15px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</span><button class="btn btn-mint" style="padding:6px 10px;font-size:12px" onclick="adicionarAoCarrinho('${String(o.nome).replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')"><i class="fas fa-plus"></i></button></div>${destaque?'<div style="margin-top:4px;font-size:9px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço</div>':''}</div></div>`;feed.appendChild(div)}
+
+function desenharCard(o,destaque){
+  const feed=document.getElementById("feed-ofertas");
+  const div=document.createElement("div");
+  div.className="card";
+  div.innerHTML=`
+    <div style="display:flex;gap:10px">
+      <img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=P'" style="width:64px;height:64px;border-radius:10px;object-fit:cover;border:1px solid var(--border)">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:10px;font-weight:700;color:var(--cyan)">${o.loja}</div>
+        <div style="font-weight:600;font-size:13px;margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span style="font-size:15px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</span>
+          <button class="btn btn-mint" style="padding:6px 10px;font-size:12px" onclick="adicionarAoCarrinho('${String(o.nome).replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+        ${destaque?'<div style="margin-top:4px;font-size:9px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço</div>':''}
+      </div>
+    </div>`;
+  feed.appendChild(div);
+}
 
 function adicionarAoCarrinho(nome,loja,preco,img,ean){const ex=sacola.find(i=>i.ean===ean&&i.loja===loja);if(ex)ex.qtd=(ex.qtd||1)+1;else sacola.push({nome,loja,preco:+preco,peso:+(Math.random()*1.4+.3).toFixed(2),img,ean,qtd:1});salvarSacola();atualizarInterfaceCarrinho();abrirCarrinho();if(timerSacola)clearTimeout(timerSacola);timerSacola=setTimeout(()=>fecharCarrinho(),2800);toast(`${nome.substring(0,24)}... adicionado`)}
 function alterarQtd(i,d){sacola[i].qtd=Math.max(1,(sacola[i].qtd||1)+d);if(sacola[i].qtd<=0)sacola.splice(i,1);salvarSacola();atualizarInterfaceCarrinho()}
