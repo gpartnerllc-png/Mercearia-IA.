@@ -4,39 +4,22 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0"/>
 <meta name="theme-color" content="#2563eb"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
 <title>Mercado IA · Ômni-Logística</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
 :root {
-  --bg: #f0f5ff;
-  --card: #ffffff;
-  --text: #0f172a;
-  --muted: #64748b;
-  --blue: #2563eb;
-  --cyan: #0891b2;
-  --mint: #059669;
-  --amber: #d97706;
-  --rose: #e11d48;
-  --border: #dbe4f0;
-  --r: 14px;
-  --shadow: 0 8px 30px rgba(37,99,235,.08);
+  --bg: #f0f5ff; --card: #ffffff; --text: #0f172a; --muted: #64748b;
+  --blue: #2563eb; --cyan: #0891b2; --mint: #059669; --amber: #d97706; --rose: #e11d48;
+  --border: #dbe4f0; --r: 14px; --shadow: 0 8px 30px rgba(37,99,235,.08);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', sans-serif;
-  min-height: 100vh;
+  background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh;
   background-image: radial-gradient(ellipse at 10% 0%, rgba(37,99,235,.07) 0%, transparent 50%),
                     radial-gradient(ellipse at 90% 100%, rgba(5,150,105,.05) 0%, transparent 50%);
 }
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 11px 16px; border-radius: 11px; font-family: 'Sora', sans-serif;
-  font-weight: 700; font-size: 13px; cursor: pointer; border: none; transition: .2s;
-}
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 11px 16px; border-radius: 11px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 13px; cursor: pointer; border: none; transition: .2s; }
 .btn-prim { background: linear-gradient(135deg, #2563eb, #0891b2); color: #fff; }
 .btn-prim:hover { transform: translateY(-1px); }
 .btn-mint { background: linear-gradient(135deg, #059669, #10b981); color: #fff; }
@@ -44,15 +27,9 @@ body {
 .btn-full { width: 100%; }
 .field { margin-bottom: 10px; }
 .field label { display: block; font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
-.field input, .field select {
-  width: 100%; background: #f8fafc; border: 1.5px solid var(--border); border-radius: 10px;
-  padding: 10px 12px; color: var(--text); font-size: 13px; font-family: inherit;
-}
+.field input, .field select { width: 100%; background: #f8fafc; border: 1.5px solid var(--border); border-radius: 10px; padding: 10px 12px; color: var(--text); font-size: 13px; font-family: inherit; }
 .field input:focus, .field select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.12); }
-.card {
-  background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
-  padding: 14px; box-shadow: var(--shadow); transition: .2s;
-}
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 14px; box-shadow: var(--shadow); transition: .2s; }
 .card:hover { transform: translateY(-2px); }
 .toast-area { position: fixed; bottom: 20px; right: 16px; z-index: 999; display: flex; flex-direction: column; gap: 8px; }
 .toast { padding: 12px 16px; border-radius: 11px; font-size: 13px; font-weight: 600; max-width: 320px; animation: slideIn .25s ease; box-shadow: var(--shadow); }
@@ -64,22 +41,22 @@ body {
 h1,h2,h3 { font-family: 'Sora', sans-serif; }
 .logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 20px; display: flex; align-items: center; gap: 8px; }
 .logo-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--cyan), var(--mint)); }
-#painel-carrinho {
-  position: fixed; top: 0; right: 0; width: 100%; max-width: 380px; height: 100%;
-  background: var(--card); z-index: 50; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1);
-  display: flex; flex-direction: column; border-left: 1px solid var(--border); box-shadow: -8px 0 30px rgba(0,0,0,.06);
-}
+#painel-carrinho { position: fixed; top: 0; right: 0; width: 100%; max-width: 380px; height: 100%; background: var(--card); z-index: 50; transform: translateX(100%); transition: transform .28s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; border-left: 1px solid var(--border); box-shadow: -8px 0 30px rgba(0,0,0,.06); }
+.modal-bg { display: none; position: fixed; inset: 0; background: rgba(15,23,42,.45); backdrop-filter: blur(4px); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
+.modal-bg.ativo { display: flex; }
+.modal { background: var(--card); border-radius: 18px; padding: 24px; width: 100%; max-width: 460px; box-shadow: var(--shadow); max-height: 90vh; overflow-y: auto; }
 </style>
 </head>
 <body>
 <div class="toast-area" id="toasts"></div>
 
-<!-- LOGIN -->
+<!-- LOGIN CLIENTE -->
 <div id="tela-login" style="position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px;background:linear-gradient(135deg,#dbeafe,#f0fdf4,#faf5ff)">
   <div class="card" style="width:100%;max-width:400px;padding:32px;border-radius:20px">
     <div class="logo" style="margin-bottom:6px"><div class="logo-dot"></div> Mercado IA · Ômni</div>
     <h1 style="font-size:20px;margin:12px 0 4px">Mercado Local Inteligente</h1>
-    <p style="color:var(--muted);font-size:12px;margin-bottom:18px">Grok xAI + Tesla Robotaxi + SandxCDD</p>
+    <p style="color:var(--muted);font-size:12px;margin-bottom:18px">Grok xAI + Drones + Tesla Robotaxi + Robôs</p>
+    
     <div class="field"><label>Nome Completo</label><input id="login-nome" placeholder="Seu nome completo"></div>
     <div class="field"><label>WhatsApp (com DDD)</label><input id="login-telefone" type="tel" placeholder="61 9XXXX-XXXX"></div>
     <div class="field">
@@ -89,15 +66,76 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
         <option value="brasilia">Brasília - DF</option>
         <option value="aguas_lindas">Águas Lindas - GO</option>
         <option value="maracai">Maracaí - SP</option>
+        <option value="outra">Outra cidade do Brasil</option>
       </select>
     </div>
     <button class="btn btn-prim btn-full" onclick="fazerCadastroCliente()" style="margin-top:10px">
       <i class="fas fa-rocket"></i> Acessar com Grok AI
     </button>
+    
+    <div style="margin-top:18px;text-align:center">
+      <button class="btn btn-ghost" onclick="abrirCadastroEntregador()" style="font-size:12px;width:100%">
+        <i class="fas fa-motorcycle"></i> Quero ser Entregador / Drone / Robô
+      </button>
+    </div>
   </div>
 </div>
 
-<!-- APP -->
+<!-- MODAL CADASTRO ENTREGADOR -->
+<div class="modal-bg" id="modal-entregador">
+  <div class="modal">
+    <h2 style="font-size:18px;margin-bottom:4px">Cadastro de Parceiro Ômni</h2>
+    <p style="font-size:12px;color:var(--muted);margin-bottom:16px">CPF, CNPJ ou Certificado Digital • Drones • Tesla Robotaxi • Robôs</p>
+    
+    <div class="field">
+      <label>Tipo de Parceiro</label>
+      <select id="ent-tipo">
+        <option value="moto">Moto MEI / Entregador</option>
+        <option value="drone">Drone Autônomo (estilo Amazon)</option>
+        <option value="tesla">Tesla Robotaxi / Robô Autônomo</option>
+        <option value="empresa">Empresa de Logística (CNPJ)</option>
+      </select>
+    </div>
+    
+    <div class="field">
+      <label>Nome Completo / Razão Social</label>
+      <input id="ent-nome" placeholder="Nome ou Razão Social">
+    </div>
+    
+    <div class="field">
+      <label>CPF ou CNPJ</label>
+      <input id="ent-doc" placeholder="000.000.000-00 ou 00.000.000/0001-00" onblur="validarDocumento()">
+      <div id="doc-status" style="font-size:11px;margin-top:4px"></div>
+    </div>
+    
+    <div class="field">
+      <label>WhatsApp / Telefone</label>
+      <input id="ent-tel" type="tel" placeholder="61 9XXXX-XXXX">
+    </div>
+    
+    <div class="field">
+      <label>Certificado Digital (opcional)</label>
+      <select id="ent-cert">
+        <option value="">Não possui</option>
+        <option value="A1">Certificado A1</option>
+        <option value="A3">Certificado A3</option>
+      </select>
+    </div>
+    
+    <div class="field">
+      <label>Cidade de atuação (CEP base)</label>
+      <input id="ent-cep" placeholder="Digite o CEP" maxlength="9" onkeyup="buscarCEPEntregador(this.value)">
+    </div>
+    <div id="ent-endereco" style="font-size:12px;color:var(--muted);margin-bottom:12px;min-height:18px"></div>
+    
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn btn-prim" onclick="salvarEntregador()" style="flex:1">Cadastrar Parceiro</button>
+      <button class="btn btn-ghost" onclick="fecharCadastroEntregador()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP PRINCIPAL -->
 <div id="app-principal" style="display:none;min-height:100vh;flex-direction:column">
   <header style="position:sticky;top:0;z-index:40;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)">
     <div style="display:flex;align-items:center;gap:10px">
@@ -116,7 +154,7 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
   <div style="max-width:860px;margin:0 auto;padding:20px 14px;width:100%">
     <h1 style="font-size:24px;font-weight:800;text-align:center;margin-bottom:2px">Mercado IA · Marketplace</h1>
     <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px">
-      Grok xAI · Tesla Robotaxi · Ômni-Logística
+      Grok xAI · Drones · Tesla Robotaxi · Robôs Autônomos
     </p>
     
     <div class="card" style="display:flex;gap:8px;padding:6px;align-items:center">
@@ -130,23 +168,16 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
   </div>
 </div>
 
-<!-- CARRINHO (COMPACTO) -->
+<!-- CARRINHO -->
 <div id="painel-carrinho">
   <div style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0">
     <h2 style="font-size:16px"><i class="fas fa-shopping-bag" style="color:var(--cyan)"></i> Sacola</h2>
     <button onclick="toggleCarrinho()" class="btn btn-ghost" style="padding:6px 9px"><i class="fas fa-times"></i></button>
   </div>
-  
   <div id="itens-carrinho" style="flex:1;overflow-y:auto;padding:12px 14px"></div>
-  
   <div style="padding:12px 14px;border-top:1px solid var(--border);background:#f8fafc;flex-shrink:0">
-    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:3px">
-      <span>Subtotal</span><span id="subtotal-carrinho">R$ 0,00</span>
-    </div>
-    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px">
-      <span><i class="fas fa-robot" style="color:var(--cyan)"></i> Frete Ômni</span>
-      <span id="frete-carrinho" style="color:var(--amber);font-weight:700">A Calcular</span>
-    </div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:3px"><span>Subtotal</span><span id="subtotal-carrinho">R$ 0,00</span></div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px"><span><i class="fas fa-robot" style="color:var(--cyan)"></i> Frete Ômni</span><span id="frete-carrinho" style="color:var(--amber);font-weight:700">A Calcular</span></div>
     <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px solid var(--border)">
       <span style="font-weight:700;text-transform:uppercase;font-size:11px">Total</span>
       <span id="total-carrinho" style="font-size:20px;font-weight:800;color:var(--mint)">R$ 0,00</span>
@@ -154,14 +185,15 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
     
     <div id="form-checkout" style="display:none;margin-top:12px">
       <div class="field" style="margin-bottom:6px">
-        <label>CEP (preenchimento automático)</label>
+        <label>CEP (todas as cidades do Brasil)</label>
         <input id="cliente-cep" placeholder="00000-000" maxlength="9" onkeyup="buscarCEP_RTK(this.value)">
       </div>
       <div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:6px">
         <input id="cliente-rua" placeholder="Rua" style="padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
         <input id="cliente-numero" placeholder="Nº" style="padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
       </div>
-      <input id="cliente-bairro" placeholder="Bairro" style="width:100%;padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px;margin-bottom:8px">
+      <input id="cliente-bairro" placeholder="Bairro" style="width:100%;padding:9px 10px;border-radius:9px;border:1.5px solid var(--border);font-size:13px;margin-bottom:4px">
+      <div id="cliente-cidade-uf" style="font-size:11px;color:var(--muted);margin-bottom:8px;min-height:16px"></div>
       
       <div class="field" style="margin-bottom:8px">
         <label>Forma de Pagamento</label>
@@ -222,7 +254,7 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
     </div>
     
     <div id="telemetry-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;text-align:left;font-family:'JetBrains Mono';font-size:10px;margin-bottom:12px">
-      <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> RTK + Tesla Telemetria</p>
+      <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> RTK + Telemetria Autônoma</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;color:var(--muted)">
         <span>📍 Distância: <b id="telemetry-dist" style="color:var(--text)">--</b> km</span>
         <span>⏳ ETA: <b id="telemetry-eta" style="color:var(--text)">--</b> min</span>
@@ -255,13 +287,11 @@ h1,h2,h3 { font-family: 'Sora', sans-serif; }
 </div>
 
 <style>
-@keyframes radar {
-  0% { transform: scale(0.55); opacity: 0.65; }
-  100% { transform: scale(1.7); opacity: 0; }
-}
+@keyframes radar { 0% { transform: scale(0.55); opacity: 0.65; } 100% { transform: scale(1.7); opacity: 0; } }
 </style>
 
 <script>
+/* ===================== ESTADO ===================== */
 let clienteLogado = null;
 let sacola = [];
 let valorFreteGlobal = 0;
@@ -269,18 +299,16 @@ let pesoSacolaGlobal = 0;
 let coordenadasRTK = { lat: "", lng: "" };
 let payloadPixAtual = "";
 let timerSacola = null;
+let entregadores = JSON.parse(localStorage.getItem("mercadoIA_entregadores") || "[]");
 
 const nomesRegioes = {
   "brasilia": "Brasília - DF",
   "aguas_lindas": "Águas Lindas - GO",
-  "maracai": "Maracaí - SP"
+  "maracai": "Maracaí - SP",
+  "outra": "Brasil"
 };
 
-window.onload = () => {
-  const s = localStorage.getItem("mercadoIA_cliente");
-  if (s) { clienteLogado = JSON.parse(s); liberarAcessoCliente(); }
-};
-
+/* ===================== UTILITÁRIOS ===================== */
 function toast(msg, tipo="ok") {
   const t = document.createElement("div");
   t.className = `toast toast-${tipo}`;
@@ -288,6 +316,145 @@ function toast(msg, tipo="ok") {
   document.getElementById("toasts").appendChild(t);
   setTimeout(() => t.remove(), 3500);
 }
+
+function formatarMoeda(v) {
+  return Number(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+/* ===================== VALIDAÇÃO CPF / CNPJ ===================== */
+function validarCPF(cpf) {
+  cpf = cpf.replace(/\D/g, "");
+  if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+  let soma = 0;
+  for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
+  let resto = (soma * 10) % 11;
+  if (resto === 10 || resto === 11) resto = 0;
+  if (resto !== parseInt(cpf.charAt(9))) return false;
+  soma = 0;
+  for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
+  resto = (soma * 10) % 11;
+  if (resto === 10 || resto === 11) resto = 0;
+  return resto === parseInt(cpf.charAt(10));
+}
+
+function validarCNPJ(cnpj) {
+  cnpj = cnpj.replace(/\D/g, "");
+  if (cnpj.length !== 14 || /^(\d)\1+$/.test(cnpj)) return false;
+  let tamanho = cnpj.length - 2;
+  let numeros = cnpj.substring(0, tamanho);
+  let digitos = cnpj.substring(tamanho);
+  let soma = 0, pos = tamanho - 7;
+  for (let i = tamanho; i >= 1; i--) {
+    soma += numeros.charAt(tamanho - i) * pos--;
+    if (pos < 2) pos = 9;
+  }
+  let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+  if (resultado != digitos.charAt(0)) return false;
+  tamanho = tamanho + 1;
+  numeros = cnpj.substring(0, tamanho);
+  soma = 0; pos = tamanho - 7;
+  for (let i = tamanho; i >= 1; i--) {
+    soma += numeros.charAt(tamanho - i) * pos--;
+    if (pos < 2) pos = 9;
+  }
+  resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+  return resultado == digitos.charAt(1);
+}
+
+function validarDocumento() {
+  const doc = document.getElementById("ent-doc").value.replace(/\D/g, "");
+  const status = document.getElementById("doc-status");
+  if (doc.length === 11) {
+    if (validarCPF(doc)) {
+      status.innerHTML = '<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> CPF válido</span>';
+      return true;
+    } else {
+      status.innerHTML = '<span style="color:var(--rose)"><i class="fas fa-times-circle"></i> CPF inválido</span>';
+      return false;
+    }
+  } else if (doc.length === 14) {
+    if (validarCNPJ(doc)) {
+      status.innerHTML = '<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> CNPJ válido</span>';
+      return true;
+    } else {
+      status.innerHTML = '<span style="color:var(--rose)"><i class="fas fa-times-circle"></i> CNPJ inválido</span>';
+      return false;
+    }
+  } else {
+    status.innerHTML = '<span style="color:var(--muted)">Digite CPF (11) ou CNPJ (14 dígitos)</span>';
+    return false;
+  }
+}
+
+/* ===================== CADASTRO ENTREGADOR ===================== */
+function abrirCadastroEntregador() {
+  document.getElementById("modal-entregador").classList.add("ativo");
+}
+function fecharCadastroEntregador() {
+  document.getElementById("modal-entregador").classList.remove("ativo");
+}
+
+async function buscarCEPEntregador(cep) {
+  cep = cep.replace(/\D/g, "");
+  if (cep.length > 5) document.getElementById("ent-cep").value = cep.replace(/^(\d{5})(\d)/, "$1-$2");
+  if (cep.length !== 8) {
+    document.getElementById("ent-endereco").textContent = "";
+    return;
+  }
+  document.getElementById("ent-endereco").textContent = "Buscando...";
+  try {
+    const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    const d = await res.json();
+    if (d.erro) throw new Error();
+    document.getElementById("ent-endereco").innerHTML = `<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${d.logradouro || ""} - ${d.bairro || ""} - ${d.localidade}/${d.uf}`;
+  } catch {
+    document.getElementById("ent-endereco").innerHTML = '<span style="color:var(--rose)">CEP não encontrado</span>';
+  }
+}
+
+function salvarEntregador() {
+  const tipo = document.getElementById("ent-tipo").value;
+  const nome = document.getElementById("ent-nome").value.trim();
+  const doc = document.getElementById("ent-doc").value.replace(/\D/g, "");
+  const tel = document.getElementById("ent-tel").value.trim();
+  const cert = document.getElementById("ent-cert").value;
+  const cep = document.getElementById("ent-cep").value.trim();
+  
+  if (!nome || !tel || !cep) return toast("Preencha todos os campos obrigatórios", "err");
+  if (!validarDocumento()) return toast("CPF ou CNPJ inválido", "err");
+  
+  const novo = {
+    id: Date.now(),
+    tipo,
+    nome,
+    doc,
+    tel,
+    certificado: cert || null,
+    cep,
+    status: "pendente",
+    criadoEm: new Date().toISOString()
+  };
+  
+  entregadores.push(novo);
+  localStorage.setItem("mercadoIA_entregadores", JSON.stringify(entregadores));
+  
+  toast("Cadastro enviado! Aguarde aprovação Grok AI");
+  fecharCadastroEntregador();
+  
+  // Limpa formulário
+  document.getElementById("ent-nome").value = "";
+  document.getElementById("ent-doc").value = "";
+  document.getElementById("ent-tel").value = "";
+  document.getElementById("ent-cep").value = "";
+  document.getElementById("ent-endereco").textContent = "";
+  document.getElementById("doc-status").textContent = "";
+}
+
+/* ===================== LOGIN CLIENTE ===================== */
+window.onload = () => {
+  const s = localStorage.getItem("mercadoIA_cliente");
+  if (s) { clienteLogado = JSON.parse(s); liberarAcessoCliente(); }
+};
 
 function fazerCadastroCliente() {
   const nome = document.getElementById("login-nome").value.trim();
@@ -311,20 +478,15 @@ function liberarAcessoCliente() {
   document.getElementById("tela-login").style.display = "none";
   document.getElementById("app-principal").style.display = "flex";
   document.getElementById("display-nome-cliente").innerText = `Olá, ${clienteLogado.nome.split(" ")[0]}`;
-  document.getElementById("display-regiao").innerHTML = `<i class="fas fa-map-pin"></i> ${nomesRegioes[clienteLogado.regiao]}`;
-}
-
-function formatarMoeda(v) {
-  return Number(v).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  document.getElementById("display-regiao").innerHTML = `<i class="fas fa-map-pin"></i> ${nomesRegioes[clienteLogado.regiao] || "Brasil"}`;
 }
 
 function toggleCarrinho() {
   const p = document.getElementById("painel-carrinho");
-  const aberto = p.style.transform === "translateX(0px)";
-  p.style.transform = aberto ? "translateX(100%)" : "translateX(0px)";
+  p.style.transform = p.style.transform === "translateX(0px)" ? "translateX(100%)" : "translateX(0px)";
 }
 
-/* ===================== BUSCA COM IMAGENS REAIS ===================== */
+/* ===================== BUSCA GROK + IMAGENS ===================== */
 async function ativarIA() {
   const query = document.getElementById("produto").value.trim();
   if (!query) return toast("Digite o produto", "err");
@@ -336,25 +498,22 @@ async function ativarIA() {
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Grok...';
   status.style.display = "block";
-  status.innerHTML = `<div style="color:var(--cyan);font-size:12px;font-family:'JetBrains Mono'"><i class="fas fa-brain"></i> Grok buscando estoque + imagens reais...</div>`;
+  status.innerHTML = `<div style="color:var(--cyan);font-size:12px;font-family:'JetBrains Mono'"><i class="fas fa-brain"></i> Grok xAI analisando estoque + imagens reais...</div>`;
   feed.innerHTML = "";
   
   try {
-    await new Promise(r => setTimeout(r, 1400));
-    
-    // Imagens reais por categoria (Unsplash)
+    await new Promise(r => setTimeout(r, 1300));
     const imgBase = "https://source.unsplash.com/120x120/?";
     const ofertas = [
       { loja: "Atacadão", nome: query, preco: (Math.random()*35+9).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",supermarket,product") },
       { loja: "Carrefour", nome: query + " Premium", preco: (Math.random()*42+14).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",grocery") },
       { loja: "Tatico", nome: query + " Família", preco: (Math.random()*30+8).toFixed(2), ean: "789" + Math.floor(Math.random()*10000000), img: imgBase + encodeURIComponent(query + ",food,pack") }
     ];
-    
     ofertas.forEach((o, i) => desenharCard(o, i === 0));
     status.style.display = "none";
-    toast("Ofertas encontradas com imagens!");
+    toast("Grok encontrou as melhores ofertas!");
   } catch(e) {
-    status.innerHTML = `<div style="color:var(--rose)">Erro na busca</div>`;
+    status.innerHTML = `<div style="color:var(--rose)">Erro na busca Grok</div>`;
   } finally {
     btn.disabled = false;
     btn.innerHTML = "Buscar";
@@ -367,17 +526,13 @@ function desenharCard(o, destaque) {
   div.className = "card";
   div.innerHTML = `
     <div style="display:flex;gap:10px">
-      <img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=Produto'" 
-           style="width:68px;height:68px;border-radius:10px;object-fit:cover;border:1px solid var(--border);flex-shrink:0">
+      <img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=Produto'" style="width:68px;height:68px;border-radius:10px;object-fit:cover;border:1px solid var(--border);flex-shrink:0">
       <div style="flex:1;min-width:0">
         <div style="font-size:10px;font-weight:700;color:var(--cyan)">${o.loja} · EAN ${o.ean}</div>
         <div style="font-weight:600;font-size:13px;line-height:1.25;margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div>
         <div style="display:flex;justify-content:space-between;align-items:center">
           <span style="font-size:16px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</span>
-          <button class="btn btn-mint" style="padding:6px 10px;font-size:12px" 
-            onclick="adicionarAoCarrinho('${o.nome.replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')">
-            <i class="fas fa-plus"></i>
-          </button>
+          <button class="btn btn-mint" style="padding:6px 10px;font-size:12px" onclick="adicionarAoCarrinho('${o.nome.replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')"><i class="fas fa-plus"></i></button>
         </div>
         ${destaque ? '<div style="margin-top:5px;font-size:9px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço Grok</div>' : ''}
       </div>
@@ -385,22 +540,17 @@ function desenharCard(o, destaque) {
   feed.appendChild(div);
 }
 
-/* ===================== SACOLA AUTOMÁTICA ===================== */
+/* ===================== SACOLA ===================== */
 function adicionarAoCarrinho(nome, loja, preco, img, ean) {
   const peso = +(Math.random()*1.6 + 0.3).toFixed(2);
   sacola.push({ nome, loja, preco: +preco, peso, img, ean });
   atualizarInterfaceCarrinho();
-  
-  // Abre automaticamente
   document.getElementById("painel-carrinho").style.transform = "translateX(0px)";
-  
-  // Fecha sozinha após 2.5s (igual ao original)
   if (timerSacola) clearTimeout(timerSacola);
   timerSacola = setTimeout(() => {
     document.getElementById("painel-carrinho").style.transform = "translateX(100%)";
   }, 2500);
-  
-  toast(`${nome.substring(0,28)}... adicionado`);
+  toast(`${nome.substring(0,26)}... adicionado`);
 }
 
 function removerDoCarrinho(i) {
@@ -464,7 +614,7 @@ function atualizarInterfaceCarrinho() {
   btn.innerHTML = '<i class="fas fa-lock"></i> Finalizar Pedido';
 }
 
-/* ===================== CEP AUTOMÁTICO BRASIL ===================== */
+/* ===================== CEP COMPLETO BRASIL ===================== */
 async function buscarCEP_RTK(cep) {
   cep = cep.replace(/\D/g, "");
   if (cep.length > 5) {
@@ -472,38 +622,44 @@ async function buscarCEP_RTK(cep) {
   }
   if (cep.length !== 8) {
     valorFreteGlobal = 0;
+    document.getElementById("cliente-cidade-uf").textContent = "";
     atualizarInterfaceCarrinho();
     return;
   }
   
   document.getElementById("cliente-rua").value = "Buscando endereço...";
   document.getElementById("cliente-bairro").value = "";
+  document.getElementById("cliente-cidade-uf").textContent = "";
   
   try {
     const res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
     const d = await res.json();
-    if (d.erro) throw new Error("CEP inválido");
+    if (d.erro) throw new Error("CEP não encontrado");
     
-    // Preenchimento automático completo
     document.getElementById("cliente-rua").value = d.logradouro || "";
     document.getElementById("cliente-bairro").value = d.bairro || "";
+    document.getElementById("cliente-cidade-uf").innerHTML = `<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${d.localidade} - ${d.uf}`;
     
-    // Coordenadas mock realistas por região
-    let baseLat = -15.78, baseLng = -47.93;
-    if (clienteLogado.regiao === "aguas_lindas") { baseLat = -15.76; baseLng = -48.28; }
-    if (clienteLogado.regiao === "maracai") { baseLat = -22.61; baseLng = -50.67; }
-    
+    // Coordenadas aproximadas por UF (melhor que aleatório puro)
+    const coordsUF = {
+      "DF": [-15.78, -47.93], "GO": [-16.68, -49.25], "SP": [-23.55, -46.63],
+      "RJ": [-22.91, -43.17], "MG": [-19.92, -43.94], "BA": [-12.97, -38.50],
+      "PR": [-25.43, -49.27], "RS": [-30.03, -51.23], "SC": [-27.59, -48.55],
+      "PE": [-8.05, -34.88], "CE": [-3.72, -38.54], "PA": [-1.45, -48.50]
+    };
+    const base = coordsUF[d.uf] || [-15.78, -47.93];
     coordenadasRTK = {
-      lat: (baseLat + (Math.random()*0.04 - 0.02)).toFixed(6),
-      lng: (baseLng + (Math.random()*0.04 - 0.02)).toFixed(6)
+      lat: (base[0] + (Math.random()*0.08 - 0.04)).toFixed(6),
+      lng: (base[1] + (Math.random()*0.08 - 0.04)).toFixed(6)
     };
     
-    const km = +(Math.random()*7 + 1.2).toFixed(1);
+    const km = +(Math.random()*8 + 1.1).toFixed(1);
     valorFreteGlobal = +(km * 1.85).toFixed(2);
     atualizarInterfaceCarrinho();
     toast("Endereço preenchido automaticamente");
   } catch(e) {
     document.getElementById("cliente-rua").value = "";
+    document.getElementById("cliente-cidade-uf").innerHTML = '<span style="color:var(--rose)">CEP inválido ou não encontrado</span>';
     toast("CEP não encontrado", "err");
   }
 }
@@ -525,7 +681,7 @@ function mudarMetodoPagamento() {
   document.getElementById("bandeira-loja").style.display = pag === "Cartao_Loja" ? "block" : "none";
 }
 
-/* ===================== PAGAMENTO + TRACKING + TESLA ===================== */
+/* ===================== PAGAMENTO + ENTREGA (DRONE / TESLA / ROBÔ) ===================== */
 async function iniciarHardStopPagamento() {
   const cep = document.getElementById("cliente-cep").value.trim();
   const rua = document.getElementById("cliente-rua").value.trim();
@@ -539,7 +695,7 @@ async function iniciarHardStopPagamento() {
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Processando...';
   
-  await new Promise(r => setTimeout(r, 2200));
+  await new Promise(r => setTimeout(r, 2000));
   
   document.getElementById("painel-carrinho").style.transform = "translateX(100%)";
   document.getElementById("modal-tracking").style.display = "block";
@@ -549,39 +705,48 @@ async function iniciarHardStopPagamento() {
   const statusTxt = document.getElementById("track-status-text");
   const icon = document.getElementById("track-icon");
   
-  log.innerHTML = `<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado (Webhook)</li>`;
-  progress.style.width = "25%";
-  statusTxt.textContent = "Enviando ordem de picking...";
+  log.innerHTML = `<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado (Grok + Webhook)</li>`;
+  progress.style.width = "20%";
+  statusTxt.textContent = "Grok alocando parceiro autônomo...";
   
-  // Escolha do veículo
+  // Escolha inteligente: Drone / Tesla Robotaxi / Robô / Moto
   let dName, dVehicle, dDoc, dIconClass;
   const dist = valorFreteGlobal / 1.85;
-  if (pesoSacolaGlobal < 12 && dist < 11) {
+  
+  if (pesoSacolaGlobal < 3.5 && dist < 8) {
+    dName = "Drone Ômni Air V5";
+    dVehicle = "Voo Autônomo RTK · Estilo Amazon";
+    dDoc = "FROTA DRONE · AZ-992X";
+    dIconClass = "fa-helicopter";
+    document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-helicopter" style="color:var(--cyan)"></i>';
+  } else if (pesoSacolaGlobal < 18 && dist < 15) {
     dName = "Tesla Robotaxi Cybercab";
     dVehicle = "Unsupervised Autonomous · FSD v13";
     dDoc = "FROTA TESLA · BR-OMNI-01";
     dIconClass = "fa-car";
     document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-car" style="color:#e11d48"></i>';
-  } else if (pesoSacolaGlobal < 2.8) {
-    dName = "Drone Prime Air V5";
-    dVehicle = "Voo Autônomo RTK";
-    dDoc = "FROTA AZ-992X";
-    dIconClass = "fa-helicopter";
+  } else if (pesoSacolaGlobal < 8) {
+    dName = "Robô de Entrega Ômni";
+    dVehicle = "Ground Robot · Navegação Autônoma";
+    dDoc = "FROTA ROBÔ · RB-441";
+    dIconClass = "fa-robot";
+    document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-robot" style="color:var(--mint)"></i>';
   } else {
     dName = ["Carlos Silva (MEI)", "Fernanda Lima (MEI)", "Roberto Alves (MEI)"][Math.floor(Math.random()*3)];
     dVehicle = "Honda CG 160 · XYZ-9876";
-    dDoc = "CNPJ: ***.***/0001-**";
+    dDoc = "CNPJ/CPF validado";
     dIconClass = "fa-motorcycle";
+    document.getElementById("driver-avatar").innerHTML = '<i class="fas fa-motorcycle" style="color:var(--blue)"></i>';
   }
   
-  await new Promise(r => setTimeout(r, 1400));
-  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Lojas separando itens</li>`;
-  progress.style.width = "50%";
+  await new Promise(r => setTimeout(r, 1300));
+  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Lojas separando itens (picking AI)</li>`;
+  progress.style.width = "45%";
   statusTxt.textContent = "Picking em andamento";
   
-  await new Promise(r => setTimeout(r, 1500));
-  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado</li>`;
-  progress.style.width = "75%";
+  await new Promise(r => setTimeout(r, 1400));
+  log.innerHTML += `<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado por Grok</li>`;
+  progress.style.width = "70%";
   icon.className = `fas ${dIconClass}`;
   statusTxt.textContent = "A caminho da coleta";
   
@@ -592,10 +757,10 @@ async function iniciarHardStopPagamento() {
   
   document.getElementById("telemetry-box").style.display = "block";
   document.getElementById("telemetry-dist").textContent = dist.toFixed(1);
-  document.getElementById("telemetry-eta").textContent = Math.round(dist * 3.1);
+  document.getElementById("telemetry-eta").textContent = Math.round(dist * 2.8);
   
-  await new Promise(r => setTimeout(r, 1800));
-  log.innerHTML += `<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Coleta confirmada · Em rota</li>`;
+  await new Promise(r => setTimeout(r, 1600));
+  log.innerHTML += `<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Coleta confirmada · Em rota autônoma</li>`;
   progress.style.width = "100%";
   statusTxt.textContent = "Em rota de entrega";
   
