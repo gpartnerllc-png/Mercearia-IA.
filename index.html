@@ -539,15 +539,15 @@ function filtrarLoja(loja, el) {
   }
   toast(loja ? `Filtrado: ${loja}` : 'Todos os parceiros');
 }
-  
+
 const produtosBase = {
-  "Atacadão"
-  "Carrefour"
-  "Assaí"
-  "Tatico"
-  "Passaí"
+  "Atacadão": [{nome:"Arroz Tipo 1 5kg",preco:22.90,img:"https://source.unsplash.com/120x120/?rice,bag"},{nome:"Feijão Carioca 1kg",preco:8.49,img:"https://source.unsplash.com/120x120/?beans"},{nome:"Óleo de Soja 900ml",preco:6.99,img:"https://source.unsplash.com/120x120/?cooking,oil"},{nome:"Açúcar Cristal 1kg",preco:4.29,img:"https://source.unsplash.com/120x120/?sugar"},{nome:"Café Torrado 500g",preco:18.90,img:"https://source.unsplash.com/120x120/?coffee"}],
+  "Carrefour": [{nome:"Leite Integral 1L",preco:5.49,img:"https://source.unsplash.com/120x120/?milk"},{nome:"Pão de Forma Integral",preco:9.90,img:"https://source.unsplash.com/120x120/?bread"},{nome:"Queijo Mussarela 400g",preco:24.90,img:"https://source.unsplash.com/120x120/?cheese"},{nome:"Iogurte Natural 170g",preco:3.49,img:"https://source.unsplash.com/120x120/?yogurt"},{nome:"Manteiga 200g",preco:12.90,img:"https://source.unsplash.com/120x120/?butter"}],
+  "Assaí": [{nome:"Macarrão Espaguete 500g",preco:3.99,img:"https://source.unsplash.com/120x120/?pasta"},{nome:"Molho de Tomate 340g",preco:2.79,img:"https://source.unsplash.com/120x120/?tomato,sauce"},{nome:"Biscoito Recheado 140g",preco:2.49,img:"https://source.unsplash.com/120x120/?cookie"},{nome:"Sabão em Pó 1kg",preco:14.90,img:"https://source.unsplash.com/120x120/?detergent"},{nome:"Papel Higiênico 12un",preco:16.90,img:"https://source.unsplash.com/120x120/?toilet,paper"}],
+  "Tatico": [{nome:"Refrigerante 2L",preco:8.99,img:"https://source.unsplash.com/120x120/?soda"},{nome:"Água Mineral 1,5L",preco:2.49,img:"https://source.unsplash.com/120x120/?water,bottle"},{nome:"Suco de Laranja 1L",preco:7.90,img:"https://source.unsplash.com/120x120/?orange,juice"}],
+  "Passaí": [{nome:"Shampoo 350ml",preco:15.90,img:"https://source.unsplash.com/120x120/?shampoo"},{nome:"Creme Dental 90g",preco:4.99,img:"https://source.unsplash.com/120x120/?toothpaste"},{nome:"Desodorante 150ml",preco:12.90,img:"https://source.unsplash.com/120x120/?deodorant"}]
 };
-  
+
 async function ativarIA(){
   const q=document.getElementById("produto").value.trim();
   if(!q) return toast("Digite o produto","err");
