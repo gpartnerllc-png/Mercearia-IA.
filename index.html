@@ -171,32 +171,58 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <!-- PARCEIROS ÔMNI -->
     <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Parceiros Ômni</div>
     <div class="parceiros-scroll" id="carrossel-parceiros">
+
+      <!-- Atacadão -->
       <div class="parceiro-card" data-loja="Atacadão" onclick="filtrarLoja('Atacadão', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#F66420,#009933);">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" alt="Atacadão" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" 
+               alt="Atacadão" style="padding:6px;object-fit:contain">
         </div>
         <span>Atacadão</span>
       </div>
+
+      <!-- Carrefour -->
       <div class="parceiro-card" data-loja="Carrefour" onclick="filtrarLoja('Carrefour', this)">
         <div class="logo-p" style="background:#003087;">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" alt="Carrefour" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" 
+               alt="Carrefour" style="padding:6px;object-fit:contain">
         </div>
         <span>Carrefour</span>
       </div>
+
+      <!-- Tatico (URL que você colocou) -->
       <div class="parceiro-card" data-loja="Tatico" onclick="filtrarLoja('Tatico', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);color:#fff;font-size:16px;font-weight:800">TK</div>
+        <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);">
+          <img src="https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:16px\'>TK</span>'" 
+               alt="Tatico" style="padding:6px;object-fit:contain">
+        </div>
         <span>Tatico</span>
       </div>
+
+      <!-- Passaí (URL que você colocou) -->
       <div class="parceiro-card" data-loja="Passaí" onclick="filtrarLoja('Passaí', this)">
-        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;font-size:15px;font-weight:800">PS</div>
+        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);">
+          <img src="https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png" 
+               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>PS</span>'" 
+               alt="Passaí" style="padding:6px;object-fit:contain">
+        </div>
         <span>Passaí</span>
       </div>
+
+      <!-- Assaí -->
       <div class="parceiro-card" data-loja="Assaí" onclick="filtrarLoja('Assaí', this)">
         <div class="logo-p" style="background:#E8592A">
-          <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Assa%C3%AD_Atacadista_logo_2010.svg/200px-Assa%C3%AD_Atacadista_logo_2010.svg.png'" alt="Assaí" style="padding:2px">
+          <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" 
+               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Assa%C3%AD_Atacadista_logo_2010.svg/200px-Assa%C3%AD_Atacadista_logo_2010.svg.png'" 
+               alt="Assaí" style="padding:2px">
         </div>
         <span>Assaí</span>
       </div>
+
+      <!-- Todos -->
       <div class="parceiro-card ativo" data-loja="" onclick="filtrarLoja('', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155);color:#fff;font-size:15px;font-weight:800">OM</div>
         <span>Todos</span>
@@ -469,8 +495,8 @@ function filtrarLoja(loja, el) {
     "Assaí": {bg:"linear-gradient(135deg,#E8592A 0%,#FBDE4A 100%)",logo:"https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png",nome:"Assaí Atacadista"},
     "Atacadão": {bg:"linear-gradient(135deg,#F66420 0%,#009933 100%)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg",nome:"Atacadão"},
     "Carrefour": {bg:"linear-gradient(135deg,#003087 0%,#00a0e3 100%)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg",nome:"Carrefour"},
-    "Tatico": {bg:"linear-gradient(135deg,#c2410c 0%,#ea580c 100%)",logo:"",nome:"Tatico"},
-    "Passaí": {bg:"linear-gradient(135deg,#5b21b6 0%,#7c3aed 100%)",logo:"",nome:"Passaí"}
+    "Tatico": {bg:"linear-gradient(135deg,#c2410c 0%,#ea580c 100%)",logo:"https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png",nome:"Tatico"},
+    "Passaí": {bg:"linear-gradient(135deg,#5b21b6 0%,#7c3aed 100%)",logo:"https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png",nome:"Passaí"}
   };
   if (loja && marcas[loja]) {
     const m = marcas[loja];
