@@ -399,7 +399,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 <script>
 /* ========== CONFIGURAÇÃO ========== */
 // Coloque sua chave do OpenRouteService aqui (gratuita em openrouteservice.org)
-const ORS_API_KEY = "SUA_CHAVE_ORS_AQUI";
+const ORS_API_KEY = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjQ3ZDNkODAwMDJmMTQ5MTk5YTljOGY5MzY1NGUxODc5IiwiaCI6Im11cm11cjY0In0=";
 
 /* ========== ESTADO ========== */
 let clienteLogado=null,sacola=[],valorFreteGlobal=0,pesoSacolaGlobal=0,coordenadasRTK={lat:"",lng:""},payloadPixAtual="",timerSacola=null,mapa=null,marcadorEntregador=null,intervaloMapa=null,lojaFiltro="",posicaoCliente=null,rotaAtual=null;
@@ -445,7 +445,7 @@ function calcularDistancia(lat1,lon1,lat2,lon2){
 }
 
 async function buscarRotaReal(origemLat,origemLng,destinoLat,destinoLng){
-  if(!ORS_API_KEY || ORS_API_KEY==="SUA_CHAVE_ORS_AQUI"){
+  if(!ORS_API_KEY || ORS_API_KEY==="eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjQ3ZDNkODAwMDJmMTQ5MTk5YTljOGY5MzY1NGUxODc5IiwiaCI6Im11cm11cjY0In0="){
     return {pontos:[[origemLat,origemLng],[destinoLat,destinoLng]],distanciaKm:null,tempoMin:null,sucesso:false};
   }
   try{
@@ -738,7 +738,7 @@ async function iniciarHardStopPagamento(){
   document.getElementById("driver-vehicle").textContent=dVehicle;
   document.getElementById("driver-avatar").innerHTML=`<i class="fas ${dIcon}" style="color:var(--cyan)"></i>`;
   document.getElementById("btn-whatsapp-entregador").href=`https://wa.me/${dTel}?text=Olá! Pedido ${codigo} - Mercado IA`;
-  document.getElementById("btn-whatsapp-loja").href=`https://wa.me/5561982439081?text=Pedido ${codigo}`;
+  document.getElementById("btn-whatsapp-loja").href=`https://wa.me/5561983446343?text=Pedido ${codigo}`;
 
   document.getElementById("cliente-contato-box").style.display="block";
   document.getElementById("cliente-nome-track").textContent=clienteLogado.nome;
