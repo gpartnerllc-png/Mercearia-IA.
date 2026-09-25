@@ -539,7 +539,15 @@ function filtrarLoja(loja, el) {
   }
   toast(loja ? `Filtrado: ${loja}` : 'Todos os parceiros');
 }
-
+  
+const produtosBase = {
+  "Atacadão"
+  "Carrefour"
+  "Assaí"
+  "Tatico"
+  "Passaí"
+};
+  
 async function ativarIA(){
   const q=document.getElementById("produto").value.trim();
   if(!q) return toast("Digite o produto","err");
