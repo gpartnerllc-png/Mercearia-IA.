@@ -42,7 +42,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 .cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px;padding-top:6px;border-top:1px solid #e2e8f0}.cart-total-value{font-size:19px;font-weight:800;color:#059669}
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(15,23,42,.45);backdrop-filter:blur(4px);z-index:100;align-items:center;justify-content:center;padding:16px}.modal-bg.ativo{display:flex}
 .modal{background:var(--card);border-radius:18px;padding:24px;width:100%;max-width:480px;box-shadow:var(--shadow);max-height:90vh;overflow-y:auto}
-#mapa-entrega{height:220px;border-radius:14px;margin:12px 0;border:1px solid var(--border);z-index:1}
+#mapa-entrega{height:240px;border-radius:14px;margin:12px 0;border:1px solid var(--border);z-index:1}
 .parceiros-scroll{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 16px;scrollbar-width:none}.parceiros-scroll::-webkit-scrollbar{display:none}
 .parceiro-card{flex:0 0 100px;background:#fff;border:2px solid transparent;border-radius:16px;padding:12px 8px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);cursor:pointer;transition:all .25s ease}
 .parceiro-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(37,99,235,.12)}
@@ -171,58 +171,36 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <!-- PARCEIROS ÔMNI -->
     <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Parceiros Ômni</div>
     <div class="parceiros-scroll" id="carrossel-parceiros">
-
-      <!-- Atacadão -->
       <div class="parceiro-card" data-loja="Atacadão" onclick="filtrarLoja('Atacadão', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#F66420,#009933);">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" 
-               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" 
-               alt="Atacadão" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" alt="Atacadão" style="padding:6px;object-fit:contain">
         </div>
         <span>Atacadão</span>
       </div>
-
-      <!-- Carrefour -->
       <div class="parceiro-card" data-loja="Carrefour" onclick="filtrarLoja('Carrefour', this)">
         <div class="logo-p" style="background:#003087;">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" 
-               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" 
-               alt="Carrefour" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" alt="Carrefour" style="padding:6px;object-fit:contain">
         </div>
         <span>Carrefour</span>
       </div>
-
-      <!-- Tatico (URL que você colocou) -->
       <div class="parceiro-card" data-loja="Tatico" onclick="filtrarLoja('Tatico', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);">
-          <img src="https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png" 
-               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:16px\'>TK</span>'" 
-               alt="Tatico" style="padding:6px;object-fit:contain">
+          <img src="https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:16px\'>TK</span>'" alt="Tatico" style="padding:6px;object-fit:contain">
         </div>
         <span>Tatico</span>
       </div>
-
-      <!-- Passaí (URL que você colocou) -->
       <div class="parceiro-card" data-loja="Passaí" onclick="filtrarLoja('Passaí', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);">
-          <img src="https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png" 
-               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>PS</span>'" 
-               alt="Passaí" style="padding:6px;object-fit:contain">
+          <img src="https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>PS</span>'" alt="Passaí" style="padding:6px;object-fit:contain">
         </div>
         <span>Passaí</span>
       </div>
-
-      <!-- Assaí -->
       <div class="parceiro-card" data-loja="Assaí" onclick="filtrarLoja('Assaí', this)">
         <div class="logo-p" style="background:#E8592A">
-          <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" 
-               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Assa%C3%AD_Atacadista_logo_2010.svg/200px-Assa%C3%AD_Atacadista_logo_2010.svg.png'" 
-               alt="Assaí" style="padding:2px">
+          <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Assa%C3%AD_Atacadista_logo_2010.svg/200px-Assa%C3%AD_Atacadista_logo_2010.svg.png'" alt="Assaí" style="padding:2px">
         </div>
         <span>Assaí</span>
       </div>
-
-      <!-- Todos -->
       <div class="parceiro-card ativo" data-loja="" onclick="filtrarLoja('', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155);color:#fff;font-size:15px;font-weight:800">OM</div>
         <span>Todos</span>
@@ -322,7 +300,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <div id="mapa-entrega"></div>
 
     <div id="telemetry-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;font-family:'JetBrains Mono';font-size:10px;margin-bottom:12px">
-      <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> Telemetria</p>
+      <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> Telemetria GPS</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;color:var(--muted)">
         <span>📍 <b id="telemetry-dist">--</b> km</span>
         <span>⏳ <b id="telemetry-eta2">--</b> min</span>
@@ -419,8 +397,12 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 </div>
 
 <script>
+/* ========== CONFIGURAÇÃO ========== */
+// Coloque sua chave do OpenRouteService aqui (gratuita em openrouteservice.org)
+const ORS_API_KEY = "SUA_CHAVE_ORS_AQUI";
+
 /* ========== ESTADO ========== */
-let clienteLogado=null,sacola=[],valorFreteGlobal=0,pesoSacolaGlobal=0,coordenadasRTK={lat:"",lng:""},payloadPixAtual="",timerSacola=null,mapa=null,marcadorEntregador=null,intervaloMapa=null,lojaFiltro="";
+let clienteLogado=null,sacola=[],valorFreteGlobal=0,pesoSacolaGlobal=0,coordenadasRTK={lat:"",lng:""},payloadPixAtual="",timerSacola=null,mapa=null,marcadorEntregador=null,intervaloMapa=null,lojaFiltro="",posicaoCliente=null,rotaAtual=null;
 let entregadores=JSON.parse(localStorage.getItem("mia_entregadores")||"[]");
 let pedidos=JSON.parse(localStorage.getItem("mia_pedidos")||"[]");
 let produtosAdmin=JSON.parse(localStorage.getItem("mia_produtos")||"[]");
@@ -438,6 +420,54 @@ function formatarMoeda(v){return Number(v).toLocaleString("pt-BR",{style:"curren
 function gerarCodigo(){return "OM"+Date.now().toString().slice(-8)}
 function salvarSacola(){localStorage.setItem("mia_sacola",JSON.stringify(sacola));localStorage.setItem("mia_frete",valorFreteGlobal)}
 function carregarSacola(){try{const s=JSON.parse(localStorage.getItem("mia_sacola")||"[]");if(Array.isArray(s))sacola=s;valorFreteGlobal=parseFloat(localStorage.getItem("mia_frete")||0)||0}catch{}}
+
+/* ========== GPS + ROTAS REAIS ========== */
+function obterLocalizacaoCliente(){
+  return new Promise((resolve)=>{
+    if(!navigator.geolocation){resolve(null);return;}
+    navigator.geolocation.getCurrentPosition(
+      (pos)=>{
+        posicaoCliente={lat:pos.coords.latitude,lng:pos.coords.longitude,accuracy:pos.coords.accuracy};
+        resolve(posicaoCliente);
+      },
+      ()=>resolve(null),
+      {enableHighAccuracy:true,timeout:8000,maximumAge:30000}
+    );
+  });
+}
+
+function calcularDistancia(lat1,lon1,lat2,lon2){
+  const R=6371;
+  const dLat=(lat2-lat1)*Math.PI/180;
+  const dLon=(lon2-lon1)*Math.PI/180;
+  const a=Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
+async function buscarRotaReal(origemLat,origemLng,destinoLat,destinoLng){
+  if(!ORS_API_KEY || ORS_API_KEY==="SUA_CHAVE_ORS_AQUI"){
+    return {pontos:[[origemLat,origemLng],[destinoLat,destinoLng]],distanciaKm:null,tempoMin:null,sucesso:false};
+  }
+  try{
+    const url=`https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${origemLng},${origemLat}&end=${destinoLng},${destinoLat}`;
+    const res=await fetch(url);
+    if(!res.ok)throw new Error("ORS error");
+    const data=await res.json();
+    const feature=data.features?.[0];
+    if(!feature)throw new Error("Sem rota");
+    const coords=feature.geometry.coordinates.map(c=>[c[1],c[0]]);
+    const summary=feature.properties.summary;
+    return {
+      pontos:coords,
+      distanciaKm:(summary.distance/1000).toFixed(1),
+      tempoMin:Math.round(summary.duration/60),
+      sucesso:true
+    };
+  }catch(e){
+    console.warn("Rota real falhou, usando linha reta",e);
+    return {pontos:[[origemLat,origemLng],[destinoLat,destinoLng]],distanciaKm:null,tempoMin:null,sucesso:false};
+  }
+}
 
 /* ========== VALIDAÇÃO ========== */
 function validarCPF(cpf){cpf=cpf.replace(/\D/g,"");if(cpf.length!==11||/^(\d)\1+$/.test(cpf))return false;let s=0;for(let i=0;i<9;i++)s+=parseInt(cpf.charAt(i))*(10-i);let r=(s*10)%11;if(r===10||r===11)r=0;if(r!==parseInt(cpf.charAt(9)))return false;s=0;for(let i=0;i<10;i++)s+=parseInt(cpf.charAt(i))*(11-i);r=(s*10)%11;if(r===10||r===11)r=0;return r===parseInt(cpf.charAt(10))}
@@ -614,9 +644,60 @@ function gerarPayloadPix(v){const f=v.toFixed(2);return`0002012636br.gov.bcb.pix
 function copiarChavePix(){navigator.clipboard.writeText(payloadPixAtual);toast("Chave PIX copiada!")}
 function mudarMetodoPagamento(){const p=document.getElementById("cliente-pagamento").value;document.getElementById("box-pix").style.display=p==="Pix"?"block":"none";document.getElementById("box-cartao").style.display=(p||"").includes("Cartao")?"block":"none";if(p==="Pix")atualizarInterfaceCarrinho();if(p==="Palm")toast("Palm Pay: biometria da mão (em breve)")}
 
-/* ========== MAPA ========== */
-function iniciarMapaAoVivo(lat,lng){if(mapa){mapa.remove();mapa=null}document.getElementById("mapa-entrega").innerHTML="";mapa=L.map("mapa-entrega").setView([lat,lng],15);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OSM"}).addTo(mapa);marcadorEntregador=L.marker([lat,lng]).addTo(mapa).bindPopup("<b>Entregador Ômni</b>").openPopup();setTimeout(()=>mapa.invalidateSize(),200)}
-function atualizarPosicaoMapa(lat,lng){if(marcadorEntregador){marcadorEntregador.setLatLng([lat,lng]);mapa.panTo([lat,lng],{animate:true,duration:1})}document.getElementById("telemetry-lat").textContent=lat.toFixed(5);document.getElementById("telemetry-lng").textContent=lng.toFixed(5)}
+/* ========== MAPA + RASTREAMENTO GPS ========== */
+async function iniciarMapaAoVivo(lat,lng){
+  if(mapa){mapa.remove();mapa=null}
+  document.getElementById("mapa-entrega").innerHTML="";
+  mapa=L.map("mapa-entrega").setView([lat,lng],14);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap | Rotas: OpenRouteService"}).addTo(mapa);
+
+  marcadorEntregador=L.marker([lat,lng],{
+    icon:L.divIcon({
+      className:"",
+      html:`<div style="background:#0891b2;width:18px;height:18px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>`,
+      iconSize:[18,18],iconAnchor:[9,9]
+    })
+  }).addTo(mapa).bindPopup("<b>Entregador Ômni</b>").openPopup();
+
+  if(posicaoCliente){
+    L.marker([posicaoCliente.lat,posicaoCliente.lng],{
+      icon:L.divIcon({
+        className:"",
+        html:`<div style="background:#e11d48;width:16px;height:16px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>`,
+        iconSize:[16,16],iconAnchor:[8,8]
+      })
+    }).addTo(mapa).bindPopup("<b>Seu endereço</b>");
+
+    const rota=await buscarRotaReal(lat,lng,posicaoCliente.lat,posicaoCliente.lng);
+    if(rotaAtual)mapa.removeLayer(rotaAtual);
+    rotaAtual=L.polyline(rota.pontos,{color:"#0891b2",weight:5,opacity:0.85,lineJoin:"round"}).addTo(mapa);
+    mapa.fitBounds(rota.pontos,{padding:[50,50]});
+
+    if(rota.sucesso){
+      document.getElementById("telemetry-dist").textContent=rota.distanciaKm;
+      document.getElementById("telemetry-eta").textContent=rota.tempoMin;
+      document.getElementById("telemetry-eta2").textContent=rota.tempoMin;
+    }
+  }
+  setTimeout(()=>mapa.invalidateSize(),300);
+}
+
+function atualizarPosicaoMapa(lat,lng){
+  if(marcadorEntregador){
+    marcadorEntregador.setLatLng([lat,lng]);
+    mapa.panTo([lat,lng],{animate:true,duration:1.1});
+  }
+  document.getElementById("telemetry-lat").textContent=lat.toFixed(5);
+  document.getElementById("telemetry-lng").textContent=lng.toFixed(5);
+
+  if(posicaoCliente){
+    const dist=calcularDistancia(lat,lng,posicaoCliente.lat,posicaoCliente.lng);
+    document.getElementById("telemetry-dist").textContent=dist.toFixed(1);
+    const eta=Math.max(1,Math.round(dist*2.8));
+    document.getElementById("telemetry-eta").textContent=eta;
+    document.getElementById("telemetry-eta2").textContent=eta;
+  }
+}
 
 /* ========== CHECKOUT + TRACKING ========== */
 async function iniciarHardStopPagamento(){
@@ -667,42 +748,60 @@ async function iniciarHardStopPagamento(){
   document.getElementById("btn-ligar-cliente").href=`tel:+55${telLimpo}`;
 
   document.getElementById("telemetry-box").style.display="block";
-  document.getElementById("telemetry-dist").textContent=dist.toFixed(1);
-  document.getElementById("telemetry-eta").textContent=Math.round(dist*2.8);
-  document.getElementById("telemetry-eta2").textContent=Math.round(dist*2.8);
 
-  let lat=parseFloat(coordenadasRTK.lat)||-15.78,lng=parseFloat(coordenadasRTK.lng)||-47.93;
-  iniciarMapaAoVivo(lat,lng);
+  // GPS real do cliente
+  await obterLocalizacaoCliente();
+
+  let lat = posicaoCliente ? posicaoCliente.lat + (Math.random()-0.5)*0.012 : (parseFloat(coordenadasRTK.lat)||-15.78);
+  let lng = posicaoCliente ? posicaoCliente.lng + (Math.random()-0.5)*0.012 : (parseFloat(coordenadasRTK.lng)||-47.93);
+
+  await iniciarMapaAoVivo(lat,lng);
   document.getElementById("telemetry-lat").textContent=lat.toFixed(5);
   document.getElementById("telemetry-lng").textContent=lng.toFixed(5);
-  if(intervaloMapa)clearInterval(intervaloMapa);
-  intervaloMapa=setInterval(()=>{lat+=(Math.random()-.5)*.0014;lng+=(Math.random()-.5)*.0014;atualizarPosicaoMapa(lat,lng)},2500);
 
-  // ========== NF-e COMPLETA (CBS + IBS + design profissional) ==========
+  if(intervaloMapa)clearInterval(intervaloMapa);
+  intervaloMapa=setInterval(()=>{
+    if(posicaoCliente){
+      const fator=0.07;
+      lat += (posicaoCliente.lat - lat)*fator + (Math.random()-0.5)*0.0006;
+      lng += (posicaoCliente.lng - lng)*fator + (Math.random()-0.5)*0.0006;
+    }else{
+      lat += (Math.random()-0.5)*0.0014;
+      lng += (Math.random()-0.5)*0.0014;
+    }
+    atualizarPosicaoMapa(lat,lng);
+  },2200);
+
+  // NF-e estilo Spedy
   const subtotal = total - valorFreteGlobal;
   const baseCalculo = subtotal;
-  const icmsRate = 0.18, pisRate = 0.0165, cofinsRate = 0.076, cbsRate = 0.009, ibsStateRate = 0.001, ibsCityRate = 0.000;
-  const icms = +(baseCalculo * icmsRate).toFixed(2);
-  const pis = +(baseCalculo * pisRate).toFixed(2);
-  const cofins = +(baseCalculo * cofinsRate).toFixed(2);
-  const cbs = +(baseCalculo * cbsRate).toFixed(2);
-  const ibsState = +(baseCalculo * ibsStateRate).toFixed(2);
-  const ibsCity = +(baseCalculo * ibsCityRate).toFixed(2);
-  const totalImpostos = +(icms + pis + cofins + cbs + ibsState + ibsCity).toFixed(2);
-  const chaveNFe = Array.from({length:44},()=>Math.floor(Math.random()*10)).join('').replace(/(\d{4})(?=\d)/g,'$1 ');
+  const icms = +(baseCalculo*0.18).toFixed(2);
+  const pis = +(baseCalculo*0.0165).toFixed(2);
+  const cofins = +(baseCalculo*0.076).toFixed(2);
+  const cbs = +(baseCalculo*0.009).toFixed(2);
+  const ibsState = +(baseCalculo*0.001).toFixed(2);
+  const totalImpostos = +(icms+pis+cofins+cbs+ibsState).toFixed(2);
+  const chaveNFe = Array.from({length:44},()=>Math.floor(Math.random()*10)).join('');
+  const chaveFormatada = chaveNFe.match(/.{1,4}/g).join(' ');
+  const protocolo = "1"+Date.now().toString().slice(-12);
+  const numeroNF = Math.floor(100000+Math.random()*899999);
 
   const nfHtml = `
 <div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.45;color:#0f172a">
-  <div style="text-align:center;font-weight:800;font-size:13px;margin-bottom:6px;letter-spacing:1px">MERCADO IA ÔMNI</div>
-  <div style="text-align:center;font-size:10px;color:#64748b;margin-bottom:8px">CNPJ: 00.000.000/0001-00 · IE: 07.123.456-7</div>
+  <div style="text-align:center;font-weight:800;font-size:13px;margin-bottom:4px">MERCADO IA ÔMNI</div>
+  <div style="text-align:center;font-size:10px;color:#64748b;margin-bottom:6px">CNPJ: 00.000.000/0001-00 · IE: 07.123.456-7</div>
+  <div style="text-align:center;font-size:9px;background:#ecfdf5;color:#047857;padding:3px 8px;border-radius:6px;display:inline-block;margin-bottom:8px">Status: Autorizada</div>
   <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
-  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Pedido:</span><strong>${codigo}</strong></div>
-  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Data:</span><span>${new Date().toLocaleString("pt-BR")}</span></div>
-  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Cliente:</span><span>${clienteLogado.nome}</span></div>
-  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Pagamento:</span><span>${pag}</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Nº NF-e:</span><strong>${numeroNF}</strong></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Série:</span><span>001</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Pedido:</span><strong>${codigo}</strong></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Data:</span><span>${new Date().toLocaleString("pt-BR")}</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Protocolo:</span><span style="font-size:10px">${protocolo}</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Cliente:</span><span>${clienteLogado.nome}</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Pagamento:</span><span>${pag}</span></div>
   <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
   <div style="font-weight:700;margin-bottom:4px">ITENS</div>
-  ${pedido.itens.map(i => `<div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>${(i.qtd||1)}x ${i.nome.substring(0,22)}</span><span>${formatarMoeda(i.preco*(i.qtd||1))}</span></div>`).join('')}
+  ${pedido.itens.map(i=>`<div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>${(i.qtd||1)}x ${i.nome.substring(0,22)}</span><span>${formatarMoeda(i.preco*(i.qtd||1))}</span></div>`).join('')}
   <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
   <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span>${formatarMoeda(subtotal)}</span></div>
   <div style="display:flex;justify-content:space-between"><span>Frete</span><span>${formatarMoeda(valorFreteGlobal)}</span></div>
@@ -713,21 +812,25 @@ async function iniciarHardStopPagamento(){
     <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>ICMS (18%)</span><span>${formatarMoeda(icms)}</span></div>
     <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>PIS (1,65%)</span><span>${formatarMoeda(pis)}</span></div>
     <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>COFINS (7,6%)</span><span>${formatarMoeda(cofins)}</span></div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#2563eb"><span>CBS (0,9%) · Federal</span><span>${formatarMoeda(cbs)}</span></div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#059669"><span>IBS Estadual (0,1%)</span><span>${formatarMoeda(ibsState)}</span></div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#059669"><span>IBS Municipal</span><span>${formatarMoeda(ibsCity)}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#2563eb"><span>CBS (0,9%)</span><span>${formatarMoeda(cbs)}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#059669"><span>IBS Estadual</span><span>${formatarMoeda(ibsState)}</span></div>
     <div style="border-top:1px solid #e2e8f0;margin:6px 0"></div>
-    <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total de Impostos</span><span>${formatarMoeda(totalImpostos)}</span></div>
+    <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total Impostos</span><span>${formatarMoeda(totalImpostos)}</span></div>
   </div>
   <div style="border-top:1px dashed #94a3b8;margin:10px 0"></div>
-  <div style="font-size:9px;color:#64748b;word-break:break-all;line-height:1.3"><strong>Chave de Acesso NF-e:</strong><br>${chaveNFe}</div>
-  <div style="text-align:center;margin-top:8px;font-size:9px;color:#94a3b8">Documento auxiliar da Nota Fiscal Eletrônica<br>Consulte em: www.nfe.fazenda.gov.br</div>
+  <div style="font-size:9px;color:#64748b;word-break:break-all;line-height:1.4">
+    <strong>Chave de Acesso:</strong><br>${chaveFormatada}
+  </div>
+  <div style="text-align:center;margin-top:10px;font-size:9px;color:#94a3b8">
+    Documento Auxiliar da NF-e · Compatível com Spedy<br>
+    www.nfe.fazenda.gov.br
+  </div>
 </div>`;
-  document.getElementById("nf-conteudo").innerHTML = nfHtml;
-  document.getElementById("nota-fiscal-box").style.display = "block";
+  document.getElementById("nf-conteudo").innerHTML=nfHtml;
+  document.getElementById("nota-fiscal-box").style.display="block";
 
   await new Promise(r=>setTimeout(r,1100));
-  log.innerHTML+=`<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Em rota · Rastreio ao vivo</li>`;
+  log.innerHTML+=`<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Em rota · GPS ativo</li>`;
   document.getElementById("track-progress-bar").style.width="100%";
   document.getElementById("track-status-text").textContent="Em rota de entrega";
   document.getElementById("btn-fechar-track").style.display="block";
@@ -777,7 +880,6 @@ function verNotaFiscal(idx){
           <div><strong>Total:</strong> ${formatarMoeda(p.total)}</div>
           <div><strong>Pagamento:</strong> ${p.pag}</div>
           <div><strong>Entregador:</strong> ${p.driver}</div>
-          <div style="margin-top:8px;font-size:10px;color:#64748b">Chave NF-e simulada · Reforma Tributária 2026 (CBS + IBS)</div>
         </div>
       </div>
       <button class="btn btn-ghost btn-full" style="margin-top:14px" onclick="this.closest('.modal-bg').remove()">Fechar</button>
