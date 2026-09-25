@@ -20,9 +20,9 @@
 .field{margin-bottom:10px}.field label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
 .field input,.field select,textarea{width:100%;background:#f8fafc;border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:13px;font-family:inherit}
 .field input:focus,.field select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--shadow)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--shadow);transition:all .25s ease}
 .toast-area{position:fixed;bottom:20px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:8px}
-.toast{padding:12px 16px;border-radius:11px;font-size:13px;font-weight:600;max-width:320px;animation:slideIn .25s ease;box-shadow:var(--shadow)}
+.toast{padding:12px 16px;border-radius:11px;font-size:13px;font-weight:600;max-width:320px;animation:slideIn .25s ease;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px}
 .toast-ok{background:#ecfdf5;border:1px solid #a7f3d0;color:#047857}.toast-err{background:#fff1f2;border:1px solid #fecdd3;color:#be123c}
 @keyframes slideIn{from{transform:translateX(30px);opacity:0}to{transform:none;opacity:1}}
 .spinner{display:inline-block;width:14px;height:14px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
@@ -171,65 +171,38 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <!-- PARCEIROS ÔMNI -->
     <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Parceiros Ômni</div>
     <div class="parceiros-scroll" id="carrossel-parceiros">
-
-      <!-- Atacadão -->
       <div class="parceiro-card" data-loja="Atacadão" onclick="filtrarLoja('Atacadão', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#F66420,#009933);">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" 
-               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" 
-               alt="Atacadão" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" alt="Atacadão" style="padding:6px;object-fit:contain">
         </div>
         <span>Atacadão</span>
       </div>
-
-      <!-- Carrefour -->
       <div class="parceiro-card" data-loja="Carrefour" onclick="filtrarLoja('Carrefour', this)">
         <div class="logo-p" style="background:#003087;">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" 
-               onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" 
-               alt="Carrefour" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" alt="Carrefour" style="padding:6px;object-fit:contain">
         </div>
         <span>Carrefour</span>
       </div>
-
-      <!-- Tatico -->
       <div class="parceiro-card" data-loja="Tatico" onclick="filtrarLoja('Tatico', this)">
-  <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);">
-    <img src="https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png" 
-         onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:16px\'>TK</span>'" 
-         alt="Tatico" style="padding:6px;object-fit:contain">
-  </div>
-  <span>Tatico</span>
-</div>
-
-      <!-- Passaí -->
+        <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);color:#fff;font-size:16px;font-weight:800">TK</div>
+        <span>Tatico</span>
+      </div>
       <div class="parceiro-card" data-loja="Passaí" onclick="filtrarLoja('Passaí', this)">
-  <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);">
-    <img src="https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png" 
-         onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:16px\'>TK</span>'" 
-         alt="Tatico" style="padding:6px;object-fit:contain">
-  </div>
-  <span>Passaí</span>
-</div>
-
-      <!-- Assaí -->
+        <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);color:#fff;font-size:15px;font-weight:800">PS</div>
+        <span>Passaí</span>
+      </div>
       <div class="parceiro-card" data-loja="Assaí" onclick="filtrarLoja('Assaí', this)">
         <div class="logo-p" style="background:#E8592A">
-          <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" 
-               onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Assa%C3%AD_Atacadista_logo_2010.svg/200px-Assa%C3%AD_Atacadista_logo_2010.svg.png'" 
-               alt="Assaí" style="padding:2px">
+          <img src="https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Assa%C3%AD_Atacadista_logo_2010.svg/200px-Assa%C3%AD_Atacadista_logo_2010.svg.png'" alt="Assaí" style="padding:2px">
         </div>
         <span>Assaí</span>
       </div>
-
-      <!-- Todos -->
       <div class="parceiro-card ativo" data-loja="" onclick="filtrarLoja('', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#0f172a,#334155);color:#fff;font-size:15px;font-weight:800">OM</div>
         <span>Todos</span>
       </div>
     </div>
 
-    <!-- Banner de marca -->
     <div id="brand-banner" class="brand-banner"></div>
 
     <div class="card" style="display:flex;gap:8px;padding:6px;align-items:center;margin-bottom:12px">
@@ -294,25 +267,44 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 <div id="modal-tracking" style="display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;padding:16px">
   <div style="max-width:420px;margin:0 auto">
     <h2 style="font-size:20px;text-align:center;margin-bottom:4px">Pedido Confirmado</h2>
-    <p style="text-align:center;color:var(--cyan);font-size:11px;font-weight:700;text-transform:uppercase;margin-bottom:10px">Status: <span id="track-status-text">Processando</span></p>
+    
+    <div style="background:#fff;border-radius:16px;padding:16px;margin-bottom:14px;border:1px solid var(--border);box-shadow:var(--shadow)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div>
+          <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Status do pedido</div>
+          <div id="track-status-text" style="font-size:16px;font-weight:800;color:var(--blue);margin-top:2px">Processando</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:11px;color:var(--muted);font-weight:600">ETA</div>
+          <div style="font-size:18px;font-weight:800;color:var(--mint)"><span id="telemetry-eta">--</span> min</div>
+        </div>
+      </div>
+      <div style="height:6px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:10px">
+        <div id="track-progress-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .9s cubic-bezier(.4,0,.2,1);border-radius:10px"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-weight:600">
+        <span>Confirmado</span><span>Separando</span><span>Em rota</span><span>Entregue</span>
+      </div>
+    </div>
+
     <div class="codigo-pedido">
       <div style="font-size:10px;font-weight:700;color:var(--muted)">CÓDIGO DO PEDIDO</div>
       <div class="num" id="codigo-pedido-num">----</div>
       <div style="font-size:11px;margin-top:4px;color:var(--muted)">Mostre ao entregador</div>
     </div>
-    <div style="height:5px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:12px">
-      <div id="track-progress-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .9s"></div>
-    </div>
+
     <div id="mapa-entrega"></div>
+
     <div id="telemetry-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;font-family:'JetBrains Mono';font-size:10px;margin-bottom:12px">
       <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> Telemetria</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;color:var(--muted)">
         <span>📍 <b id="telemetry-dist">--</b> km</span>
-        <span>⏳ <b id="telemetry-eta">--</b> min</span>
+        <span>⏳ <b id="telemetry-eta2">--</b> min</span>
         <span>📡 <b id="telemetry-lat">--</b></span>
         <span>📡 <b id="telemetry-lng">--</b></span>
       </div>
     </div>
+
     <div id="driver-card" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px">
       <p style="font-size:9px;font-weight:700;color:var(--cyan);text-transform:uppercase;margin-bottom:8px">Entregador</p>
       <div style="display:flex;gap:12px;align-items:center">
@@ -409,7 +401,13 @@ let produtosAdmin=JSON.parse(localStorage.getItem("mia_produtos")||"[]");
 const nomesRegioes={brasilia:"Brasília - DF",aguas_lindas:"Águas Lindas - GO",maracai:"Maracaí - SP",outra:"Brasil"};
 
 /* ========== UTILS ========== */
-function toast(msg,tipo="ok"){const t=document.createElement("div");t.className=`toast toast-${tipo}`;t.innerHTML=msg;document.getElementById("toasts").appendChild(t);setTimeout(()=>t.remove(),3500)}
+function toast(msg,tipo="ok"){
+  const t=document.createElement("div");
+  t.className=`toast toast-${tipo}`;
+  t.innerHTML=`<i class="fas ${tipo==='ok'?'fa-check-circle':'fa-exclamation-circle'}" style="font-size:16px"></i><span>${msg}</span>`;
+  document.getElementById("toasts").appendChild(t);
+  setTimeout(()=>{t.style.opacity="0";t.style.transform="translateX(30px)";t.style.transition="all .3s ease";setTimeout(()=>t.remove(),300)},3200);
+}
 function formatarMoeda(v){return Number(v).toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
 function gerarCodigo(){return "OM"+Date.now().toString().slice(-8)}
 function salvarSacola(){localStorage.setItem("mia_sacola",JSON.stringify(sacola));localStorage.setItem("mia_frete",valorFreteGlobal)}
@@ -466,132 +464,59 @@ function filtrarLoja(loja, el) {
   lojaFiltro = loja;
   document.querySelectorAll('.parceiro-card').forEach(c => c.classList.remove('ativo'));
   if (el) el.classList.add('ativo');
-
   const banner = document.getElementById('brand-banner');
-  
   const marcas = {
-    "Assaí": {
-      bg: "linear-gradient(135deg, #E8592A 0%, #FBDE4A 100%)",
-      logo: "https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png",
-      nome: "Assaí Atacadista"
-    },
-    "Atacadão": {
-      bg: "linear-gradient(135deg, #F66420 0%, #009933 100%)",
-      logo: "https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg",
-      nome: "Atacadão"
-    },
-    "Carrefour": {
-      bg: "linear-gradient(135deg, #003087 0%, #00a0e3 100%)",
-      logo: "https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg",
-      nome: "Carrefour"
-    },
-    "Tatico": {
-      bg: "linear-gradient(135deg, #c2410c 0%, #ea580c 100%)",
-      logo: "https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png",
-      nome: "Tatico"
-    },
-    "Passaí": {
-      bg: "linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%)",
-      logo: "https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png",
-      nome: "Passaí"
-    }
+    "Assaí": {bg:"linear-gradient(135deg,#E8592A 0%,#FBDE4A 100%)",logo:"https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png",nome:"Assaí Atacadista"},
+    "Atacadão": {bg:"linear-gradient(135deg,#F66420 0%,#009933 100%)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg",nome:"Atacadão"},
+    "Carrefour": {bg:"linear-gradient(135deg,#003087 0%,#00a0e3 100%)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg",nome:"Carrefour"},
+    "Tatico": {bg:"linear-gradient(135deg,#c2410c 0%,#ea580c 100%)",logo:"",nome:"Tatico"},
+    "Passaí": {bg:"linear-gradient(135deg,#5b21b6 0%,#7c3aed 100%)",logo:"",nome:"Passaí"}
   };
-
   if (loja && marcas[loja]) {
     const m = marcas[loja];
     banner.style.background = m.bg;
-    banner.innerHTML = `
-      <span>${m.nome}</span>
-      ${m.logo ? `<img src="${m.logo}" onerror="this.style.display='none'">` : ''}
-    `;
+    banner.innerHTML = `<span>${m.nome}</span>${m.logo?`<img src="${m.logo}" onerror="this.style.display='none'">`:''}`;
     banner.classList.add('ativo');
   } else {
     banner.classList.remove('ativo');
     banner.innerHTML = '';
   }
-
   toast(loja ? `Filtrado: ${loja}` : 'Todos os parceiros');
 }
 
-/* ========== PRODUTOS REALISTAS ========== */
 const produtosBase = {
-  "Atacadão": [
-    {nome:"Arroz Tipo 1 5kg", preco:22.90, img:"https://source.unsplash.com/120x120/?rice,bag"},
-    {nome:"Feijão Carioca 1kg", preco:8.49, img:"https://source.unsplash.com/120x120/?beans"},
-    {nome:"Óleo de Soja 900ml", preco:6.99, img:"https://source.unsplash.com/120x120/?cooking,oil"},
-    {nome:"Açúcar Cristal 1kg", preco:4.29, img:"https://source.unsplash.com/120x120/?sugar"},
-    {nome:"Café Torrado 500g", preco:18.90, img:"https://source.unsplash.com/120x120/?coffee"}
-  ],
-  "Carrefour": [
-    {nome:"Leite Integral 1L", preco:5.49, img:"https://source.unsplash.com/120x120/?milk"},
-    {nome:"Pão de Forma Integral", preco:9.90, img:"https://source.unsplash.com/120x120/?bread"},
-    {nome:"Queijo Mussarela 400g", preco:24.90, img:"https://source.unsplash.com/120x120/?cheese"},
-    {nome:"Iogurte Natural 170g", preco:3.49, img:"https://source.unsplash.com/120x120/?yogurt"},
-    {nome:"Manteiga 200g", preco:12.90, img:"https://source.unsplash.com/120x120/?butter"}
-  ],
-  "Assaí": [
-    {nome:"Macarrão Espaguete 500g", preco:3.99, img:"https://source.unsplash.com/120x120/?pasta"},
-    {nome:"Molho de Tomate 340g", preco:2.79, img:"https://source.unsplash.com/120x120/?tomato,sauce"},
-    {nome:"Biscoito Recheado 140g", preco:2.49, img:"https://source.unsplash.com/120x120/?cookie"},
-    {nome:"Sabão em Pó 1kg", preco:14.90, img:"https://source.unsplash.com/120x120/?detergent"},
-    {nome:"Papel Higiênico 12un", preco:16.90, img:"https://source.unsplash.com/120x120/?toilet,paper"}
-  ],
-  "Tatico": [
-    {nome:"Refrigerante 2L", preco:8.99, img:"https://source.unsplash.com/120x120/?soda"},
-    {nome:"Água Mineral 1,5L", preco:2.49, img:"https://source.unsplash.com/120x120/?water,bottle"},
-    {nome:"Suco de Laranja 1L", preco:7.90, img:"https://source.unsplash.com/120x120/?orange,juice"}
-  ],
-  "Passaí": [
-    {nome:"Shampoo 350ml", preco:15.90, img:"https://source.unsplash.com/120x120/?shampoo"},
-    {nome:"Creme Dental 90g", preco:4.99, img:"https://source.unsplash.com/120x120/?toothpaste"},
-    {nome:"Desodorante 150ml", preco:12.90, img:"https://source.unsplash.com/120x120/?deodorant"}
-  ]
+  "Atacadão": [{nome:"Arroz Tipo 1 5kg",preco:22.90,img:"https://source.unsplash.com/120x120/?rice,bag"},{nome:"Feijão Carioca 1kg",preco:8.49,img:"https://source.unsplash.com/120x120/?beans"},{nome:"Óleo de Soja 900ml",preco:6.99,img:"https://source.unsplash.com/120x120/?cooking,oil"},{nome:"Açúcar Cristal 1kg",preco:4.29,img:"https://source.unsplash.com/120x120/?sugar"},{nome:"Café Torrado 500g",preco:18.90,img:"https://source.unsplash.com/120x120/?coffee"}],
+  "Carrefour": [{nome:"Leite Integral 1L",preco:5.49,img:"https://source.unsplash.com/120x120/?milk"},{nome:"Pão de Forma Integral",preco:9.90,img:"https://source.unsplash.com/120x120/?bread"},{nome:"Queijo Mussarela 400g",preco:24.90,img:"https://source.unsplash.com/120x120/?cheese"},{nome:"Iogurte Natural 170g",preco:3.49,img:"https://source.unsplash.com/120x120/?yogurt"},{nome:"Manteiga 200g",preco:12.90,img:"https://source.unsplash.com/120x120/?butter"}],
+  "Assaí": [{nome:"Macarrão Espaguete 500g",preco:3.99,img:"https://source.unsplash.com/120x120/?pasta"},{nome:"Molho de Tomate 340g",preco:2.79,img:"https://source.unsplash.com/120x120/?tomato,sauce"},{nome:"Biscoito Recheado 140g",preco:2.49,img:"https://source.unsplash.com/120x120/?cookie"},{nome:"Sabão em Pó 1kg",preco:14.90,img:"https://source.unsplash.com/120x120/?detergent"},{nome:"Papel Higiênico 12un",preco:16.90,img:"https://source.unsplash.com/120x120/?toilet,paper"}],
+  "Tatico": [{nome:"Refrigerante 2L",preco:8.99,img:"https://source.unsplash.com/120x120/?soda"},{nome:"Água Mineral 1,5L",preco:2.49,img:"https://source.unsplash.com/120x120/?water,bottle"},{nome:"Suco de Laranja 1L",preco:7.90,img:"https://source.unsplash.com/120x120/?orange,juice"}],
+  "Passaí": [{nome:"Shampoo 350ml",preco:15.90,img:"https://source.unsplash.com/120x120/?shampoo"},{nome:"Creme Dental 90g",preco:4.99,img:"https://source.unsplash.com/120x120/?toothpaste"},{nome:"Desodorante 150ml",preco:12.90,img:"https://source.unsplash.com/120x120/?deodorant"}]
 };
 
 async function ativarIA(){
   const q=document.getElementById("produto").value.trim();
   if(!q) return toast("Digite o produto","err");
-  
   const btn=document.getElementById("btn-buscar"),st=document.getElementById("status-container"),feed=document.getElementById("feed-ofertas");
-  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>';st.style.display="block";st.innerHTML='<div style="color:var(--cyan);font-size:12px"><i class="fas fa-brain"></i> Grok analisando...</div>';feed.innerHTML="";
-  
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>';
+  st.style.display="block";
+  st.innerHTML=`<div style="display:inline-flex;align-items:center;gap:8px;background:#ecfeff;color:#0891b2;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:600"><span class="spinner" style="border-top-color:#0891b2;border-color:rgba(8,145,178,.2)"></span> Grok analisando ofertas...</div>`;
+  feed.innerHTML="";
   try{
     await new Promise(r=>setTimeout(r,900));
-    
-    let lista = [];
-    
-    if(lojaFiltro && produtosBase[lojaFiltro]){
-      lista = produtosBase[lojaFiltro].map(p => ({
-        loja: lojaFiltro,
-        nome: q + " - " + p.nome,
-        preco: +(p.preco * (0.9 + Math.random()*0.3)).toFixed(2),
-        ean: "789" + Math.floor(Math.random()*1e7),
-        img: p.img
-      }));
-    } else {
-      Object.keys(produtosBase).forEach(loja => {
-        const p = produtosBase[loja][Math.floor(Math.random()*produtosBase[loja].length)];
-        lista.push({
-          loja,
-          nome: q + " - " + p.nome,
-          preco: +(p.preco * (0.85 + Math.random()*0.4)).toFixed(2),
-          ean: "789" + Math.floor(Math.random()*1e7),
-          img: p.img
-        });
+    let lista=[];
+    if(lojaFiltro&&produtosBase[lojaFiltro]){
+      lista=produtosBase[lojaFiltro].map(p=>({loja:lojaFiltro,nome:q+" - "+p.nome,preco:+(p.preco*(0.9+Math.random()*0.3)).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:p.img}));
+    }else{
+      Object.keys(produtosBase).forEach(loja=>{
+        const p=produtosBase[loja][Math.floor(Math.random()*produtosBase[loja].length)];
+        lista.push({loja,nome:q+" - "+p.nome,preco:+(p.preco*(0.85+Math.random()*0.4)).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:p.img});
       });
     }
-
-    const adminFilt = produtosAdmin.filter(p => !lojaFiltro || p.loja === lojaFiltro);
-    if(adminFilt.length) lista = [...adminFilt, ...lista];
-
-    lista.forEach((o,i) => desenharCard(o, i===0));
+    const adminFilt=produtosAdmin.filter(p=>!lojaFiltro||p.loja===lojaFiltro);
+    if(adminFilt.length) lista=[...adminFilt,...lista];
+    lista.forEach((o,i)=>desenharCard(o,i===0));
     st.style.display="none";
     toast("Ofertas encontradas!");
-  }catch(e){
-    st.innerHTML='<div style="color:var(--rose)">Erro na busca</div>';
-  }finally{
-    btn.disabled=false;btn.innerHTML="Buscar";
-  }
+  }catch(e){st.innerHTML='<div style="color:var(--rose)">Erro na busca</div>'}finally{btn.disabled=false;btn.innerHTML="Buscar"}
 }
 
 function desenharCard(o,destaque){
@@ -599,18 +524,20 @@ function desenharCard(o,destaque){
   const div=document.createElement("div");
   div.className="card";
   div.innerHTML=`
-    <div style="display:flex;gap:10px">
-      <img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=P'" style="width:64px;height:64px;border-radius:10px;object-fit:cover;border:1px solid var(--border)">
+    <div style="display:flex;gap:12px;align-items:flex-start">
+      <div style="position:relative;flex-shrink:0">
+        <img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=P'" style="width:72px;height:72px;border-radius:12px;object-fit:cover;border:1px solid var(--border)">
+        ${destaque?`<div style="position:absolute;top:-6px;left:-6px;background:linear-gradient(135deg,#f59e0b,#d97706);color:white;font-size:9px;font-weight:700;padding:3px 7px;border-radius:20px;box-shadow:0 2px 8px rgba(217,119,6,.3)">★ Melhor</div>`:''}
+      </div>
       <div style="flex:1;min-width:0">
-        <div style="font-size:10px;font-weight:700;color:var(--cyan)">${o.loja}</div>
-        <div style="font-weight:600;font-size:13px;margin:3px 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div>
+        <div style="font-size:10px;font-weight:700;color:var(--cyan);margin-bottom:2px;text-transform:uppercase;letter-spacing:.03em">${o.loja}</div>
+        <div style="font-weight:600;font-size:13.5px;line-height:1.3;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#0f172a">${o.nome}</div>
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <span style="font-size:15px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</span>
-          <button class="btn btn-mint" style="padding:6px 10px;font-size:12px" onclick="adicionarAoCarrinho('${String(o.nome).replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')">
+          <div style="font-size:17px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</div>
+          <button class="btn btn-mint" style="padding:8px 14px;font-size:13px;border-radius:12px;min-width:42px" onclick="event.stopPropagation();adicionarAoCarrinho('${String(o.nome).replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')">
             <i class="fas fa-plus"></i>
           </button>
         </div>
-        ${destaque?'<div style="margin-top:4px;font-size:9px;font-weight:700;color:var(--amber)"><i class="fas fa-bolt"></i> Melhor preço</div>':''}
       </div>
     </div>`;
   feed.appendChild(div);
@@ -647,7 +574,7 @@ async function buscarCEP_RTK(cep){
     let dados=null;
     try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const j=await r.json();if(!j.erro)dados={logradouro:j.logradouro||"",bairro:j.bairro||"",localidade:j.localidade||"",uf:j.uf||""}}catch{}
     if(!dados){try{const r=await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);if(r.ok){const j=await r.json();dados={logradouro:j.street||"",bairro:j.neighborhood||"",localidade:j.city||"",uf:j.state||""}}}catch{}}
-    if(!dados||(!dados.localidade&&!dados.uf)){document.getElementById("cliente-rua").value="";document.getElementById("cliente-bairro").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--rose)">CEP não encontrado (ex: 01001-000)</span>';valorFreteGlobal=0;atualizarInterfaceCarrinho();toast("CEP inválido","err");return}
+    if(!dados||(!dados.localidade&&!dados.uf)){document.getElementById("cliente-rua").value="";document.getElementById("cliente-bairro").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--rose)">CEP não encontrado</span>';valorFreteGlobal=0;atualizarInterfaceCarrinho();toast("CEP inválido","err");return}
     document.getElementById("cliente-rua").value=dados.logradouro;document.getElementById("cliente-bairro").value=dados.bairro;
     document.getElementById("cliente-cidade-uf").innerHTML=`<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${dados.localidade} - ${dados.uf}`;
     const coords={"DF":[-15.78,-47.93],"GO":[-16.68,-49.25],"SP":[-23.55,-46.63],"RJ":[-22.91,-43.17],"MG":[-19.92,-43.94],"BA":[-12.97,-38.50],"PR":[-25.43,-49.27],"RS":[-30.03,-51.23],"SC":[-27.59,-48.55],"PE":[-8.05,-34.88],"CE":[-3.72,-38.54],"PA":[-1.45,-48.50],"AM":[-3.11,-60.02],"MT":[-15.60,-56.10],"MS":[-20.46,-54.62],"ES":[-20.31,-40.31],"PB":[-7.12,-34.86],"RN":[-5.79,-35.21],"AL":[-9.66,-35.73],"SE":[-10.91,-37.07],"PI":[-5.09,-42.80],"MA":[-2.53,-44.30],"TO":[-10.18,-48.33],"RO":[-8.76,-63.90],"AC":[-9.97,-67.81],"AP":[0.03,-51.06],"RR":[2.82,-60.67]};
@@ -683,7 +610,6 @@ async function iniciarHardStopPagamento(){
 
   const pedido={codigo,itens:[...sacola],total,frete:valorFreteGlobal,endereco:`${rua}, ${num}`,cep,pag,driver:dName,driverTel:dTel,data:new Date().toISOString(),status:"Em rota",avaliacao:0,clienteNome:clienteLogado.nome,clienteTel:clienteLogado.telefone};
   pedidos.unshift(pedido);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos.slice(0,30)));
-
   sacola=[];valorFreteGlobal=0;salvarSacola();
 
   document.getElementById("modal-tracking").style.display="block";
@@ -717,6 +643,7 @@ async function iniciarHardStopPagamento(){
   document.getElementById("telemetry-box").style.display="block";
   document.getElementById("telemetry-dist").textContent=dist.toFixed(1);
   document.getElementById("telemetry-eta").textContent=Math.round(dist*2.8);
+  document.getElementById("telemetry-eta2").textContent=Math.round(dist*2.8);
 
   let lat=parseFloat(coordenadasRTK.lat)||-15.78,lng=parseFloat(coordenadasRTK.lng)||-47.93;
   iniciarMapaAoVivo(lat,lng);
@@ -725,9 +652,53 @@ async function iniciarHardStopPagamento(){
   if(intervaloMapa)clearInterval(intervaloMapa);
   intervaloMapa=setInterval(()=>{lat+=(Math.random()-.5)*.0014;lng+=(Math.random()-.5)*.0014;atualizarPosicaoMapa(lat,lng)},2500);
 
-  const nfHtml=`<div style="text-align:center;margin-bottom:6px">MERCADO IA ÔMNI</div><div>CNPJ: 00.000.000/0001-00</div><div>Pedido: ${codigo}</div><div>Data: ${new Date().toLocaleString("pt-BR")}</div><div style="border-top:1px dashed #94a3b8;margin:6px 0;padding-top:6px"></div>${pedido.itens.map(i=>`<div>${(i.qtd||1)}x ${i.nome.substring(0,22)} ${formatarMoeda(i.preco*(i.qtd||1))}</div>`).join("")}<div style="border-top:1px dashed #94a3b8;margin:6px 0;padding-top:6px"></div><div>Subtotal: ${formatarMoeda(total-valorFreteGlobal)}</div><div>Frete: ${formatarMoeda(valorFreteGlobal)}</div><div style="font-weight:700">TOTAL: ${formatarMoeda(total)}</div><div style="margin-top:6px">Pagamento: ${pag}</div><div>Chave NF-e: ${Math.random().toString(36).slice(2,18).toUpperCase()}</div>`;
-  document.getElementById("nf-conteudo").innerHTML=nfHtml;
-  document.getElementById("nota-fiscal-box").style.display="block";
+  // ========== NF-e COMPLETA (CBS + IBS + design profissional) ==========
+  const subtotal = total - valorFreteGlobal;
+  const baseCalculo = subtotal;
+  const icmsRate = 0.18, pisRate = 0.0165, cofinsRate = 0.076, cbsRate = 0.009, ibsStateRate = 0.001, ibsCityRate = 0.000;
+  const icms = +(baseCalculo * icmsRate).toFixed(2);
+  const pis = +(baseCalculo * pisRate).toFixed(2);
+  const cofins = +(baseCalculo * cofinsRate).toFixed(2);
+  const cbs = +(baseCalculo * cbsRate).toFixed(2);
+  const ibsState = +(baseCalculo * ibsStateRate).toFixed(2);
+  const ibsCity = +(baseCalculo * ibsCityRate).toFixed(2);
+  const totalImpostos = +(icms + pis + cofins + cbs + ibsState + ibsCity).toFixed(2);
+  const chaveNFe = Array.from({length:44},()=>Math.floor(Math.random()*10)).join('').replace(/(\d{4})(?=\d)/g,'$1 ');
+
+  const nfHtml = `
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.45;color:#0f172a">
+  <div style="text-align:center;font-weight:800;font-size:13px;margin-bottom:6px;letter-spacing:1px">MERCADO IA ÔMNI</div>
+  <div style="text-align:center;font-size:10px;color:#64748b;margin-bottom:8px">CNPJ: 00.000.000/0001-00 · IE: 07.123.456-7</div>
+  <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Pedido:</span><strong>${codigo}</strong></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Data:</span><span>${new Date().toLocaleString("pt-BR")}</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Cliente:</span><span>${clienteLogado.nome}</span></div>
+  <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span>Pagamento:</span><span>${pag}</span></div>
+  <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+  <div style="font-weight:700;margin-bottom:4px">ITENS</div>
+  ${pedido.itens.map(i => `<div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>${(i.qtd||1)}x ${i.nome.substring(0,22)}</span><span>${formatarMoeda(i.preco*(i.qtd||1))}</span></div>`).join('')}
+  <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+  <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span>${formatarMoeda(subtotal)}</span></div>
+  <div style="display:flex;justify-content:space-between"><span>Frete</span><span>${formatarMoeda(valorFreteGlobal)}</span></div>
+  <div style="display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin-top:4px"><span>TOTAL</span><span>${formatarMoeda(total)}</span></div>
+  <div style="border-top:1px dashed #94a3b8;margin:10px 0"></div>
+  <div style="font-weight:700;margin-bottom:6px">TRIBUTOS (Reforma 2026)</div>
+  <div style="background:#f8fafc;border-radius:8px;padding:8px;font-size:10px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>ICMS (18%)</span><span>${formatarMoeda(icms)}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>PIS (1,65%)</span><span>${formatarMoeda(pis)}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>COFINS (7,6%)</span><span>${formatarMoeda(cofins)}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#2563eb"><span>CBS (0,9%) · Federal</span><span>${formatarMoeda(cbs)}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#059669"><span>IBS Estadual (0,1%)</span><span>${formatarMoeda(ibsState)}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#059669"><span>IBS Municipal</span><span>${formatarMoeda(ibsCity)}</span></div>
+    <div style="border-top:1px solid #e2e8f0;margin:6px 0"></div>
+    <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total de Impostos</span><span>${formatarMoeda(totalImpostos)}</span></div>
+  </div>
+  <div style="border-top:1px dashed #94a3b8;margin:10px 0"></div>
+  <div style="font-size:9px;color:#64748b;word-break:break-all;line-height:1.3"><strong>Chave de Acesso NF-e:</strong><br>${chaveNFe}</div>
+  <div style="text-align:center;margin-top:8px;font-size:9px;color:#94a3b8">Documento auxiliar da Nota Fiscal Eletrônica<br>Consulte em: www.nfe.fazenda.gov.br</div>
+</div>`;
+  document.getElementById("nf-conteudo").innerHTML = nfHtml;
+  document.getElementById("nota-fiscal-box").style.display = "block";
 
   await new Promise(r=>setTimeout(r,1100));
   log.innerHTML+=`<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Em rota · Rastreio ao vivo</li>`;
@@ -764,22 +735,56 @@ function abrirMeusPedidos(){
 
 function verNotaFiscal(idx){
   const p=pedidos[idx];if(!p)return;
-  const itens=p.itens.map(i=>`${(i.qtd||1)}x ${i.nome} - ${formatarMoeda(i.preco*(i.qtd||1))}`).join("\\n");
-  alert(`NOTA FISCAL - ${p.codigo}\\n\\nCliente: ${p.clienteNome||"-"}\\nData: ${new Date(p.data).toLocaleString("pt-BR")}\\n\\n${itens}\\n\\nTotal: ${formatarMoeda(p.total)}\\nPagamento: ${p.pag}\\nEntregador: ${p.driver}`);
+  const modal=document.createElement("div");
+  modal.className="modal-bg ativo";
+  modal.innerHTML=`
+    <div class="modal" style="max-width:420px">
+      <h2 style="font-size:16px;margin-bottom:12px">Nota Fiscal · ${p.codigo}</h2>
+      <div class="nf-box" style="margin:0">
+        <div style="text-align:center;font-weight:700;margin-bottom:8px">NOTA FISCAL ELETRÔNICA</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5">
+          <div><strong>Cliente:</strong> ${p.clienteNome||"-"}</div>
+          <div><strong>Data:</strong> ${new Date(p.data).toLocaleString("pt-BR")}</div>
+          <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+          ${p.itens.map(i=>`<div>${(i.qtd||1)}x ${i.nome} — ${formatarMoeda(i.preco*(i.qtd||1))}</div>`).join("")}
+          <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+          <div><strong>Total:</strong> ${formatarMoeda(p.total)}</div>
+          <div><strong>Pagamento:</strong> ${p.pag}</div>
+          <div><strong>Entregador:</strong> ${p.driver}</div>
+          <div style="margin-top:8px;font-size:10px;color:#64748b">Chave NF-e simulada · Reforma Tributária 2026 (CBS + IBS)</div>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-full" style="margin-top:14px" onclick="this.closest('.modal-bg').remove()">Fechar</button>
+    </div>`;
+  document.body.appendChild(modal);
+  modal.onclick=e=>{if(e.target===modal)modal.remove()};
 }
+
 function verDetalhesPedido(idx){
   const p=pedidos[idx];if(!p)return;
-  alert(`Pedido ${p.codigo}\\nStatus: ${p.status}\\nEndereço: ${p.endereco}\\nCEP: ${p.cep}\\nTotal: ${formatarMoeda(p.total)}\\nEntregador: ${p.driver}`);
+  const modal=document.createElement("div");
+  modal.className="modal-bg ativo";
+  modal.innerHTML=`
+    <div class="modal" style="max-width:400px">
+      <h2 style="font-size:16px;margin-bottom:12px">Detalhes do Pedido</h2>
+      <div style="font-size:13px;line-height:1.7">
+        <div><strong>Código:</strong> ${p.codigo}</div>
+        <div><strong>Status:</strong> <span style="color:var(--mint)">${p.status}</span></div>
+        <div><strong>Data:</strong> ${new Date(p.data).toLocaleString("pt-BR")}</div>
+        <div><strong>Endereço:</strong> ${p.endereco}</div>
+        <div><strong>CEP:</strong> ${p.cep}</div>
+        <div><strong>Total:</strong> ${formatarMoeda(p.total)}</div>
+        <div><strong>Entregador:</strong> ${p.driver}</div>
+        <div><strong>Cliente:</strong> ${p.clienteNome||"-"}</div>
+      </div>
+      <button class="btn btn-ghost btn-full" style="margin-top:16px" onclick="this.closest('.modal-bg').remove()">Fechar</button>
+    </div>`;
+  document.body.appendChild(modal);
+  modal.onclick=e=>{if(e.target===modal)modal.remove()};
 }
-function editarPedido(idx){
-  const p=pedidos[idx];if(!p)return;
-  const novoStatus=prompt("Novo status (Em rota / Entregue / Cancelado):",p.status);
-  if(novoStatus){p.status=novoStatus;localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido atualizado!")}
-}
-function excluirPedido(idx){
-  if(!confirm("Tem certeza que deseja excluir este pedido?"))return;
-  pedidos.splice(idx,1);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido excluído");
-}
+
+function editarPedido(idx){const p=pedidos[idx];if(!p)return;const novoStatus=prompt("Novo status (Em rota / Entregue / Cancelado):",p.status);if(novoStatus){p.status=novoStatus;localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido atualizado!")}}
+function excluirPedido(idx){if(!confirm("Tem certeza que deseja excluir este pedido?"))return;pedidos.splice(idx,1);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido excluído")}
 
 document.getElementById("stars-avaliacao")?.addEventListener("click",e=>{
   const v=e.target.dataset?.v;if(!v)return;
