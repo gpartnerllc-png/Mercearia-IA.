@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <meta name="theme-color" content="#2563eb"/>
-<title>Mercado IA · Ômni-Logística</title>
+<title>CENTRAL REDE IA · Logística</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%232563eb'/><stop offset='100%' style='stop-color:%230591b2'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' fill='white'>🛒</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -20,7 +20,7 @@
 .field{margin-bottom:10px}.field label{display:block;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
 .field input,.field select,textarea{width:100%;background:#f8fafc;border:1.5px solid var(--border);border-radius:10px;padding:10px 12px;color:var(--text);font-size:13px;font-family:inherit}
 .field input:focus,.field select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,.12)}
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--shadow);transition:all .25s ease}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:14px;box-shadow:var(--shadow)}
 .toast-area{position:fixed;bottom:20px;right:16px;z-index:9999;display:flex;flex-direction:column;gap:8px}
 .toast{padding:12px 16px;border-radius:11px;font-size:13px;font-weight:600;max-width:320px;animation:slideIn .25s ease;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px}
 .toast-ok{background:#ecfdf5;border:1px solid #a7f3d0;color:#047857}.toast-err{background:#fff1f2;border:1px solid #fecdd3;color:#be123c}
@@ -44,16 +44,15 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 .modal{background:var(--card);border-radius:18px;padding:24px;width:100%;max-width:480px;box-shadow:var(--shadow);max-height:90vh;overflow-y:auto}
 #mapa-entrega{height:240px;border-radius:14px;margin:12px 0;border:1px solid var(--border);z-index:1}
 .parceiros-scroll{display:flex;gap:12px;overflow-x:auto;padding:8px 4px 16px;scrollbar-width:none}.parceiros-scroll::-webkit-scrollbar{display:none}
-.parceiro-card{flex:0 0 100px;background:#fff;border:2px solid transparent;border-radius:16px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .25s ease;box-shadow:0 4px 14px rgba(0,0,0,.06)}
-.parceiro-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(37,99,235,.12)}
-.parceiro-card.ativo{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
-.parceiro-card .logo-p{width:52px;height:52px;margin:0 auto 8px;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.parceiro-card{flex:0 0 100px;background:#fff;border:2px solid transparent;border-radius:16px;padding:12px 8px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.06);cursor:pointer;transition:all .25s ease}
+.parceiro-card:hover{transform:translateY(-4px)}.parceiro-card.ativo{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.15)}
+.parceiro-card .logo-p{width:52px;height:52px;margin:0 auto 8px;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#fff}
 .parceiro-card .logo-p img{width:100%;height:100%;object-fit:contain;padding:4px}
 .parceiro-card span{font-size:11px;font-weight:600;color:#334155}
-.brand-banner{display:none;height:90px;border-radius:16px;margin-bottom:16px;background-size:cover;background-position:center;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.brand-banner{display:none;height:90px;border-radius:16px;margin-bottom:16px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .brand-banner.ativo{display:block}
 .brand-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,transparent 70%)}
-.brand-banner img{position:absolute;right:20px;top:50%;transform:translateY(-50%);height:60px;opacity:.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+.brand-banner img{position:absolute;right:20px;top:50%;transform:translateY(-50%);height:60px;opacity:.9}
 .brand-banner span{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#fff;font-family:'Sora',sans-serif;font-weight:800;font-size:22px;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.4)}
 .codigo-pedido{background:linear-gradient(135deg,#dbeafe,#ecfdf5);border:2px solid var(--cyan);border-radius:14px;padding:14px;text-align:center;margin:12px 0}
 .codigo-pedido .num{font-size:26px;font-weight:800;letter-spacing:2px;color:var(--blue);font-family:'JetBrains Mono'}
@@ -71,9 +70,9 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 <!-- LOGIN -->
 <div id="tela-login" style="position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:16px;background:linear-gradient(135deg,#dbeafe,#f0fdf4)">
   <div class="card" style="width:100%;max-width:400px;padding:28px;border-radius:20px">
-    <div class="logo" style="margin-bottom:6px"><div class="logo-dot"></div> Mercado IA · Ômni</div>
+    <div class="logo" style="margin-bottom:6px"><div class="logo-dot"></div> CENTRAL · REDE</div>
     <h1 style="font-size:18px;margin:10px 0 4px">Mercado Local Inteligente</h1>
-    <p style="color:var(--muted);font-size:12px;margin-bottom:16px">Grok · Drones · Tesla · NF-e · Admin</p>
+    <p style="color:var(--muted);font-size:12px;margin-bottom:16px">O preço do atacado na sua porta, na velocidade de um clique.</p>
     <div class="field"><label>Nome Completo</label><input id="login-nome" placeholder="Seu nome"></div>
     <div class="field"><label>WhatsApp</label><input id="login-telefone" type="tel" placeholder="61 9XXXX-XXXX"></div>
     <div class="field"><label>Região</label>
@@ -124,7 +123,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <h2 style="font-size:17px;margin-bottom:12px">Acesso Admin / Gestor</h2>
     <div class="field"><label>E-mail</label><input id="admin-email" type="email" placeholder="admin@mercadoia.com"></div>
     <div class="field"><label>Senha</label><input id="admin-pass" type="password" placeholder="••••••••"></div>
-    <p style="font-size:11px;color:var(--muted);margin-bottom:12px">Demo: admin@mercadoia.com / admin123</p>
+    <p style="font-size:11px;color:var(--muted);margin-bottom:12px">Demo: centralrede@droppfy.com / admin323619</p>
     <div style="display:flex;gap:8px">
       <button class="btn btn-prim" style="flex:1" onclick="loginAdmin()">Entrar</button>
       <button class="btn btn-ghost" onclick="document.getElementById('modal-admin-login').classList.remove('ativo')">Cancelar</button>
@@ -137,7 +136,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
   <div class="modal" style="text-align:center">
     <div style="font-size:40px;margin-bottom:12px">🛒</div>
     <h2 style="font-size:17px;margin-bottom:8px">Pedido anterior encontrado</h2>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:16px" id="texto-restaurar">Você tinha itens na sacola. Deseja continuar de onde parou?</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px" id="texto-restaurar">Você tinha itens na sacola. Deseja continuar?</p>
     <div style="display:flex;gap:10px">
       <button class="btn btn-prim" style="flex:1" onclick="restaurarSacola()">Continuar Pedido</button>
       <button class="btn btn-ghost" style="flex:1" onclick="descartarSacola()">Começar Novo</button>
@@ -168,30 +167,29 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <h1 style="font-size:22px;font-weight:800;text-align:center;margin-bottom:2px">Mercado IA</h1>
     <p style="text-align:center;color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px">Grok · Drones · Tesla · NF-e</p>
 
-    <!-- PARCEIROS ÔMNI -->
     <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px">Parceiros Ômni</div>
     <div class="parceiros-scroll" id="carrossel-parceiros">
       <div class="parceiro-card" data-loja="Atacadão" onclick="filtrarLoja('Atacadão', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#F66420,#009933);">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" alt="Atacadão" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>AT</span>'" alt="Atacadão" style="padding:6px;object-fit:contain">
         </div>
         <span>Atacadão</span>
       </div>
       <div class="parceiro-card" data-loja="Carrefour" onclick="filtrarLoja('Carrefour', this)">
         <div class="logo-p" style="background:#003087;">
-          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" alt="Carrefour" style="padding:6px;object-fit:contain">
+          <img src="https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:14px\'>CF</span>'" alt="Carrefour" style="padding:6px;object-fit:contain">
         </div>
         <span>Carrefour</span>
       </div>
       <div class="parceiro-card" data-loja="Tatico" onclick="filtrarLoja('Tatico', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#c2410c,#ea580c);">
-          <img src="https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:16px\'>TK</span>'" alt="Tatico" style="padding:6px;object-fit:contain">
+          <img src="https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:16px\'>TK</span>'" alt="Tatico" style="padding:6px;object-fit:contain">
         </div>
         <span>Tatico</span>
       </div>
       <div class="parceiro-card" data-loja="Passaí" onclick="filtrarLoja('Passaí', this)">
         <div class="logo-p" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);">
-          <img src="https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>PS</span>'" alt="Passaí" style="padding:6px;object-fit:contain">
+          <img src="https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'color:white;font-weight:800;font-size:15px\'>PS</span>'" alt="Passaí" style="padding:6px;object-fit:contain">
         </div>
         <span>Passaí</span>
       </div>
@@ -211,7 +209,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 
     <div class="card" style="display:flex;gap:8px;padding:6px;align-items:center;margin-bottom:12px">
       <i class="fas fa-search" style="color:var(--muted);margin-left:10px"></i>
-      <input id="produto" placeholder="Buscar com Grok AI..." style="flex:1;border:none;background:transparent;outline:none;font-size:14px;padding:9px 4px">
+      <input id="produto" placeholder="Buscar produtos..." style="flex:1;border:none;background:transparent;outline:none;font-size:14px;padding:9px 4px">
       <button class="btn btn-prim" id="btn-buscar" onclick="ativarIA()" style="padding:9px 16px">Buscar</button>
     </div>
     <div id="status-container" style="text-align:center;margin:10px 0;display:none"></div>
@@ -231,7 +229,7 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
     <div class="cart-row"><span><i class="fas fa-robot" style="color:#0891b2"></i> Frete</span><span id="frete-carrinho" style="color:#d97706;font-weight:700">A Calcular</span></div>
     <div class="cart-total-row"><span style="font-weight:700;font-size:12px">TOTAL</span><span class="cart-total-value" id="total-carrinho">R$ 0,00</span></div>
     <div id="form-checkout" style="display:none;margin-top:12px">
-      <div class="field" style="margin-bottom:6px"><label>CEP (27 estados)</label><input id="cliente-cep" placeholder="00000-000" maxlength="9" onkeyup="buscarCEP_RTK(this.value)"></div>
+      <div class="field" style="margin-bottom:6px"><label>CEP</label><input id="cliente-cep" placeholder="00000-000" maxlength="9" onkeyup="buscarCEP_RTK(this.value)"></div>
       <div style="display:grid;grid-template-columns:2fr 1fr;gap:6px;margin-bottom:6px">
         <input id="cliente-rua" placeholder="Rua" style="padding:9px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
         <input id="cliente-numero" placeholder="Nº" style="padding:9px;border-radius:9px;border:1.5px solid var(--border);font-size:13px">
@@ -246,11 +244,11 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
           <option value="Cartao_Credito">Cartão Crédito</option>
           <option value="Cartao_Debito">Cartão Débito</option>
           <option value="Cartao_Loja">Cartão da Loja</option>
-          <option value="Palm">Palm Pay (biometria)</option>
+          <option value="Palm">Palm Pay</option>
         </select>
       </div>
       <div id="box-pix" style="display:none;text-align:center;padding:10px;background:#ecfdf5;border-radius:10px;border:1px solid #a7f3d0;margin-bottom:8px">
-        <p style="font-size:10px;font-weight:700;color:var(--mint);margin-bottom:6px"><i class="fab fa-pix"></i> PIX Grok</p>
+        <p style="font-size:10px;font-weight:700;color:var(--mint);margin-bottom:6px"><i class="fab fa-pix"></i> PIX</p>
         <img id="img-qrcode-pix" style="width:120px;height:120px;margin:0 auto 6px;display:block;border-radius:8px">
         <p id="pix-key-text" style="font-family:'JetBrains Mono';font-size:9px;word-break:break-all;color:var(--muted);max-height:36px;overflow:hidden"></p>
         <button class="btn btn-mint" style="padding:6px 12px;font-size:11px;margin-top:4px" onclick="copiarChavePix()">Copiar Chave</button>
@@ -271,11 +269,10 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 <div id="modal-tracking" style="display:none;position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;padding:16px">
   <div style="max-width:420px;margin:0 auto">
     <h2 style="font-size:20px;text-align:center;margin-bottom:4px">Pedido Confirmado</h2>
-    
     <div style="background:#fff;border-radius:16px;padding:16px;margin-bottom:14px;border:1px solid var(--border);box-shadow:var(--shadow)">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
         <div>
-          <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em">Status do pedido</div>
+          <div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase">Status</div>
           <div id="track-status-text" style="font-size:16px;font-weight:800;color:var(--blue);margin-top:2px">Processando</div>
         </div>
         <div style="text-align:right">
@@ -284,21 +281,17 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
         </div>
       </div>
       <div style="height:6px;background:#e2e8f0;border-radius:10px;overflow:hidden;margin-bottom:10px">
-        <div id="track-progress-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .9s cubic-bezier(.4,0,.2,1);border-radius:10px"></div>
+        <div id="track-progress-bar" style="height:100%;width:5%;background:linear-gradient(90deg,var(--cyan),var(--mint));transition:width .9s;border-radius:10px"></div>
       </div>
       <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-weight:600">
         <span>Confirmado</span><span>Separando</span><span>Em rota</span><span>Entregue</span>
       </div>
     </div>
-
     <div class="codigo-pedido">
       <div style="font-size:10px;font-weight:700;color:var(--muted)">CÓDIGO DO PEDIDO</div>
       <div class="num" id="codigo-pedido-num">----</div>
-      <div style="font-size:11px;margin-top:4px;color:var(--muted)">Mostre ao entregador</div>
     </div>
-
     <div id="mapa-entrega"></div>
-
     <div id="telemetry-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;font-family:'JetBrains Mono';font-size:10px;margin-bottom:12px">
       <p style="font-weight:700;color:var(--cyan);margin-bottom:6px"><i class="fas fa-satellite-dish"></i> Telemetria GPS</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;color:var(--muted)">
@@ -308,7 +301,6 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
         <span>📡 <b id="telemetry-lng">--</b></span>
       </div>
     </div>
-
     <div id="driver-card" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px">
       <p style="font-size:9px;font-weight:700;color:var(--cyan);text-transform:uppercase;margin-bottom:8px">Entregador</p>
       <div style="display:flex;gap:12px;align-items:center">
@@ -317,14 +309,12 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
           <h4 id="driver-name" style="font-weight:700;font-size:14px">—</h4>
           <p id="driver-vehicle" style="font-size:11px;color:var(--muted)"></p>
         </div>
-        <div style="background:#fef3c7;color:#b45309;padding:3px 8px;border-radius:16px;font-size:11px;font-weight:700"><i class="fas fa-star"></i> 4.98</div>
       </div>
       <div style="display:flex;gap:8px;margin-top:12px">
         <a id="btn-whatsapp-entregador" href="#" target="_blank" class="btn btn-mint" style="flex:1;padding:10px;font-size:12px;text-decoration:none"><i class="fab fa-whatsapp"></i> Entregador</a>
         <a id="btn-whatsapp-loja" href="#" target="_blank" class="btn btn-ghost" style="flex:1;padding:10px;font-size:12px;text-decoration:none"><i class="fab fa-whatsapp"></i> Loja</a>
       </div>
     </div>
-
     <div id="cliente-contato-box" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px">
       <p style="font-size:9px;font-weight:700;color:var(--cyan);text-transform:uppercase;margin-bottom:8px">Cliente</p>
       <div style="display:flex;gap:12px;align-items:center">
@@ -339,7 +329,6 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
         <a id="btn-ligar-cliente" href="#" class="btn btn-ghost" style="flex:1;padding:10px;font-size:12px;text-decoration:none"><i class="fas fa-phone"></i> Ligar</a>
       </div>
     </div>
-
     <div class="nf-box" id="nota-fiscal-box" style="display:none">
       <div style="text-align:center;font-weight:700;margin-bottom:8px;border-bottom:1px dashed #cbd5e1;padding-bottom:6px">NOTA FISCAL ELETRÔNICA</div>
       <div id="nf-conteudo"></div>
@@ -365,78 +354,49 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
   </div>
 </div>
 
-<!-- PAINEL ADMIN MELHORADO -->
+<!-- PAINEL ADMIN -->
 <div id="admin-panel" class="admin-panel">
   <div style="max-width:900px;margin:0 auto">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-      <h1 style="font-size:22px;font-weight:800">Painel Admin · Mercado IA</h1>
+      <h1 style="font-size:22px;font-weight:800">Painel Admin · Central Rede</h1>
       <button class="btn btn-ghost" onclick="fecharAdmin()"><i class="fas fa-times"></i> Sair</button>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
-      
-      <!-- CADASTRAR PRODUTO COM BIPAR + CÂMERA -->
       <div class="card">
         <h3 style="font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:8px">
           <i class="fas fa-barcode" style="color:var(--blue)"></i> Cadastrar Produto
         </h3>
-
         <div class="field">
-          <label>Código de Barras (EAN) — Bipar ou digitar</label>
+          <label>Código de Barras (EAN)</label>
           <div style="display:flex;gap:8px">
             <input id="adm-prod-ean" placeholder="Ex: 7891000100103" style="flex:1" onkeyup="if(event.key==='Enter') buscarProdutoPorEAN()">
-            <button class="btn btn-prim" style="padding:10px 14px" onclick="buscarProdutoPorEAN()">
-              <i class="fas fa-search"></i>
-            </button>
+            <button class="btn btn-prim" style="padding:10px 14px" onclick="buscarProdutoPorEAN()"><i class="fas fa-search"></i></button>
           </div>
           <div id="ean-status" style="font-size:12px;margin-top:6px;color:var(--muted)"></div>
         </div>
-
-        <div class="field">
-          <label>Nome do Produto</label>
-          <input id="adm-prod-nome" placeholder="Será preenchido automaticamente">
-        </div>
-
-        <div class="field">
-          <label>Preço (R$)</label>
-          <input id="adm-prod-preco" type="number" step="0.01" placeholder="0,00">
-        </div>
-
+        <div class="field"><label>Nome do Produto</label><input id="adm-prod-nome" placeholder="Será preenchido automaticamente"></div>
+        <div class="field"><label>Preço (R$)</label><input id="adm-prod-preco" type="number" step="0.01" placeholder="0,00"></div>
         <div class="field">
           <label>Loja</label>
           <select id="adm-prod-loja">
-            <option>Atacadão</option>
-            <option>Carrefour</option>
-            <option>Tatico</option>
-            <option>Passaí</option>
-            <option>Assaí</option>
+            <option>Atacadão</option><option>Carrefour</option><option>Tatico</option><option>Passaí</option><option>Assaí</option>
           </select>
         </div>
-
         <div class="field">
           <label>Foto do Produto</label>
           <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap">
-            <button type="button" class="btn btn-ghost" onclick="abrirCamera()" style="flex:1">
-              <i class="fas fa-camera"></i> Tirar Foto
-            </button>
-            <button type="button" class="btn btn-ghost" onclick="document.getElementById('input-foto').click()" style="flex:1">
-              <i class="fas fa-image"></i> Galeria
-            </button>
+            <button type="button" class="btn btn-ghost" onclick="abrirCamera()" style="flex:1"><i class="fas fa-camera"></i> Tirar Foto</button>
+            <button type="button" class="btn btn-ghost" onclick="document.getElementById('input-foto').click()" style="flex:1"><i class="fas fa-image"></i> Galeria</button>
           </div>
           <input type="file" id="input-foto" accept="image/*" capture="environment" style="display:none" onchange="previewFoto(this)">
-          <input id="adm-prod-img" placeholder="Ou cole o link da imagem (https://...)" style="margin-bottom:8px">
+          <input id="adm-prod-img" placeholder="Ou cole o link da imagem" style="margin-bottom:8px">
           <div id="preview-foto" style="display:none;text-align:center;margin-top:8px">
             <img id="img-preview" style="max-width:140px;max-height:140px;border-radius:12px;border:1px solid var(--border);object-fit:cover">
-            <div style="margin-top:6px">
-              <button class="btn btn-ghost btn-xs" onclick="removerFoto()">Remover foto</button>
-            </div>
+            <div style="margin-top:6px"><button class="btn btn-ghost btn-xs" onclick="removerFoto()">Remover foto</button></div>
           </div>
         </div>
-
-        <button class="btn btn-prim btn-full" onclick="adminSalvarProduto()" style="margin-top:8px">
-          <i class="fas fa-save"></i> Salvar Produto
-        </button>
+        <button class="btn btn-prim btn-full" onclick="adminSalvarProduto()" style="margin-top:8px"><i class="fas fa-save"></i> Salvar Produto</button>
       </div>
-
       <div class="card">
         <h3 style="font-size:14px;margin-bottom:12px">Entregadores Pendentes</h3>
         <div id="adm-entregadores" style="max-height:280px;overflow-y:auto;font-size:13px"></div>
@@ -451,99 +411,151 @@ h1,h2,h3{font-family:'Sora',sans-serif}.logo{font-family:'Sora',sans-serif;font-
 
 <script>
 /* ========== CONFIG ========== */
-const ORS_API_KEY = "SUA_CHAVE_ORS_AQUI";
+const API_URL = "https://mercearia-api.centralrede.com.workers.dev";
+const ORS_API_KEY = ""; // coloque sua chave depois se quiser rotas reais
 
 /* ========== ESTADO ========== */
-let clienteLogado=null,sacola=[],valorFreteGlobal=0,pesoSacolaGlobal=0,coordenadasRTK={lat:"",lng:""},payloadPixAtual="",timerSacola=null,mapa=null,marcadorEntregador=null,intervaloMapa=null,lojaFiltro="",posicaoCliente=null,rotaAtual=null;
+let clienteLogado=null, sacola=[], valorFreteGlobal=0, pesoSacolaGlobal=0;
+let coordenadasRTK={lat:"",lng:""}, payloadPixAtual="", timerSacola=null;
+let mapa=null, marcadorEntregador=null, intervaloMapa=null, lojaFiltro="", posicaoCliente=null, rotaAtual=null;
 let entregadores=JSON.parse(localStorage.getItem("mia_entregadores")||"[]");
 let pedidos=JSON.parse(localStorage.getItem("mia_pedidos")||"[]");
-let produtosAdmin=JSON.parse(localStorage.getItem("mia_produtos")||"[]");
+let produtosAdmin=[];
+
 const nomesRegioes={brasilia:"Brasília - DF",aguas_lindas:"Águas Lindas - GO",maracai:"Maracaí - SP",outra:"Brasil"};
 
 /* ========== UTILS ========== */
-function toast(msg,tipo="ok"){const t=document.createElement("div");t.className=`toast toast-${tipo}`;t.innerHTML=`<i class="fas ${tipo==='ok'?'fa-check-circle':'fa-exclamation-circle'}" style="font-size:16px"></i><span>${msg}</span>`;document.getElementById("toasts").appendChild(t);setTimeout(()=>{t.style.opacity="0";t.style.transform="translateX(30px)";t.style.transition="all .3s ease";setTimeout(()=>t.remove(),300)},3200)}
+function toast(msg,tipo="ok"){const t=document.createElement("div");t.className=`toast toast-${tipo}`;t.innerHTML=`<i class="fas ${tipo==='ok'?'fa-check-circle':'fa-exclamation-circle'}" style="font-size:16px"></i><span>${msg}</span>`;document.getElementById("toasts").appendChild(t);setTimeout(()=>{t.style.opacity="0";t.style.transform="translateX(30px)";t.style.transition="all .3s";setTimeout(()=>t.remove(),300)},3200)}
 function formatarMoeda(v){return Number(v).toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
 function gerarCodigo(){return "OM"+Date.now().toString().slice(-8)}
 function salvarSacola(){localStorage.setItem("mia_sacola",JSON.stringify(sacola));localStorage.setItem("mia_frete",valorFreteGlobal)}
 function carregarSacola(){try{const s=JSON.parse(localStorage.getItem("mia_sacola")||"[]");if(Array.isArray(s))sacola=s;valorFreteGlobal=parseFloat(localStorage.getItem("mia_frete")||0)||0}catch{}}
 
-/* ========== GPS + ROTAS ========== */
-function obterLocalizacaoCliente(){return new Promise((resolve)=>{if(!navigator.geolocation){resolve(null);return;}navigator.geolocation.getCurrentPosition((pos)=>{posicaoCliente={lat:pos.coords.latitude,lng:pos.coords.longitude,accuracy:pos.coords.accuracy};resolve(posicaoCliente)},()=>resolve(null),{enableHighAccuracy:true,timeout:8000,maximumAge:30000})})}
-function calcularDistancia(lat1,lon1,lat2,lon2){const R=6371;const dLat=(lat2-lat1)*Math.PI/180;const dLon=(lon2-lon1)*Math.PI/180;const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a))}
-async function buscarRotaReal(origemLat,origemLng,destinoLat,destinoLng){if(!ORS_API_KEY||ORS_API_KEY==="SUA_CHAVE_ORS_AQUI"){return{pontos:[[origemLat,origemLng],[destinoLat,destinoLng]],distanciaKm:null,tempoMin:null,sucesso:false}}try{const url=`https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${origemLng},${origemLat}&end=${destinoLng},${destinoLat}`;const res=await fetch(url);if(!res.ok)throw new Error("ORS error");const data=await res.json();const feature=data.features?.[0];if(!feature)throw new Error("Sem rota");const coords=feature.geometry.coordinates.map(c=>[c[1],c[0]]);const summary=feature.properties.summary;return{pontos:coords,distanciaKm:(summary.distance/1000).toFixed(1),tempoMin:Math.round(summary.duration/60),sucesso:true}}catch(e){console.warn("Rota real falhou",e);return{pontos:[[origemLat,origemLng],[destinoLat,destinoLng]],distanciaKm:null,tempoMin:null,sucesso:false}}}
+/* ========== PRODUTOS D1 ========== */
+async function carregarProdutosDoBanco(){
+  try{
+    const res=await fetch(`${API_URL}/produtos`);
+    if(!res.ok) throw new Error("Erro");
+    const data=await res.json();
+    produtosAdmin=data||[];
+    return produtosAdmin;
+  }catch(e){
+    console.error(e);
+    toast("Erro ao carregar produtos","err");
+    return [];
+  }
+}
 
-/* ========== VALIDAÇÃO ========== */
-function validarCPF(cpf){cpf=cpf.replace(/\D/g,"");if(cpf.length!==11||/^(\d)\1+$/.test(cpf))return false;let s=0;for(let i=0;i<9;i++)s+=parseInt(cpf.charAt(i))*(10-i);let r=(s*10)%11;if(r===10||r===11)r=0;if(r!==parseInt(cpf.charAt(9)))return false;s=0;for(let i=0;i<10;i++)s+=parseInt(cpf.charAt(i))*(11-i);r=(s*10)%11;if(r===10||r===11)r=0;return r===parseInt(cpf.charAt(10))}
-function validarCNPJ(cnpj){cnpj=cnpj.replace(/\D/g,"");if(cnpj.length!==14||/^(\d)\1+$/.test(cnpj))return false;let t=cnpj.length-2,n=cnpj.substring(0,t),d=cnpj.substring(t),s=0,p=t-7;for(let i=t;i>=1;i--){s+=n.charAt(t-i)*p--;if(p<2)p=9}let r=s%11<2?0:11-s%11;if(r!=d.charAt(0))return false;t++;n=cnpj.substring(0,t);s=0;p=t-7;for(let i=t;i>=1;i--){s+=n.charAt(t-i)*p--;if(p<2)p=9}r=s%11<2?0:11-s%11;return r==d.charAt(1)}
-function validarDocumento(){const doc=document.getElementById("ent-doc").value.replace(/\D/g,"");const st=document.getElementById("doc-status");if(doc.length===11){st.innerHTML=validarCPF(doc)?'<span style="color:var(--mint)">CPF válido</span>':'<span style="color:var(--rose)">CPF inválido</span>';return validarCPF(doc)}if(doc.length===14){st.innerHTML=validarCNPJ(doc)?'<span style="color:var(--mint)">CNPJ válido</span>':'<span style="color:var(--rose)">CNPJ inválido</span>';return validarCNPJ(doc)}st.innerHTML='';return false}
+async function adminSalvarProduto(){
+  const nome=document.getElementById("adm-prod-nome").value.trim();
+  const preco=parseFloat(document.getElementById("adm-prod-preco").value)||0;
+  const ean=document.getElementById("adm-prod-ean").value.trim()||null;
+  const loja=document.getElementById("adm-prod-loja").value;
+  const img=document.getElementById("adm-prod-img").value.trim()||null;
+  if(!nome||preco<=0) return toast("Nome e preço obrigatórios","err");
+  try{
+    const res=await fetch(`${API_URL}/produtos`,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({nome,preco,ean,loja,img})
+    });
+    if(!res.ok) throw new Error("Erro");
+    toast("Produto cadastrado e sincronizado!");
+    document.getElementById("adm-prod-nome").value="";
+    document.getElementById("adm-prod-preco").value="";
+    document.getElementById("adm-prod-ean").value="";
+    document.getElementById("adm-prod-img").value="";
+    document.getElementById("ean-status").innerHTML="";
+    removerFoto();
+  }catch(e){
+    console.error(e);
+    toast("Erro ao salvar no servidor","err");
+  }
+}
 
-/* ========== LOGIN / ENTREGADOR ========== */
-function abrirCadastroEntregador(){document.getElementById("modal-entregador").classList.add("ativo")}
-function fecharCadastroEntregador(){document.getElementById("modal-entregador").classList.remove("ativo")}
-async function buscarCEPEntregador(cep){cep=cep.replace(/\D/g,"");if(cep.length>5)document.getElementById("ent-cep").value=cep.replace(/^(\d{5})(\d)/,"$1-$2");if(cep.length!==8)return;document.getElementById("ent-endereco").textContent="Buscando...";try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const d=await r.json();if(d.erro)throw 0;document.getElementById("ent-endereco").innerHTML=`${d.logradouro||""} - ${d.bairro||""} - ${d.localidade}/${d.uf}`}catch{document.getElementById("ent-endereco").innerHTML='<span style="color:var(--rose)">CEP não encontrado</span>'}}
-function salvarEntregador(){const tipo=document.getElementById("ent-tipo").value,nome=document.getElementById("ent-nome").value.trim(),doc=document.getElementById("ent-doc").value.replace(/\D/g,""),tel=document.getElementById("ent-tel").value.trim(),cep=document.getElementById("ent-cep").value.trim();if(!nome||!tel||!cep)return toast("Preencha os campos","err");if(!validarDocumento())return toast("CPF/CNPJ inválido","err");entregadores.push({id:Date.now(),tipo,nome,doc,tel,cep,status:"pendente"});localStorage.setItem("mia_entregadores",JSON.stringify(entregadores));toast("Cadastro enviado!");fecharCadastroEntregador()}
-
-window.onload=()=>{const s=localStorage.getItem("mia_cliente");if(s){clienteLogado=JSON.parse(s);liberarAcesso();const sacolaSalva=JSON.parse(localStorage.getItem("mia_sacola")||"[]");if(sacolaSalva.length>0){document.getElementById("texto-restaurar").textContent=`Olá ${clienteLogado.nome.split(" ")[0]}! Você tinha ${sacolaSalva.length} item(ns) na sacola. Deseja continuar?`;document.getElementById("modal-restaurar").classList.add("ativo")}}};
-function fazerCadastroCliente(){const nome=document.getElementById("login-nome").value.trim(),tel=document.getElementById("login-telefone").value.trim(),regiao=document.getElementById("login-regiao").value;if(nome.length<3||tel.length<8||!regiao)return toast("Preencha tudo","err");clienteLogado={nome,telefone:tel,regiao};localStorage.setItem("mia_cliente",JSON.stringify(clienteLogado));liberarAcesso();toast("Grok ativado 🚀")}
-function fazerLogout(){localStorage.removeItem("mia_cliente");clienteLogado=null;document.getElementById("app-principal").style.display="none";document.getElementById("tela-login").style.display="flex"}
-function liberarAcesso(){document.getElementById("tela-login").style.display="none";document.getElementById("app-principal").style.display="flex";document.getElementById("display-nome-cliente").textContent=`Olá, ${clienteLogado.nome.split(" ")[0]}`;document.getElementById("display-regiao").innerHTML=`<i class="fas fa-map-pin"></i> ${nomesRegioes[clienteLogado.regiao]||"Brasil"}`}
-function restaurarSacola(){carregarSacola();atualizarInterfaceCarrinho();document.getElementById("modal-restaurar").classList.remove("ativo");toast("Pedido restaurado!");abrirCarrinho()}
-function descartarSacola(){sacola=[];valorFreteGlobal=0;localStorage.removeItem("mia_sacola");localStorage.removeItem("mia_frete");atualizarInterfaceCarrinho();document.getElementById("modal-restaurar").classList.remove("ativo");toast("Sacola limpa")}
-
-/* ========== ADMIN ========== */
-function abrirLoginAdmin(){document.getElementById("modal-admin-login").classList.add("ativo")}
-function loginAdmin(){const e=document.getElementById("admin-email").value.trim(),p=document.getElementById("admin-pass").value;if(e==="admin@mercadoia.com"&&p==="admin123"){document.getElementById("modal-admin-login").classList.remove("ativo");document.getElementById("admin-panel").classList.add("ativo");renderAdmin();toast("Admin liberado")}else toast("Credenciais inválidas","err")}
-function fecharAdmin(){document.getElementById("admin-panel").classList.remove("ativo")}
-
-/* ========== BUSCA POR CÓDIGO DE BARRAS (EAN) ========== */
+/* ========== BIPAR EAN ========== */
 async function buscarProdutoPorEAN(){
   const ean=document.getElementById("adm-prod-ean").value.replace(/\D/g,"");
   const status=document.getElementById("ean-status");
-  if(ean.length<8){status.innerHTML='<span style="color:var(--rose)">Código muito curto</span>';return}
-  status.innerHTML='<span style="color:var(--cyan)"><i class="fas fa-spinner fa-spin"></i> Buscando produto...</span>';
+  if(ean.length<8){status.innerHTML='<span style="color:var(--rose)">Código curto</span>';return}
+  status.innerHTML='<span style="color:var(--cyan)"><i class="fas fa-spinner fa-spin"></i> Buscando...</span>';
   try{
     const res=await fetch(`https://world.openfoodfacts.org/api/v0/product/${ean}.json`);
     const data=await res.json();
     if(data.status===1&&data.product){
       const p=data.product;
-      const nome=p.product_name||p.product_name_pt||p.generic_name||"Produto encontrado";
+      const nome=p.product_name||p.product_name_pt||p.generic_name||"Produto";
       const img=p.image_front_url||p.image_url||"";
       document.getElementById("adm-prod-nome").value=nome;
       if(img){document.getElementById("adm-prod-img").value=img;mostrarPreview(img)}
-      status.innerHTML=`<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> Produto encontrado: ${nome.substring(0,40)}</span>`;
-      toast("Produto preenchido automaticamente!");
-    }else{
-      status.innerHTML='<span style="color:var(--amber)">Produto não encontrado. Preencha manualmente.</span>';
-    }
-  }catch(err){
-    status.innerHTML='<span style="color:var(--rose)">Erro na busca. Tente novamente.</span>';
-  }
+      status.innerHTML=`<span style="color:var(--mint)"><i class="fas fa-check-circle"></i> ${nome.substring(0,40)}</span>`;
+      toast("Produto preenchido!");
+    }else status.innerHTML='<span style="color:var(--amber)">Não encontrado. Preencha manualmente.</span>';
+  }catch(e){status.innerHTML='<span style="color:var(--rose)">Erro na busca</span>'}
 }
 
-/* ========== CÂMERA E FOTO ========== */
-function abrirCamera(){const input=document.getElementById("input-foto");input.setAttribute("capture","environment");input.click()}
-function previewFoto(input){if(input.files&&input.files[0]){const reader=new FileReader();reader.onload=function(e){const base64=e.target.result;document.getElementById("adm-prod-img").value=base64;mostrarPreview(base64)};reader.readAsDataURL(input.files[0])}}
+/* ========== CÂMERA ========== */
+function abrirCamera(){const i=document.getElementById("input-foto");i.setAttribute("capture","environment");i.click()}
+function previewFoto(input){if(input.files&&input.files[0]){const r=new FileReader();r.onload=e=>{document.getElementById("adm-prod-img").value=e.target.result;mostrarPreview(e.target.result)};r.readAsDataURL(input.files[0])}}
 function mostrarPreview(src){document.getElementById("img-preview").src=src;document.getElementById("preview-foto").style.display="block"}
 function removerFoto(){document.getElementById("adm-prod-img").value="";document.getElementById("preview-foto").style.display="none";document.getElementById("input-foto").value=""}
 
-function adminSalvarProduto(){
-  const nome=document.getElementById("adm-prod-nome").value.trim();
-  const preco=parseFloat(document.getElementById("adm-prod-preco").value)||0;
-  const ean=document.getElementById("adm-prod-ean").value.trim()||("789"+Math.floor(Math.random()*1e7));
-  const loja=document.getElementById("adm-prod-loja").value;
-  const img=document.getElementById("adm-prod-img").value.trim()||`https://source.unsplash.com/120x120/?${encodeURIComponent(nome+",supermarket")}`;
-  if(!nome||preco<=0)return toast("Nome e preço obrigatórios","err");
-  produtosAdmin.unshift({id:Date.now(),nome,preco,ean,loja,img});
-  localStorage.setItem("mia_produtos",JSON.stringify(produtosAdmin));
-  toast("Produto cadastrado!");
-  document.getElementById("adm-prod-nome").value="";
-  document.getElementById("adm-prod-preco").value="";
-  document.getElementById("adm-prod-ean").value="";
-  document.getElementById("adm-prod-img").value="";
-  document.getElementById("ean-status").innerHTML="";
-  removerFoto();
+/* ========== LOGIN ========== */
+function abrirCadastroEntregador(){document.getElementById("modal-entregador").classList.add("ativo")}
+function fecharCadastroEntregador(){document.getElementById("modal-entregador").classList.remove("ativo")}
+function abrirLoginAdmin(){document.getElementById("modal-admin-login").classList.add("ativo")}
+function loginAdmin(){
+  const e=document.getElementById("admin-email").value.trim();
+  const p=document.getElementById("admin-pass").value;
+  if((e==="centralrede@droppfy.com"&&p==="admin323619")||(e==="admin@mercadoia.com"&&p==="admin123")){
+    document.getElementById("modal-admin-login").classList.remove("ativo");
+    document.getElementById("admin-panel").classList.add("ativo");
+    renderAdmin();
+    toast("Admin liberado");
+  }else toast("Credenciais inválidas","err");
 }
+function fecharAdmin(){document.getElementById("admin-panel").classList.remove("ativo")}
+function fazerCadastroCliente(){
+  const nome=document.getElementById("login-nome").value.trim();
+  const tel=document.getElementById("login-telefone").value.trim();
+  const regiao=document.getElementById("login-regiao").value;
+  if(nome.length<3||tel.length<8||!regiao) return toast("Preencha tudo","err");
+  clienteLogado={nome,telefone:tel,regiao};
+  localStorage.setItem("mia_cliente",JSON.stringify(clienteLogado));
+  liberarAcesso();
+  toast("Bem-vindo!");
+}
+function fazerLogout(){localStorage.removeItem("mia_cliente");clienteLogado=null;document.getElementById("app-principal").style.display="none";document.getElementById("tela-login").style.display="flex"}
+function liberarAcesso(){
+  document.getElementById("tela-login").style.display="none";
+  document.getElementById("app-principal").style.display="flex";
+  document.getElementById("display-nome-cliente").textContent=`Olá, ${clienteLogado.nome.split(" ")[0]}`;
+  document.getElementById("display-regiao").innerHTML=`<i class="fas fa-map-pin"></i> ${nomesRegioes[clienteLogado.regiao]||"Brasil"}`;
+}
+function restaurarSacola(){carregarSacola();atualizarInterfaceCarrinho();document.getElementById("modal-restaurar").classList.remove("ativo");toast("Pedido restaurado!");abrirCarrinho()}
+function descartarSacola(){sacola=[];valorFreteGlobal=0;localStorage.removeItem("mia_sacola");localStorage.removeItem("mia_frete");atualizarInterfaceCarrinho();document.getElementById("modal-restaurar").classList.remove("ativo");toast("Sacola limpa")}
 
+window.onload=()=>{
+  const s=localStorage.getItem("mia_cliente");
+  if(s){
+    clienteLogado=JSON.parse(s);
+    liberarAcesso();
+    const sacolaSalva=JSON.parse(localStorage.getItem("mia_sacola")||"[]");
+    if(sacolaSalva.length>0){
+      document.getElementById("texto-restaurar").textContent=`Olá ${clienteLogado.nome.split(" ")[0]}! Você tinha ${sacolaSalva.length} item(ns). Continuar?`;
+      document.getElementById("modal-restaurar").classList.add("ativo");
+    }
+  }
+};
+
+/* ========== VALIDAÇÃO ========== */
+function validarCPF(cpf){cpf=cpf.replace(/\D/g,"");if(cpf.length!==11||/^(\d)\1+$/.test(cpf))return false;let s=0;for(let i=0;i<9;i++)s+=parseInt(cpf.charAt(i))*(10-i);let r=(s*10)%11;if(r===10||r===11)r=0;if(r!==parseInt(cpf.charAt(9)))return false;s=0;for(let i=0;i<10;i++)s+=parseInt(cpf.charAt(i))*(11-i);r=(s*10)%11;if(r===10||r===11)r=0;return r===parseInt(cpf.charAt(10))}
+function validarCNPJ(cnpj){cnpj=cnpj.replace(/\D/g,"");if(cnpj.length!==14||/^(\d)\1+$/.test(cnpj))return false;let t=cnpj.length-2,n=cnpj.substring(0,t),d=cnpj.substring(t),s=0,p=t-7;for(let i=t;i>=1;i--){s+=n.charAt(t-i)*p--;if(p<2)p=9}let r=s%11<2?0:11-s%11;if(r!=d.charAt(0))return false;t++;n=cnpj.substring(0,t);s=0;p=t-7;for(let i=t;i>=1;i--){s+=n.charAt(t-i)*p--;if(p<2)p=9}r=s%11<2?0:11-s%11;return r==d.charAt(1)}
+function validarDocumento(){const doc=document.getElementById("ent-doc").value.replace(/\D/g,"");const st=document.getElementById("doc-status");if(doc.length===11){st.innerHTML=validarCPF(doc)?'<span style="color:var(--mint)">CPF válido</span>':'<span style="color:var(--rose)">CPF inválido</span>';return validarCPF(doc)}if(doc.length===14){st.innerHTML=validarCNPJ(doc)?'<span style="color:var(--mint)">CNPJ válido</span>':'<span style="color:var(--rose)">CNPJ inválido</span>';return validarCNPJ(doc)}st.innerHTML='';return false}
+async function buscarCEPEntregador(cep){cep=cep.replace(/\D/g,"");if(cep.length>5)document.getElementById("ent-cep").value=cep.replace(/^(\d{5})(\d)/,"$1-$2");if(cep.length!==8)return;document.getElementById("ent-endereco").textContent="Buscando...";try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const d=await r.json();if(d.erro)throw 0;document.getElementById("ent-endereco").innerHTML=`${d.logradouro||""} - ${d.bairro||""} - ${d.localidade}/${d.uf}`}catch{document.getElementById("ent-endereco").innerHTML='<span style="color:var(--rose)">CEP não encontrado</span>'}}
+function salvarEntregador(){const tipo=document.getElementById("ent-tipo").value,nome=document.getElementById("ent-nome").value.trim(),doc=document.getElementById("ent-doc").value.replace(/\D/g,""),tel=document.getElementById("ent-tel").value.trim(),cep=document.getElementById("ent-cep").value.trim();if(!nome||!tel||!cep)return toast("Preencha os campos","err");if(!validarDocumento())return toast("CPF/CNPJ inválido","err");entregadores.push({id:Date.now(),tipo,nome,doc,tel,cep,status:"pendente"});localStorage.setItem("mia_entregadores",JSON.stringify(entregadores));toast("Cadastro enviado!");fecharCadastroEntregador()}
+
+/* ========== ADMIN RENDER ========== */
 function renderAdmin(){
   const elEnt=document.getElementById("adm-entregadores");
   const pend=entregadores.filter(e=>e.status==="pendente");
@@ -558,44 +570,333 @@ function abrirCarrinho(){document.getElementById("painel-carrinho").classList.ad
 function fecharCarrinho(){document.getElementById("painel-carrinho").classList.remove("aberto");document.getElementById("cart-overlay").classList.remove("ativo")}
 function toggleCarrinho(){document.getElementById("painel-carrinho").classList.contains("aberto")?fecharCarrinho():abrirCarrinho()}
 
-function filtrarLoja(loja,el){lojaFiltro=loja;document.querySelectorAll('.parceiro-card').forEach(c=>c.classList.remove('ativo'));if(el)el.classList.add('ativo');const banner=document.getElementById('brand-banner');const marcas={"Assaí":{bg:"linear-gradient(135deg,#E8592A 0%,#FBDE4A 100%)",logo:"https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png",nome:"Assaí Atacadista"},"Atacadão":{bg:"linear-gradient(135deg,#F66420 0%,#009933 100%)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg",nome:"Atacadão"},"Carrefour":{bg:"linear-gradient(135deg,#003087 0%,#00a0e3 100%)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg",nome:"Carrefour"},"Tatico":{bg:"linear-gradient(135deg,#c2410c 0%,#ea580c 100%)",logo:"https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png",nome:"Tatico"},"Passaí":{bg:"linear-gradient(135deg,#5b21b6 0%,#7c3aed 100%)",logo:"https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png",nome:"Passaí"}};if(loja&&marcas[loja]){const m=marcas[loja];banner.style.background=m.bg;banner.innerHTML=`<span>${m.nome}</span>${m.logo?`<img src="${m.logo}" onerror="this.style.display='none'">`:''}`;banner.classList.add('ativo')}else{banner.classList.remove('ativo');banner.innerHTML=''}toast(loja?`Filtrado: ${loja}`:'Todos os parceiros')}
+function filtrarLoja(loja,el){
+  lojaFiltro=loja;
+  document.querySelectorAll('.parceiro-card').forEach(c=>c.classList.remove('ativo'));
+  if(el) el.classList.add('ativo');
+  const banner=document.getElementById('brand-banner');
+  const marcas={
+    "Assaí":{bg:"linear-gradient(135deg,#E8592A,#FBDE4A)",logo:"https://www.assai.com.br/sites/all/themes/assai_2024/styles/images/2025/logo-header-revista.png",nome:"Assaí Atacadista"},
+    "Atacadão":{bg:"linear-gradient(135deg,#F66420,#009933)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-atacadao-nova.svg",nome:"Atacadão"},
+    "Carrefour":{bg:"linear-gradient(135deg,#003087,#00a0e3)",logo:"https://grupocarrefourbrasil.com.br/images/brand/logo-carrefour-hyper.svg",nome:"Carrefour"},
+    "Tatico":{bg:"linear-gradient(135deg,#c2410c,#ea580c)",logo:"https://images-service.weare365.io/h:0/w:1920/f:webp/plain/gs://agentgoat-prod-strapi-images/tatico_7915cdc301.png",nome:"Tatico"},
+    "Passaí":{bg:"linear-gradient(135deg,#5b21b6,#7c3aed)",logo:"https://www.assai.com.br/sites/all/themes/passai_2020/styles/images/2020/logo.png",nome:"Passaí"}
+  };
+  if(loja&&marcas[loja]){
+    const m=marcas[loja];
+    banner.style.background=m.bg;
+    banner.innerHTML=`<span>${m.nome}</span>${m.logo?`<img src="${m.logo}" onerror="this.style.display='none'">`:''}`;
+    banner.classList.add('ativo');
+  }else{banner.classList.remove('ativo');banner.innerHTML=''}
+  toast(loja?`Filtrado: ${loja}`:'Todos os parceiros');
+}
 
-const produtosBase={"Atacadão":[{nome:"Arroz Tipo 1 5kg",preco:22.90,img:"https://source.unsplash.com/120x120/?rice,bag"},{nome:"Feijão Carioca 1kg",preco:8.49,img:"https://source.unsplash.com/120x120/?beans"},{nome:"Óleo de Soja 900ml",preco:6.99,img:"https://source.unsplash.com/120x120/?cooking,oil"},{nome:"Açúcar Cristal 1kg",preco:4.29,img:"https://source.unsplash.com/120x120/?sugar"},{nome:"Café Torrado 500g",preco:18.90,img:"https://source.unsplash.com/120x120/?coffee"}],"Carrefour":[{nome:"Leite Integral 1L",preco:5.49,img:"https://source.unsplash.com/120x120/?milk"},{nome:"Pão de Forma Integral",preco:9.90,img:"https://source.unsplash.com/120x120/?bread"},{nome:"Queijo Mussarela 400g",preco:24.90,img:"https://source.unsplash.com/120x120/?cheese"},{nome:"Iogurte Natural 170g",preco:3.49,img:"https://source.unsplash.com/120x120/?yogurt"},{nome:"Manteiga 200g",preco:12.90,img:"https://source.unsplash.com/120x120/?butter"}],"Assaí":[{nome:"Macarrão Espaguete 500g",preco:3.99,img:"https://source.unsplash.com/120x120/?pasta"},{nome:"Molho de Tomate 340g",preco:2.79,img:"https://source.unsplash.com/120x120/?tomato,sauce"},{nome:"Biscoito Recheado 140g",preco:2.49,img:"https://source.unsplash.com/120x120/?cookie"},{nome:"Sabão em Pó 1kg",preco:14.90,img:"https://source.unsplash.com/120x120/?detergent"},{nome:"Papel Higiênico 12un",preco:16.90,img:"https://source.unsplash.com/120x120/?toilet,paper"}],"Tatico":[{nome:"Refrigerante 2L",preco:8.99,img:"https://source.unsplash.com/120x120/?soda"},{nome:"Água Mineral 1,5L",preco:2.49,img:"https://source.unsplash.com/120x120/?water,bottle"},{nome:"Suco de Laranja 1L",preco:7.90,img:"https://source.unsplash.com/120x120/?orange,juice"}],"Passaí":[{nome:"Shampoo 350ml",preco:15.90,img:"https://source.unsplash.com/120x120/?shampoo"},{nome:"Creme Dental 90g",preco:4.99,img:"https://source.unsplash.com/120x120/?toothpaste"},{nome:"Desodorante 150ml",preco:12.90,img:"https://source.unsplash.com/120x120/?deodorant"}]};
+async function ativarIA(){
+  const q=document.getElementById("produto").value.trim();
+  if(!q) return toast("Digite o produto","err");
+  const btn=document.getElementById("btn-buscar"),st=document.getElementById("status-container"),feed=document.getElementById("feed-ofertas");
+  btn.disabled=true;btn.innerHTML='<span class="spinner"></span>';
+  st.style.display="block";
+  st.innerHTML=`<div style="display:inline-flex;align-items:center;gap:8px;background:#ecfeff;color:#0891b2;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:600"><span class="spinner" style="border-top-color:#0891b2;border-color:rgba(8,145,178,.2)"></span> Buscando...</div>`;
+  feed.innerHTML="";
+  try{
+    const produtosReais=await carregarProdutosDoBanco();
+    let lista=lojaFiltro?produtosReais.filter(p=>p.loja===lojaFiltro):[...produtosReais];
+    if(q) lista=lista.filter(p=>(p.nome||"").toLowerCase().includes(q.toLowerCase()));
+    if(lista.length===0){
+      feed.innerHTML=`<div style="text-align:center;padding:40px;color:var(--muted)">Nenhum produto encontrado.<br>Cadastre no Admin.</div>`;
+    }else{
+      lista.forEach((o,i)=>desenharCard(o,i===0));
+    }
+    st.style.display="none";
+    toast(`${lista.length} produto(s) encontrado(s)`);
+  }catch(e){
+    st.innerHTML='<div style="color:var(--rose)">Erro na busca</div>';
+  }finally{
+    btn.disabled=false;btn.innerHTML="Buscar";
+  }
+}
 
-async function ativarIA(){const q=document.getElementById("produto").value.trim();if(!q)return toast("Digite o produto","err");const btn=document.getElementById("btn-buscar"),st=document.getElementById("status-container"),feed=document.getElementById("feed-ofertas");btn.disabled=true;btn.innerHTML='<span class="spinner"></span>';st.style.display="block";st.innerHTML=`<div style="display:inline-flex;align-items:center;gap:8px;background:#ecfeff;color:#0891b2;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:600"><span class="spinner" style="border-top-color:#0891b2;border-color:rgba(8,145,178,.2)"></span> Grok analisando ofertas...</div>`;feed.innerHTML="";try{await new Promise(r=>setTimeout(r,900));let lista=[];if(lojaFiltro&&produtosBase[lojaFiltro]){lista=produtosBase[lojaFiltro].map(p=>({loja:lojaFiltro,nome:q+" - "+p.nome,preco:+(p.preco*(0.9+Math.random()*0.3)).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:p.img}))}else{Object.keys(produtosBase).forEach(loja=>{const p=produtosBase[loja][Math.floor(Math.random()*produtosBase[loja].length)];lista.push({loja,nome:q+" - "+p.nome,preco:+(p.preco*(0.85+Math.random()*0.4)).toFixed(2),ean:"789"+Math.floor(Math.random()*1e7),img:p.img})})}const adminFilt=produtosAdmin.filter(p=>!lojaFiltro||p.loja===lojaFiltro);if(adminFilt.length)lista=[...adminFilt,...lista];lista.forEach((o,i)=>desenharCard(o,i===0));st.style.display="none";toast("Ofertas encontradas!")}catch(e){st.innerHTML='<div style="color:var(--rose)">Erro na busca</div>'}finally{btn.disabled=false;btn.innerHTML="Buscar"}}
+function desenharCard(o,destaque){
+  const feed=document.getElementById("feed-ofertas");
+  const div=document.createElement("div");
+  div.className="card";
+  div.innerHTML=`
+    <div style="display:flex;gap:12px;align-items:flex-start">
+      <div style="position:relative;flex-shrink:0">
+        <img src="${o.img||'https://via.placeholder.com/80?text=P'}" onerror="this.src='https://via.placeholder.com/80?text=P'" style="width:72px;height:72px;border-radius:12px;object-fit:cover;border:1px solid var(--border)">
+        ${destaque?`<div style="position:absolute;top:-6px;left:-6px;background:linear-gradient(135deg,#f59e0b,#d97706);color:white;font-size:9px;font-weight:700;padding:3px 7px;border-radius:20px">★ Melhor</div>`:''}
+      </div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:10px;font-weight:700;color:var(--cyan);margin-bottom:2px;text-transform:uppercase">${o.loja||''}</div>
+        <div style="font-weight:600;font-size:13.5px;line-height:1.3;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${o.nome}</div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-size:17px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</div>
+          <button class="btn btn-mint" style="padding:8px 14px;font-size:13px;border-radius:12px" onclick="event.stopPropagation();adicionarAoCarrinho('${String(o.nome).replace(/'/g,"\\'")}','${o.loja||''}',${o.preco},'${o.img||''}','${o.ean||''}')">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>`;
+  feed.appendChild(div);
+}
 
-function desenharCard(o,destaque){const feed=document.getElementById("feed-ofertas");const div=document.createElement("div");div.className="card";div.innerHTML=`<div style="display:flex;gap:12px;align-items:flex-start"><div style="position:relative;flex-shrink:0"><img src="${o.img}" onerror="this.src='https://via.placeholder.com/80?text=P'" style="width:72px;height:72px;border-radius:12px;object-fit:cover;border:1px solid var(--border)">${destaque?`<div style="position:absolute;top:-6px;left:-6px;background:linear-gradient(135deg,#f59e0b,#d97706);color:white;font-size:9px;font-weight:700;padding:3px 7px;border-radius:20px;box-shadow:0 2px 8px rgba(217,119,6,.3)">★ Melhor</div>`:''}</div><div style="flex:1;min-width:0"><div style="font-size:10px;font-weight:700;color:var(--cyan);margin-bottom:2px;text-transform:uppercase;letter-spacing:.03em">${o.loja}</div><div style="font-weight:600;font-size:13.5px;line-height:1.3;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#0f172a">${o.nome}</div><div style="display:flex;justify-content:space-between;align-items:center"><div style="font-size:17px;font-weight:800;color:var(--mint)">${formatarMoeda(o.preco)}</div><button class="btn btn-mint" style="padding:8px 14px;font-size:13px;border-radius:12px;min-width:42px" onclick="event.stopPropagation();adicionarAoCarrinho('${String(o.nome).replace(/'/g,"\\'")}','${o.loja}',${o.preco},'${o.img}','${o.ean}')"><i class="fas fa-plus"></i></button></div></div></div>`;feed.appendChild(div)}
-
-function adicionarAoCarrinho(nome,loja,preco,img,ean){const ex=sacola.find(i=>i.ean===ean&&i.loja===loja);if(ex)ex.qtd=(ex.qtd||1)+1;else sacola.push({nome,loja,preco:+preco,peso:+(Math.random()*1.4+.3).toFixed(2),img,ean,qtd:1});salvarSacola();atualizarInterfaceCarrinho();abrirCarrinho();if(timerSacola)clearTimeout(timerSacola);timerSacola=setTimeout(()=>fecharCarrinho(),2800);toast(`${nome.substring(0,24)}... adicionado`)}
+function adicionarAoCarrinho(nome,loja,preco,img,ean){
+  const ex=sacola.find(i=>i.ean===ean&&i.loja===loja);
+  if(ex) ex.qtd=(ex.qtd||1)+1;
+  else sacola.push({nome,loja,preco:+preco,peso:+(Math.random()*1.4+.3).toFixed(2),img,ean,qtd:1});
+  salvarSacola();atualizarInterfaceCarrinho();abrirCarrinho();
+  if(timerSacola) clearTimeout(timerSacola);
+  timerSacola=setTimeout(()=>fecharCarrinho(),2800);
+  toast(`${nome.substring(0,24)}... adicionado`);
+}
 function alterarQtd(i,d){sacola[i].qtd=Math.max(1,(sacola[i].qtd||1)+d);if(sacola[i].qtd<=0)sacola.splice(i,1);salvarSacola();atualizarInterfaceCarrinho()}
 function removerDoCarrinho(i){sacola.splice(i,1);salvarSacola();atualizarInterfaceCarrinho()}
 
-function atualizarInterfaceCarrinho(){const cont=document.getElementById("itens-carrinho"),btn=document.getElementById("btn-finalizar"),form=document.getElementById("form-checkout");let sub=0;pesoSacolaGlobal=0;cont.innerHTML="";if(!sacola.length){cont.innerHTML=`<div style="text-align:center;padding:40px 20px;color:#94a3b8"><i class="fas fa-shopping-bag" style="font-size:32px;opacity:.4"></i><p style="margin-top:8px">Sacola vazia</p></div>`;document.getElementById("subtotal-carrinho").textContent="R$ 0,00";document.getElementById("frete-carrinho").textContent="A Calcular";document.getElementById("total-carrinho").textContent="R$ 0,00";document.getElementById("contador-sacola").style.display="none";document.getElementById("contador-header").style.display="none";btn.disabled=true;btn.style.background="#94a3b8";btn.innerHTML="Adicione itens";form.style.display="none";return}form.style.display="block";btn.disabled=false;const totalQtd=sacola.reduce((a,i)=>a+(i.qtd||1),0);document.getElementById("contador-sacola").style.display="inline-flex";document.getElementById("contador-sacola").textContent=totalQtd;document.getElementById("contador-header").style.display="block";document.getElementById("contador-header").textContent=totalQtd;sacola.forEach((item,i)=>{const q=item.qtd||1;sub+=item.preco*q;pesoSacolaGlobal+=item.peso*q;cont.innerHTML+=`<div class="cart-item"><img src="${item.img}" onerror="this.src='https://via.placeholder.com/60?text=P'"><div class="cart-item-info"><div class="cart-item-title">${item.nome}</div><div class="cart-item-meta">${item.loja}</div><div class="cart-item-price">${formatarMoeda(item.preco)}</div><div class="qty-control"><button class="qty-btn" onclick="alterarQtd(${i},-1)">−</button><span class="qty-value">${q}</span><button class="qty-btn" onclick="alterarQtd(${i},1)">+</button><button onclick="removerDoCarrinho(${i})" style="margin-left:auto;background:none;border:none;color:#e11d48;cursor:pointer"><i class="fas fa-trash-alt"></i></button></div></div></div>`});const total=sub+valorFreteGlobal;document.getElementById("subtotal-carrinho").textContent=formatarMoeda(sub);document.getElementById("frete-carrinho").textContent=valorFreteGlobal>0?formatarMoeda(valorFreteGlobal):"A Calcular";document.getElementById("total-carrinho").textContent=formatarMoeda(total);if(document.getElementById("cliente-pagamento").value==="Pix"){payloadPixAtual=gerarPayloadPix(total);document.getElementById("pix-key-text").textContent=payloadPixAtual;document.getElementById("img-qrcode-pix").src=`https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=${encodeURIComponent(payloadPixAtual)}`}btn.style.background="linear-gradient(135deg,#059669,#10b981)";btn.innerHTML='<i class="fas fa-lock"></i> Finalizar Pedido'}
+function atualizarInterfaceCarrinho(){
+  const cont=document.getElementById("itens-carrinho"),btn=document.getElementById("btn-finalizar"),form=document.getElementById("form-checkout");
+  let sub=0;pesoSacolaGlobal=0;cont.innerHTML="";
+  if(!sacola.length){
+    cont.innerHTML=`<div style="text-align:center;padding:40px 20px;color:#94a3b8"><i class="fas fa-shopping-bag" style="font-size:32px;opacity:.4"></i><p style="margin-top:8px">Sacola vazia</p></div>`;
+    document.getElementById("subtotal-carrinho").textContent="R$ 0,00";
+    document.getElementById("frete-carrinho").textContent="A Calcular";
+    document.getElementById("total-carrinho").textContent="R$ 0,00";
+    document.getElementById("contador-sacola").style.display="none";
+    document.getElementById("contador-header").style.display="none";
+    btn.disabled=true;btn.style.background="#94a3b8";btn.innerHTML="Adicione itens";form.style.display="none";return;
+  }
+  form.style.display="block";btn.disabled=false;
+  const totalQtd=sacola.reduce((a,i)=>a+(i.qtd||1),0);
+  document.getElementById("contador-sacola").style.display="inline-flex";document.getElementById("contador-sacola").textContent=totalQtd;
+  document.getElementById("contador-header").style.display="block";document.getElementById("contador-header").textContent=totalQtd;
+  sacola.forEach((item,i)=>{
+    const q=item.qtd||1;sub+=item.preco*q;pesoSacolaGlobal+=item.peso*q;
+    cont.innerHTML+=`<div class="cart-item"><img src="${item.img||'https://via.placeholder.com/60'}" onerror="this.src='https://via.placeholder.com/60'"><div class="cart-item-info"><div class="cart-item-title">${item.nome}</div><div class="cart-item-meta">${item.loja||''}</div><div class="cart-item-price">${formatarMoeda(item.preco)}</div><div class="qty-control"><button class="qty-btn" onclick="alterarQtd(${i},-1)">−</button><span class="qty-value">${q}</span><button class="qty-btn" onclick="alterarQtd(${i},1)">+</button><button onclick="removerDoCarrinho(${i})" style="margin-left:auto;background:none;border:none;color:#e11d48;cursor:pointer"><i class="fas fa-trash-alt"></i></button></div></div></div>`;
+  });
+  const total=sub+valorFreteGlobal;
+  document.getElementById("subtotal-carrinho").textContent=formatarMoeda(sub);
+  document.getElementById("frete-carrinho").textContent=valorFreteGlobal>0?formatarMoeda(valorFreteGlobal):"A Calcular";
+  document.getElementById("total-carrinho").textContent=formatarMoeda(total);
+  if(document.getElementById("cliente-pagamento").value==="Pix"){
+    payloadPixAtual=gerarPayloadPix(total);
+    document.getElementById("pix-key-text").textContent=payloadPixAtual;
+    document.getElementById("img-qrcode-pix").src=`https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=${encodeURIComponent(payloadPixAtual)}`;
+  }
+  btn.style.background="linear-gradient(135deg,#059669,#10b981)";btn.innerHTML='<i class="fas fa-lock"></i> Finalizar Pedido';
+}
 
 /* ========== CEP ========== */
-async function buscarCEP_RTK(cep){cep=cep.replace(/\D/g,"");if(cep.length>5)document.getElementById("cliente-cep").value=cep.replace(/^(\d{5})(\d)/,"$1-$2");if(cep.length!==8){valorFreteGlobal=0;document.getElementById("cliente-cidade-uf").textContent="";document.getElementById("cliente-rua").value="";document.getElementById("cliente-bairro").value="";atualizarInterfaceCarrinho();return}document.getElementById("cliente-rua").value="Buscando...";document.getElementById("cliente-bairro").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--cyan)">Consultando...</span>';try{let dados=null;try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const j=await r.json();if(!j.erro)dados={logradouro:j.logradouro||"",bairro:j.bairro||"",localidade:j.localidade||"",uf:j.uf||""}}catch{}if(!dados){try{const r=await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);if(r.ok){const j=await r.json();dados={logradouro:j.street||"",bairro:j.neighborhood||"",localidade:j.city||"",uf:j.state||""}}}catch{}}if(!dados||(!dados.localidade&&!dados.uf)){document.getElementById("cliente-rua").value="";document.getElementById("cliente-bairro").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--rose)">CEP não encontrado</span>';valorFreteGlobal=0;atualizarInterfaceCarrinho();toast("CEP inválido","err");return}document.getElementById("cliente-rua").value=dados.logradouro;document.getElementById("cliente-bairro").value=dados.bairro;document.getElementById("cliente-cidade-uf").innerHTML=`<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${dados.localidade} - ${dados.uf}`;const coords={"DF":[-15.78,-47.93],"GO":[-16.68,-49.25],"SP":[-23.55,-46.63],"RJ":[-22.91,-43.17],"MG":[-19.92,-43.94],"BA":[-12.97,-38.50],"PR":[-25.43,-49.27],"RS":[-30.03,-51.23],"SC":[-27.59,-48.55],"PE":[-8.05,-34.88],"CE":[-3.72,-38.54],"PA":[-1.45,-48.50],"AM":[-3.11,-60.02],"MT":[-15.60,-56.10],"MS":[-20.46,-54.62],"ES":[-20.31,-40.31],"PB":[-7.12,-34.86],"RN":[-5.79,-35.21],"AL":[-9.66,-35.73],"SE":[-10.91,-37.07],"PI":[-5.09,-42.80],"MA":[-2.53,-44.30],"TO":[-10.18,-48.33],"RO":[-8.76,-63.90],"AC":[-9.97,-67.81],"AP":[0.03,-51.06],"RR":[2.82,-60.67]};const base=coords[dados.uf]||[-15.78,-47.93];coordenadasRTK={lat:(base[0]+(Math.random()*.05-.025)).toFixed(6),lng:(base[1]+(Math.random()*.05-.025)).toFixed(6)};const km=+(Math.random()*6+1.2).toFixed(1);valorFreteGlobal=+(km*1.85).toFixed(2);salvarSacola();atualizarInterfaceCarrinho();toast("Endereço preenchido")}catch{document.getElementById("cliente-rua").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--rose)">Erro CEP</span>';toast("Erro CEP","err")}}
+async function buscarCEP_RTK(cep){
+  cep=cep.replace(/\D/g,"");
+  if(cep.length>5) document.getElementById("cliente-cep").value=cep.replace(/^(\d{5})(\d)/,"$1-$2");
+  if(cep.length!==8){valorFreteGlobal=0;document.getElementById("cliente-cidade-uf").textContent="";document.getElementById("cliente-rua").value="";document.getElementById("cliente-bairro").value="";atualizarInterfaceCarrinho();return}
+  document.getElementById("cliente-rua").value="Buscando...";document.getElementById("cliente-bairro").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--cyan)">Consultando...</span>';
+  try{
+    let dados=null;
+    try{const r=await fetch(`https://viacep.com.br/ws/${cep}/json/`);const j=await r.json();if(!j.erro)dados={logradouro:j.logradouro||"",bairro:j.bairro||"",localidade:j.localidade||"",uf:j.uf||""}}catch{}
+    if(!dados){try{const r=await fetch(`https://brasilapi.com.br/api/cep/v1/${cep}`);if(r.ok){const j=await r.json();dados={logradouro:j.street||"",bairro:j.neighborhood||"",localidade:j.city||"",uf:j.state||""}}}catch{}}
+    if(!dados||(!dados.localidade&&!dados.uf)){document.getElementById("cliente-rua").value="";document.getElementById("cliente-bairro").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--rose)">CEP não encontrado</span>';valorFreteGlobal=0;atualizarInterfaceCarrinho();toast("CEP inválido","err");return}
+    document.getElementById("cliente-rua").value=dados.logradouro;document.getElementById("cliente-bairro").value=dados.bairro;
+    document.getElementById("cliente-cidade-uf").innerHTML=`<i class="fas fa-map-marker-alt" style="color:var(--mint)"></i> ${dados.localidade} - ${dados.uf}`;
+    const coords={"DF":[-15.78,-47.93],"GO":[-16.68,-49.25],"SP":[-23.55,-46.63],"RJ":[-22.91,-43.17],"MG":[-19.92,-43.94],"BA":[-12.97,-38.50],"PR":[-25.43,-49.27],"RS":[-30.03,-51.23],"SC":[-27.59,-48.55],"PE":[-8.05,-34.88],"CE":[-3.72,-38.54],"PA":[-1.45,-48.50],"AM":[-3.11,-60.02],"MT":[-15.60,-56.10],"MS":[-20.46,-54.62],"ES":[-20.31,-40.31],"PB":[-7.12,-34.86],"RN":[-5.79,-35.21],"AL":[-9.66,-35.73],"SE":[-10.91,-37.07],"PI":[-5.09,-42.80],"MA":[-2.53,-44.30],"TO":[-10.18,-48.33],"RO":[-8.76,-63.90],"AC":[-9.97,-67.81],"AP":[0.03,-51.06],"RR":[2.82,-60.67]};
+    const base=coords[dados.uf]||[-15.78,-47.93];
+    coordenadasRTK={lat:(base[0]+(Math.random()*.05-.025)).toFixed(6),lng:(base[1]+(Math.random()*.05-.025)).toFixed(6)};
+    const km=+(Math.random()*6+1.2).toFixed(1);valorFreteGlobal=+(km*1.85).toFixed(2);salvarSacola();atualizarInterfaceCarrinho();toast("Endereço preenchido");
+  }catch{document.getElementById("cliente-rua").value="";document.getElementById("cliente-cidade-uf").innerHTML='<span style="color:var(--rose)">Erro CEP</span>';toast("Erro CEP","err")}
+}
 
-function gerarPayloadPix(v){const f=v.toFixed(2);return`0002012636br.gov.bcb.pix0114+5561982439081520400005303986540${f.length}${f}5802BR5916MERCADO IA OMNI6008BRASILIA62070503***6304${Math.floor(1000+Math.random()*9000)}`}
+function gerarPayloadPix(v){const f=v.toFixed(2);return`0002012636br.gov.bcb.pix0114+5561982439081520400005303986540${f.length}${f}5802BR5916CENTRAL REDE6008BRASILIA62070503***6304${Math.floor(1000+Math.random()*9000)}`}
 function copiarChavePix(){navigator.clipboard.writeText(payloadPixAtual);toast("Chave PIX copiada!")}
-function mudarMetodoPagamento(){const p=document.getElementById("cliente-pagamento").value;document.getElementById("box-pix").style.display=p==="Pix"?"block":"none";document.getElementById("box-cartao").style.display=(p||"").includes("Cartao")?"block":"none";if(p==="Pix")atualizarInterfaceCarrinho();if(p==="Palm")toast("Palm Pay: biometria da mão (em breve)")}
+function mudarMetodoPagamento(){const p=document.getElementById("cliente-pagamento").value;document.getElementById("box-pix").style.display=p==="Pix"?"block":"none";document.getElementById("box-cartao").style.display=(p||"").includes("Cartao")?"block":"none";if(p==="Pix")atualizarInterfaceCarrinho()}
 
-/* ========== MAPA + RASTREAMENTO ========== */
-async function iniciarMapaAoVivo(lat,lng){if(mapa){mapa.remove();mapa=null}document.getElementById("mapa-entrega").innerHTML="";mapa=L.map("mapa-entrega").setView([lat,lng],14);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap | Rotas: OpenRouteService"}).addTo(mapa);marcadorEntregador=L.marker([lat,lng],{icon:L.divIcon({className:"",html:`<div style="background:#0891b2;width:18px;height:18px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>`,iconSize:[18,18],iconAnchor:[9,9]})}).addTo(mapa).bindPopup("<b>Entregador Ômni</b>").openPopup();if(posicaoCliente){L.marker([posicaoCliente.lat,posicaoCliente.lng],{icon:L.divIcon({className:"",html:`<div style="background:#e11d48;width:16px;height:16px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>`,iconSize:[16,16],iconAnchor:[8,8]})}).addTo(mapa).bindPopup("<b>Seu endereço</b>");const rota=await buscarRotaReal(lat,lng,posicaoCliente.lat,posicaoCliente.lng);if(rotaAtual)mapa.removeLayer(rotaAtual);rotaAtual=L.polyline(rota.pontos,{color:"#0891b2",weight:5,opacity:0.85,lineJoin:"round"}).addTo(mapa);mapa.fitBounds(rota.pontos,{padding:[50,50]});if(rota.sucesso){document.getElementById("telemetry-dist").textContent=rota.distanciaKm;document.getElementById("telemetry-eta").textContent=rota.tempoMin;document.getElementById("telemetry-eta2").textContent=rota.tempoMin}}setTimeout(()=>mapa.invalidateSize(),300)}
-function atualizarPosicaoMapa(lat,lng){if(marcadorEntregador){marcadorEntregador.setLatLng([lat,lng]);mapa.panTo([lat,lng],{animate:true,duration:1.1})}document.getElementById("telemetry-lat").textContent=lat.toFixed(5);document.getElementById("telemetry-lng").textContent=lng.toFixed(5);if(posicaoCliente){const dist=calcularDistancia(lat,lng,posicaoCliente.lat,posicaoCliente.lng);document.getElementById("telemetry-dist").textContent=dist.toFixed(1);const eta=Math.max(1,Math.round(dist*2.8));document.getElementById("telemetry-eta").textContent=eta;document.getElementById("telemetry-eta2").textContent=eta}}
+/* ========== GPS + MAPA ========== */
+function obterLocalizacaoCliente(){return new Promise(resolve=>{if(!navigator.geolocation){resolve(null);return}navigator.geolocation.getCurrentPosition(pos=>{posicaoCliente={lat:pos.coords.latitude,lng:pos.coords.longitude};resolve(posicaoCliente)},()=>resolve(null),{enableHighAccuracy:true,timeout:8000,maximumAge:30000})})}
+function calcularDistancia(lat1,lon1,lat2,lon2){const R=6371;const dLat=(lat2-lat1)*Math.PI/180;const dLon=(lon2-lon1)*Math.PI/180;const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a))}
+async function buscarRotaReal(oLat,oLng,dLat,dLng){if(!ORS_API_KEY) return {pontos:[[oLat,oLng],[dLat,dLng]],sucesso:false};try{const url=`https://api.openrouteservice.org/v2/directions/driving-car?api_key=${ORS_API_KEY}&start=${oLng},${oLat}&end=${dLng},${dLat}`;const res=await fetch(url);if(!res.ok) throw 0;const data=await res.json();const f=data.features?.[0];if(!f) throw 0;const coords=f.geometry.coordinates.map(c=>[c[1],c[0]]);const s=f.properties.summary;return{pontos:coords,distanciaKm:(s.distance/1000).toFixed(1),tempoMin:Math.round(s.duration/60),sucesso:true}}catch{return{pontos:[[oLat,oLng],[dLat,dLng]],sucesso:false}}}
+async function iniciarMapaAoVivo(lat,lng){
+  if(mapa){mapa.remove();mapa=null}
+  document.getElementById("mapa-entrega").innerHTML="";
+  mapa=L.map("mapa-entrega").setView([lat,lng],14);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap"}).addTo(mapa);
+  marcadorEntregador=L.marker([lat,lng],{icon:L.divIcon({className:"",html:`<div style="background:#0891b2;width:18px;height:18px;border-radius:50%;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35)"></div>`,iconSize:[18,18],iconAnchor:[9,9]})}).addTo(mapa).bindPopup("<b>Entregador</b>").openPopup();
+  if(posicaoCliente){
+    L.marker([posicaoCliente.lat,posicaoCliente.lng],{icon:L.divIcon({className:"",html:`<div style="background:#e11d48;width:16px;height:16px;border-radius:50%;border:3px solid white"></div>`,iconSize:[16,16],iconAnchor:[8,8]})}).addTo(mapa).bindPopup("<b>Você</b>");
+    const rota=await buscarRotaReal(lat,lng,posicaoCliente.lat,posicaoCliente.lng);
+    if(rotaAtual) mapa.removeLayer(rotaAtual);
+    rotaAtual=L.polyline(rota.pontos,{color:"#0891b2",weight:5,opacity:.85}).addTo(mapa);
+    mapa.fitBounds(rota.pontos,{padding:[50,50]});
+    if(rota.sucesso){document.getElementById("telemetry-dist").textContent=rota.distanciaKm;document.getElementById("telemetry-eta").textContent=rota.tempoMin;document.getElementById("telemetry-eta2").textContent=rota.tempoMin}
+  }
+  setTimeout(()=>mapa.invalidateSize(),300);
+}
+function atualizarPosicaoMapa(lat,lng){
+  if(marcadorEntregador){marcadorEntregador.setLatLng([lat,lng]);mapa.panTo([lat,lng],{animate:true,duration:1.1})}
+  document.getElementById("telemetry-lat").textContent=lat.toFixed(5);
+  document.getElementById("telemetry-lng").textContent=lng.toFixed(5);
+  if(posicaoCliente){const dist=calcularDistancia(lat,lng,posicaoCliente.lat,posicaoCliente.lng);document.getElementById("telemetry-dist").textContent=dist.toFixed(1);const eta=Math.max(1,Math.round(dist*2.8));document.getElementById("telemetry-eta").textContent=eta;document.getElementById("telemetry-eta2").textContent=eta}
+}
 
-/* ========== CHECKOUT + TRACKING ========== */
-async function iniciarHardStopPagamento(){const cep=document.getElementById("cliente-cep").value.trim(),rua=document.getElementById("cliente-rua").value.trim(),num=document.getElementById("cliente-numero").value.trim(),pag=document.getElementById("cliente-pagamento").value;if(!cep||!rua||!num||!pag)return toast("Preencha endereço e pagamento","err");if(!valorFreteGlobal)return toast("Aguarde o frete","err");const btn=document.getElementById("btn-finalizar");btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Processando...';await new Promise(r=>setTimeout(r,1400));fecharCarrinho();const codigo=gerarCodigo();const total=sacola.reduce((a,i)=>a+i.preco*(i.qtd||1),0)+valorFreteGlobal;const dist=valorFreteGlobal/1.85;let dName,dVehicle,dIcon,dTel;if(pesoSacolaGlobal<3.5&&dist<8){dName="Drone Ômni Air V5";dVehicle="Voo Autônomo RTK";dIcon="fa-helicopter";dTel="5561999990001"}else if(pesoSacolaGlobal<18&&dist<15){dName="Tesla Robotaxi Cybercab";dVehicle="FSD v13 Unsupervised";dIcon="fa-car";dTel="5561999990002"}else if(pesoSacolaGlobal<8){dName="Robô Ômni RB-441";dVehicle="Ground Robot";dIcon="fa-robot";dTel="5561999990003"}else{dName=["Carlos Silva","Fernanda Lima","Roberto Alves"][Math.floor(Math.random()*3)]+" (MEI)";dVehicle="Honda CG 160";dIcon="fa-motorcycle";dTel="556198"+Math.floor(10000000+Math.random()*89999999)}const pedido={codigo,itens:[...sacola],total,frete:valorFreteGlobal,endereco:`${rua}, ${num}`,cep,pag,driver:dName,driverTel:dTel,data:new Date().toISOString(),status:"Em rota",avaliacao:0,clienteNome:clienteLogado.nome,clienteTel:clienteLogado.telefone};pedidos.unshift(pedido);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos.slice(0,30)));sacola=[];valorFreteGlobal=0;salvarSacola();document.getElementById("modal-tracking").style.display="block";document.getElementById("codigo-pedido-num").textContent=codigo;document.getElementById("track-status-text").textContent="Confirmado";document.getElementById("track-progress-bar").style.width="20%";const log=document.getElementById("track-log");log.innerHTML=`<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado · ${codigo}</li>`;await new Promise(r=>setTimeout(r,900));log.innerHTML+=`<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Separando itens (picking AI)</li>`;document.getElementById("track-progress-bar").style.width="45%";await new Promise(r=>setTimeout(r,1000));log.innerHTML+=`<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado</li>`;document.getElementById("track-progress-bar").style.width="70%";document.getElementById("driver-card").style.display="block";document.getElementById("driver-name").textContent=dName;document.getElementById("driver-vehicle").textContent=dVehicle;document.getElementById("driver-avatar").innerHTML=`<i class="fas ${dIcon}" style="color:var(--cyan)"></i>`;document.getElementById("btn-whatsapp-entregador").href=`https://wa.me/${dTel}?text=Olá! Pedido ${codigo} - Mercado IA`;document.getElementById("btn-whatsapp-loja").href=`https://wa.me/5561983446343?text=Pedido ${codigo}`;document.getElementById("cliente-contato-box").style.display="block";document.getElementById("cliente-nome-track").textContent=clienteLogado.nome;document.getElementById("cliente-tel-track").textContent=clienteLogado.telefone;const telLimpo=clienteLogado.telefone.replace(/\D/g,"");document.getElementById("btn-whatsapp-cliente").href=`https://wa.me/55${telLimpo}?text=Olá ${clienteLogado.nome.split(" ")[0]}! Sobre o pedido ${codigo}`;document.getElementById("btn-ligar-cliente").href=`tel:+55${telLimpo}`;document.getElementById("telemetry-box").style.display="block";await obterLocalizacaoCliente();let lat=posicaoCliente?posicaoCliente.lat+(Math.random()-0.5)*0.012:(parseFloat(coordenadasRTK.lat)||-15.78);let lng=posicaoCliente?posicaoCliente.lng+(Math.random()-0.5)*0.012:(parseFloat(coordenadasRTK.lng)||-47.93);await iniciarMapaAoVivo(lat,lng);document.getElementById("telemetry-lat").textContent=lat.toFixed(5);document.getElementById("telemetry-lng").textContent=lng.toFixed(5);if(intervaloMapa)clearInterval(intervaloMapa);intervaloMapa=setInterval(()=>{if(posicaoCliente){const fator=0.07;lat+=(posicaoCliente.lat-lat)*fator+(Math.random()-0.5)*0.0006;lng+=(posicaoCliente.lng-lng)*fator+(Math.random()-0.5)*0.0006}else{lat+=(Math.random()-0.5)*0.0014;lng+=(Math.random()-0.5)*0.0014}atualizarPosicaoMapa(lat,lng)},2200);const subtotal=total-valorFreteGlobal;const baseCalculo=subtotal;const icms=+(baseCalculo*0.18).toFixed(2);const pis=+(baseCalculo*0.0165).toFixed(2);const cofins=+(baseCalculo*0.076).toFixed(2);const cbs=+(baseCalculo*0.009).toFixed(2);const ibsState=+(baseCalculo*0.001).toFixed(2);const totalImpostos=+(icms+pis+cofins+cbs+ibsState).toFixed(2);const chaveNFe=Array.from({length:44},()=>Math.floor(Math.random()*10)).join('');const chaveFormatada=chaveNFe.match(/.{1,4}/g).join(' ');const protocolo="1"+Date.now().toString().slice(-12);const numeroNF=Math.floor(100000+Math.random()*899999);const nfHtml=`<div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.45;color:#0f172a"><div style="text-align:center;font-weight:800;font-size:13px;margin-bottom:4px">MERCADO IA ÔMNI</div><div style="text-align:center;font-size:10px;color:#64748b;margin-bottom:6px">CNPJ: 00.000.000/0001-00 · IE: 07.123.456-7</div><div style="text-align:center;font-size:9px;background:#ecfdf5;color:#047857;padding:3px 8px;border-radius:6px;display:inline-block;margin-bottom:8px">Status: Autorizada</div><div style="border-top:1px dashed #94a3b8;margin:8px 0"></div><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Nº NF-e:</span><strong>${numeroNF}</strong></div><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Série:</span><span>001</span></div><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Pedido:</span><strong>${codigo}</strong></div><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Data:</span><span>${new Date().toLocaleString("pt-BR")}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Protocolo:</span><span style="font-size:10px">${protocolo}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Cliente:</span><span>${clienteLogado.nome}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span>Pagamento:</span><span>${pag}</span></div><div style="border-top:1px dashed #94a3b8;margin:8px 0"></div><div style="font-weight:700;margin-bottom:4px">ITENS</div>${pedido.itens.map(i=>`<div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>${(i.qtd||1)}x ${i.nome.substring(0,22)}</span><span>${formatarMoeda(i.preco*(i.qtd||1))}</span></div>`).join('')}<div style="border-top:1px dashed #94a3b8;margin:8px 0"></div><div style="display:flex;justify-content:space-between"><span>Subtotal</span><span>${formatarMoeda(subtotal)}</span></div><div style="display:flex;justify-content:space-between"><span>Frete</span><span>${formatarMoeda(valorFreteGlobal)}</span></div><div style="display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin-top:4px"><span>TOTAL</span><span>${formatarMoeda(total)}</span></div><div style="border-top:1px dashed #94a3b8;margin:10px 0"></div><div style="font-weight:700;margin-bottom:6px">TRIBUTOS (Reforma 2026)</div><div style="background:#f8fafc;border-radius:8px;padding:8px;font-size:10px"><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>ICMS (18%)</span><span>${formatarMoeda(icms)}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>PIS (1,65%)</span><span>${formatarMoeda(pis)}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:2px"><span>COFINS (7,6%)</span><span>${formatarMoeda(cofins)}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#2563eb"><span>CBS (0,9%)</span><span>${formatarMoeda(cbs)}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:2px;color:#059669"><span>IBS Estadual</span><span>${formatarMoeda(ibsState)}</span></div><div style="border-top:1px solid #e2e8f0;margin:6px 0"></div><div style="display:flex;justify-content:space-between;font-weight:700"><span>Total Impostos</span><span>${formatarMoeda(totalImpostos)}</span></div></div><div style="border-top:1px dashed #94a3b8;margin:10px 0"></div><div style="font-size:9px;color:#64748b;word-break:break-all;line-height:1.4"><strong>Chave de Acesso:</strong><br>${chaveFormatada}</div><div style="text-align:center;margin-top:10px;font-size:9px;color:#94a3b8">Documento Auxiliar da NF-e · Compatível com Spedy<br>www.nfe.fazenda.gov.br</div></div>`;document.getElementById("nf-conteudo").innerHTML=nfHtml;document.getElementById("nota-fiscal-box").style.display="block";await new Promise(r=>setTimeout(r,1100));log.innerHTML+=`<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Em rota · GPS ativo</li>`;document.getElementById("track-progress-bar").style.width="100%";document.getElementById("track-status-text").textContent="Em rota de entrega";document.getElementById("btn-fechar-track").style.display="block";document.getElementById("avaliacao-box").style.display="block";toast("Pedido "+codigo+" confirmado!")}
+/* ========== CHECKOUT ========== */
+async function iniciarHardStopPagamento(){
+  const cep=document.getElementById("cliente-cep").value.trim(),rua=document.getElementById("cliente-rua").value.trim(),num=document.getElementById("cliente-numero").value.trim(),pag=document.getElementById("cliente-pagamento").value;
+  if(!cep||!rua||!num||!pag) return toast("Preencha endereço e pagamento","err");
+  if(!valorFreteGlobal) return toast("Aguarde o frete","err");
+  const btn=document.getElementById("btn-finalizar");btn.disabled=true;btn.innerHTML='<span class="spinner"></span> Processando...';
+  await new Promise(r=>setTimeout(r,1400));fecharCarrinho();
+  const codigo=gerarCodigo();
+  const total=sacola.reduce((a,i)=>a+i.preco*(i.qtd||1),0)+valorFreteGlobal;
+  const dist=valorFreteGlobal/1.85;
+  let dName,dVehicle,dIcon,dTel;
+  if(pesoSacolaGlobal<3.5&&dist<8){dName="Drone Ômni Air V5";dVehicle="Voo Autônomo RTK";dIcon="fa-helicopter";dTel="5561999990001"}
+  else if(pesoSacolaGlobal<18&&dist<15){dName="Tesla Robotaxi";dVehicle="FSD v13";dIcon="fa-car";dTel="5561999990002"}
+  else if(pesoSacolaGlobal<8){dName="Robô Ômni RB-441";dVehicle="Ground Robot";dIcon="fa-robot";dTel="5561999990003"}
+  else{dName=["Carlos Silva","Fernanda Lima","Roberto Alves"][Math.floor(Math.random()*3)]+" (MEI)";dVehicle="Honda CG 160";dIcon="fa-motorcycle";dTel="556198"+Math.floor(10000000+Math.random()*89999999)}
 
-function imprimirTermica(){const c=document.getElementById("nota-fiscal-box").innerHTML;const w=window.open("","_blank","width=320,height=600");w.document.write(`<html><head><title>NF-e</title><style>body{font-family:monospace;font-size:12px;padding:10px;width:280px}button{display:none}</style></head><body>${c}<script>setTimeout(()=>window.print(),400)<\/script></body></html>`);w.document.close()}
+  const pedido={codigo,itens:[...sacola],total,frete:valorFreteGlobal,endereco:`${rua}, ${num}`,cep,pag,driver:dName,driverTel:dTel,data:new Date().toISOString(),status:"Em rota",avaliacao:0,clienteNome:clienteLogado.nome,clienteTel:clienteLogado.telefone};
+  pedidos.unshift(pedido);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos.slice(0,30)));
+  sacola=[];valorFreteGlobal=0;salvarSacola();
 
-function abrirMeusPedidos(){const lista=document.getElementById("lista-pedidos");if(!pedidos.length)lista.innerHTML='<p style="text-align:center;color:var(--muted);padding:20px">Nenhum pedido ainda</p>';else lista.innerHTML=pedidos.map((p,idx)=>`<div style="border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px"><div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;color:var(--blue)">${p.codigo}</span><span style="font-size:11px;background:#ecfdf5;color:#047857;padding:2px 8px;border-radius:20px">${p.status}</span></div><div style="font-size:12px;color:var(--muted);margin-top:4px">${new Date(p.data).toLocaleString("pt-BR")}</div><div style="font-size:14px;font-weight:700;margin-top:4px">${formatarMoeda(p.total)}</div><div style="font-size:11px;margin-top:4px">${p.driver}</div><div class="pedido-actions"><button class="btn btn-ghost btn-xs" onclick="verNotaFiscal(${idx})"><i class="fas fa-file-invoice"></i> NF</button><button class="btn btn-ghost btn-xs" onclick="verDetalhesPedido(${idx})"><i class="fas fa-eye"></i> Detalhes</button><button class="btn btn-amber btn-xs" onclick="editarPedido(${idx})"><i class="fas fa-edit"></i> Editar</button><button class="btn btn-rose btn-xs" onclick="excluirPedido(${idx})"><i class="fas fa-trash"></i> Excluir</button></div></div>`).join("");document.getElementById("modal-pedidos").classList.add("ativo")}
+  document.getElementById("modal-tracking").style.display="block";
+  document.getElementById("codigo-pedido-num").textContent=codigo;
+  document.getElementById("track-status-text").textContent="Confirmado";
+  document.getElementById("track-progress-bar").style.width="20%";
+  const log=document.getElementById("track-log");
+  log.innerHTML=`<li style="color:var(--mint)"><i class="fas fa-check-circle"></i> Pagamento confirmado · ${codigo}</li>`;
 
-function verNotaFiscal(idx){const p=pedidos[idx];if(!p)return;const modal=document.createElement("div");modal.className="modal-bg ativo";modal.innerHTML=`<div class="modal" style="max-width:420px"><h2 style="font-size:16px;margin-bottom:12px">Nota Fiscal · ${p.codigo}</h2><div class="nf-box" style="margin:0"><div style="text-align:center;font-weight:700;margin-bottom:8px">NOTA FISCAL ELETRÔNICA</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5"><div><strong>Cliente:</strong> ${p.clienteNome||"-"}</div><div><strong>Data:</strong> ${new Date(p.data).toLocaleString("pt-BR")}</div><div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>${p.itens.map(i=>`<div>${(i.qtd||1)}x ${i.nome} — ${formatarMoeda(i.preco*(i.qtd||1))}</div>`).join("")}<div style="border-top:1px dashed #94a3b8;margin:8px 0"></div><div><strong>Total:</strong> ${formatarMoeda(p.total)}</div><div><strong>Pagamento:</strong> ${p.pag}</div><div><strong>Entregador:</strong> ${p.driver}</div></div></div><button class="btn btn-ghost btn-full" style="margin-top:14px" onclick="this.closest('.modal-bg').remove()">Fechar</button></div>`;document.body.appendChild(modal);modal.onclick=e=>{if(e.target===modal)modal.remove()}}
-function verDetalhesPedido(idx){const p=pedidos[idx];if(!p)return;const modal=document.createElement("div");modal.className="modal-bg ativo";modal.innerHTML=`<div class="modal" style="max-width:400px"><h2 style="font-size:16px;margin-bottom:12px">Detalhes do Pedido</h2><div style="font-size:13px;line-height:1.7"><div><strong>Código:</strong> ${p.codigo}</div><div><strong>Status:</strong> <span style="color:var(--mint)">${p.status}</span></div><div><strong>Data:</strong> ${new Date(p.data).toLocaleString("pt-BR")}</div><div><strong>Endereço:</strong> ${p.endereco}</div><div><strong>CEP:</strong> ${p.cep}</div><div><strong>Total:</strong> ${formatarMoeda(p.total)}</div><div><strong>Entregador:</strong> ${p.driver}</div><div><strong>Cliente:</strong> ${p.clienteNome||"-"}</div></div><button class="btn btn-ghost btn-full" style="margin-top:16px" onclick="this.closest('.modal-bg').remove()">Fechar</button></div>`;document.body.appendChild(modal);modal.onclick=e=>{if(e.target===modal)modal.remove()}}
-function editarPedido(idx){const p=pedidos[idx];if(!p)return;const novoStatus=prompt("Novo status (Em rota / Entregue / Cancelado):",p.status);if(novoStatus){p.status=novoStatus;localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido atualizado!")}}
-function excluirPedido(idx){if(!confirm("Tem certeza que deseja excluir este pedido?"))return;pedidos.splice(idx,1);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido excluído")}
+  await new Promise(r=>setTimeout(r,900));
+  log.innerHTML+=`<li style="color:var(--cyan)"><i class="fas fa-boxes"></i> Separando itens</li>`;
+  document.getElementById("track-progress-bar").style.width="45%";
 
-document.getElementById("stars-avaliacao")?.addEventListener("click",e=>{const v=e.target.dataset?.v;if(!v)return;document.querySelectorAll("#stars-avaliacao i").forEach((s,i)=>{s.className=i<v?"fas fa-star":"far fa-star"});if(pedidos[0]){pedidos[0].avaliacao=+v;localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));toast(`Avaliação: ${v} estrelas`)}});
+  await new Promise(r=>setTimeout(r,1000));
+  log.innerHTML+=`<li style="color:var(--cyan)"><i class="fas fa-id-badge"></i> ${dName} alocado</li>`;
+  document.getElementById("track-progress-bar").style.width="70%";
+  document.getElementById("driver-card").style.display="block";
+  document.getElementById("driver-name").textContent=dName;
+  document.getElementById("driver-vehicle").textContent=dVehicle;
+  document.getElementById("driver-avatar").innerHTML=`<i class="fas ${dIcon}" style="color:var(--cyan)"></i>`;
+  document.getElementById("btn-whatsapp-entregador").href=`https://wa.me/${dTel}?text=Olá! Pedido ${codigo}`;
+  document.getElementById("btn-whatsapp-loja").href=`https://wa.me/5561983446343?text=Pedido ${codigo}`;
+
+  document.getElementById("cliente-contato-box").style.display="block";
+  document.getElementById("cliente-nome-track").textContent=clienteLogado.nome;
+  document.getElementById("cliente-tel-track").textContent=clienteLogado.telefone;
+  const telLimpo=clienteLogado.telefone.replace(/\D/g,"");
+  document.getElementById("btn-whatsapp-cliente").href=`https://wa.me/55${telLimpo}?text=Olá! Sobre o pedido ${codigo}`;
+  document.getElementById("btn-ligar-cliente").href=`tel:+55${telLimpo}`;
+
+  document.getElementById("telemetry-box").style.display="block";
+  await obterLocalizacaoCliente();
+  let lat=posicaoCliente?posicaoCliente.lat+(Math.random()-0.5)*0.012:(parseFloat(coordenadasRTK.lat)||-15.78);
+  let lng=posicaoCliente?posicaoCliente.lng+(Math.random()-0.5)*0.012:(parseFloat(coordenadasRTK.lng)||-47.93);
+  await iniciarMapaAoVivo(lat,lng);
+  document.getElementById("telemetry-lat").textContent=lat.toFixed(5);
+  document.getElementById("telemetry-lng").textContent=lng.toFixed(5);
+
+  if(intervaloMapa) clearInterval(intervaloMapa);
+  intervaloMapa=setInterval(()=>{
+    if(posicaoCliente){const f=0.07;lat+=(posicaoCliente.lat-lat)*f+(Math.random()-0.5)*0.0006;lng+=(posicaoCliente.lng-lng)*f+(Math.random()-0.5)*0.0006}
+    else{lat+=(Math.random()-0.5)*0.0014;lng+=(Math.random()-0.5)*0.0014}
+    atualizarPosicaoMapa(lat,lng);
+  },2200);
+
+  // NF-e
+  const subtotal=total-valorFreteGlobal;
+  const base=subtotal;
+  const icms=+(base*0.18).toFixed(2),pis=+(base*0.0165).toFixed(2),cofins=+(base*0.076).toFixed(2);
+  const cbs=+(base*0.009).toFixed(2),ibs=+(base*0.001).toFixed(2);
+  const totalImp=+(icms+pis+cofins+cbs+ibs).toFixed(2);
+  const chave=Array.from({length:44},()=>Math.floor(Math.random()*10)).join('');
+  const chaveF=chave.match(/.{1,4}/g).join(' ');
+  const protocolo="1"+Date.now().toString().slice(-12);
+  const numNF=Math.floor(100000+Math.random()*899999);
+
+  document.getElementById("nf-conteudo").innerHTML=`
+<div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.45">
+  <div style="text-align:center;font-weight:800;font-size:13px;margin-bottom:4px">CENTRAL REDE IA</div>
+  <div style="text-align:center;font-size:10px;color:#64748b;margin-bottom:6px">CNPJ: 00.000.000/0001-00</div>
+  <div style="text-align:center;font-size:9px;background:#ecfdf5;color:#047857;padding:3px 8px;border-radius:6px;display:inline-block;margin-bottom:8px">Status: Autorizada</div>
+  <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+  <div style="display:flex;justify-content:space-between"><span>Nº NF-e:</span><strong>${numNF}</strong></div>
+  <div style="display:flex;justify-content:space-between"><span>Pedido:</span><strong>${codigo}</strong></div>
+  <div style="display:flex;justify-content:space-between"><span>Data:</span><span>${new Date().toLocaleString("pt-BR")}</span></div>
+  <div style="display:flex;justify-content:space-between"><span>Cliente:</span><span>${clienteLogado.nome}</span></div>
+  <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+  <div style="font-weight:700;margin-bottom:4px">ITENS</div>
+  ${pedido.itens.map(i=>`<div style="display:flex;justify-content:space-between"><span>${(i.qtd||1)}x ${i.nome.substring(0,22)}</span><span>${formatarMoeda(i.preco*(i.qtd||1))}</span></div>`).join('')}
+  <div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>
+  <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span>${formatarMoeda(subtotal)}</span></div>
+  <div style="display:flex;justify-content:space-between"><span>Frete</span><span>${formatarMoeda(valorFreteGlobal)}</span></div>
+  <div style="display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin-top:4px"><span>TOTAL</span><span>${formatarMoeda(total)}</span></div>
+  <div style="border-top:1px dashed #94a3b8;margin:10px 0"></div>
+  <div style="font-weight:700;margin-bottom:6px">TRIBUTOS (Reforma 2026)</div>
+  <div style="background:#f8fafc;border-radius:8px;padding:8px;font-size:10px">
+    <div style="display:flex;justify-content:space-between"><span>ICMS 18%</span><span>${formatarMoeda(icms)}</span></div>
+    <div style="display:flex;justify-content:space-between"><span>PIS 1,65%</span><span>${formatarMoeda(pis)}</span></div>
+    <div style="display:flex;justify-content:space-between"><span>COFINS 7,6%</span><span>${formatarMoeda(cofins)}</span></div>
+    <div style="display:flex;justify-content:space-between;color:#2563eb"><span>CBS 0,9%</span><span>${formatarMoeda(cbs)}</span></div>
+    <div style="display:flex;justify-content:space-between;color:#059669"><span>IBS</span><span>${formatarMoeda(ibs)}</span></div>
+    <div style="border-top:1px solid #e2e8f0;margin:6px 0"></div>
+    <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total Impostos</span><span>${formatarMoeda(totalImp)}</span></div>
+  </div>
+  <div style="border-top:1px dashed #94a3b8;margin:10px 0"></div>
+  <div style="font-size:9px;color:#64748b;word-break:break-all"><strong>Chave:</strong><br>${chaveF}</div>
+</div>`;
+  document.getElementById("nota-fiscal-box").style.display="block";
+
+  await new Promise(r=>setTimeout(r,1100));
+  log.innerHTML+=`<li style="color:var(--mint)"><i class="fas fa-check-double"></i> Em rota · GPS ativo</li>`;
+  document.getElementById("track-progress-bar").style.width="100%";
+  document.getElementById("track-status-text").textContent="Em rota de entrega";
+  document.getElementById("btn-fechar-track").style.display="block";
+  document.getElementById("avaliacao-box").style.display="block";
+  toast("Pedido "+codigo+" confirmado!");
+}
+
+function imprimirTermica(){const c=document.getElementById("nota-fiscal-box").innerHTML;const w=window.open("","_blank","width=320,height:600");w.document.write(`<html><head><title>NF-e</title><style>body{font-family:monospace;font-size:12px;padding:10px;width:280px}button{display:none}</style></head><body>${c}<script>setTimeout(()=>window.print(),400)<\/script></body></html>`);w.document.close()}
+
+function abrirMeusPedidos(){
+  const lista=document.getElementById("lista-pedidos");
+  if(!pedidos.length) lista.innerHTML='<p style="text-align:center;color:var(--muted);padding:20px">Nenhum pedido ainda</p>';
+  else lista.innerHTML=pedidos.map((p,idx)=>`
+    <div style="border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span style="font-weight:700;color:var(--blue)">${p.codigo}</span>
+        <span style="font-size:11px;background:#ecfdf5;color:#047857;padding:2px 8px;border-radius:20px">${p.status}</span>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">${new Date(p.data).toLocaleString("pt-BR")}</div>
+      <div style="font-size:14px;font-weight:700;margin-top:4px">${formatarMoeda(p.total)}</div>
+      <div style="font-size:11px;margin-top:4px">${p.driver}</div>
+      <div class="pedido-actions">
+        <button class="btn btn-ghost btn-xs" onclick="verNotaFiscal(${idx})"><i class="fas fa-file-invoice"></i> NF</button>
+        <button class="btn btn-ghost btn-xs" onclick="verDetalhesPedido(${idx})"><i class="fas fa-eye"></i> Detalhes</button>
+        <button class="btn btn-amber btn-xs" onclick="editarPedido(${idx})"><i class="fas fa-edit"></i> Editar</button>
+        <button class="btn btn-rose btn-xs" onclick="excluirPedido(${idx})"><i class="fas fa-trash"></i> Excluir</button>
+      </div>
+    </div>`).join("");
+  document.getElementById("modal-pedidos").classList.add("ativo");
+}
+
+function verNotaFiscal(idx){
+  const p=pedidos[idx];if(!p)return;
+  const modal=document.createElement("div");modal.className="modal-bg ativo";
+  modal.innerHTML=`<div class="modal" style="max-width:420px"><h2 style="font-size:16px;margin-bottom:12px">Nota Fiscal · ${p.codigo}</h2><div class="nf-box" style="margin:0"><div style="text-align:center;font-weight:700;margin-bottom:8px">NOTA FISCAL ELETRÔNICA</div><div style="font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.5"><div><strong>Cliente:</strong> ${p.clienteNome||"-"}</div><div><strong>Data:</strong> ${new Date(p.data).toLocaleString("pt-BR")}</div><div style="border-top:1px dashed #94a3b8;margin:8px 0"></div>${p.itens.map(i=>`<div>${(i.qtd||1)}x ${i.nome} — ${formatarMoeda(i.preco*(i.qtd||1))}</div>`).join("")}<div style="border-top:1px dashed #94a3b8;margin:8px 0"></div><div><strong>Total:</strong> ${formatarMoeda(p.total)}</div><div><strong>Pagamento:</strong> ${p.pag}</div><div><strong>Entregador:</strong> ${p.driver}</div></div></div><button class="btn btn-ghost btn-full" style="margin-top:14px" onclick="this.closest('.modal-bg').remove()">Fechar</button></div>`;
+  document.body.appendChild(modal);modal.onclick=e=>{if(e.target===modal)modal.remove()};
+}
+function verDetalhesPedido(idx){
+  const p=pedidos[idx];if(!p)return;
+  const modal=document.createElement("div");modal.className="modal-bg ativo";
+  modal.innerHTML=`<div class="modal" style="max-width:400px"><h2 style="font-size:16px;margin-bottom:12px">Detalhes do Pedido</h2><div style="font-size:13px;line-height:1.7"><div><strong>Código:</strong> ${p.codigo}</div><div><strong>Status:</strong> <span style="color:var(--mint)">${p.status}</span></div><div><strong>Data:</strong> ${new Date(p.data).toLocaleString("pt-BR")}</div><div><strong>Endereço:</strong> ${p.endereco}</div><div><strong>CEP:</strong> ${p.cep}</div><div><strong>Total:</strong> ${formatarMoeda(p.total)}</div><div><strong>Entregador:</strong> ${p.driver}</div><div><strong>Cliente:</strong> ${p.clienteNome||"-"}</div></div><button class="btn btn-ghost btn-full" style="margin-top:16px" onclick="this.closest('.modal-bg').remove()">Fechar</button></div>`;
+  document.body.appendChild(modal);modal.onclick=e=>{if(e.target===modal)modal.remove()};
+}
+function editarPedido(idx){const p=pedidos[idx];if(!p)return;const novo=prompt("Novo status (Em rota / Entregue / Cancelado):",p.status);if(novo){p.status=novo;localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido atualizado!")}}
+function excluirPedido(idx){if(!confirm("Excluir este pedido?"))return;pedidos.splice(idx,1);localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));abrirMeusPedidos();toast("Pedido excluído")}
+
+document.getElementById("stars-avaliacao")?.addEventListener("click",e=>{
+  const v=e.target.dataset?.v;if(!v)return;
+  document.querySelectorAll("#stars-avaliacao i").forEach((s,i)=>{s.className=i<v?"fas fa-star":"far fa-star"});
+  if(pedidos[0]){pedidos[0].avaliacao=+v;localStorage.setItem("mia_pedidos",JSON.stringify(pedidos));toast(`Avaliação: ${v} estrelas`)}
+});
+
 function fecharRastreamento(){if(intervaloMapa)clearInterval(intervaloMapa);if(mapa){mapa.remove();mapa=null}document.getElementById("modal-tracking").style.display="none";atualizarInterfaceCarrinho();document.getElementById("feed-ofertas").innerHTML="";document.getElementById("produto").value=""}
 document.getElementById("produto").addEventListener("keypress",e=>{if(e.key==="Enter")ativarIA()});
 </script>
